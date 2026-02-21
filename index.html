@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html lang="es" class="scroll-smooth overflow-x-hidden w-full">
 
 <head>
     <meta charset="utf-8" />
@@ -182,6 +182,248 @@
                 transform: translate(0)
             }
         }
+
+        /* --- Shiny CTA Button Styles from CodePen --- */
+        :root {
+            --shiny-cta-bg: #000000;
+            --shiny-cta-bg-subtle: #1a1818;
+            --shiny-cta-fg: #ffffff;
+            --shiny-cta-highlight: #f20d0d;
+            --shiny-cta-highlight-subtle: rgba(242, 13, 13, 0.4);
+        }
+
+        @property --gradient-angle {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @property --gradient-angle-offset {
+            syntax: "<angle>";
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @property --gradient-percent {
+            syntax: "<percentage>";
+            initial-value: 5%;
+            inherits: false;
+        }
+
+        @property --gradient-shine {
+            syntax: "<color>";
+            initial-value: white;
+            inherits: false;
+        }
+
+        .shiny-cta {
+            --animation: gradient-angle linear infinite;
+            --duration: 3s;
+            --shadow-size: 2px;
+            isolation: isolate;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            outline-offset: 4px;
+            padding: 1.25rem 2.5rem;
+            font-family: inherit;
+            font-size: 1.125rem;
+            line-height: 1.2;
+            border: 1px solid transparent;
+            border-radius: 360px;
+            color: var(--shiny-cta-fg);
+            background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
+                conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+                    transparent, var(--shiny-cta-highlight) var(--gradient-percent),
+                    var(--gradient-shine) calc(var(--gradient-percent) * 2),
+                    var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
+                    transparent calc(var(--gradient-percent) * 4)) border-box;
+            box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
+            text-decoration: none;
+            display: inline-flex;
+            font-weight: bold;
+        }
+
+        .shiny-cta::before,
+        .shiny-cta::after {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            inset-inline-start: 50%;
+            inset-block-start: 50%;
+            translate: -50% -50%;
+            z-index: -1;
+        }
+
+        .shiny-cta:active {
+            translate: 0 1px;
+        }
+
+        /* Patrón de puntos */
+        .shiny-cta::before {
+            --size: calc(100% - var(--shadow-size) * 3);
+            --position: 2px;
+            --space: calc(var(--position) * 2);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle at var(--position) var(--position), white calc(var(--position) / 4), transparent 0) padding-box;
+            background-size: var(--space) var(--space);
+            background-repeat: space;
+            -webkit-mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
+            mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black);
+            border-radius: inherit;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        /* Brillo interno secundario */
+        .shiny-cta::after {
+            --animation: shimmer linear infinite;
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(-50deg, transparent, var(--shiny-cta-highlight), transparent);
+            -webkit-mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+            mask-image: radial-gradient(circle at bottom, transparent 40%, black);
+            opacity: 0.6;
+        }
+
+        .shiny-cta span {
+            z-index: 1;
+            position: relative;
+        }
+
+        .shiny-cta-black {
+            --shiny-cta-highlight: #444444;
+            --shiny-cta-highlight-subtle: rgba(68, 68, 68, 0.4);
+        }
+
+        /* Animaciones */
+        .shiny-cta {
+            --transition: 800ms cubic-bezier(0.25, 1, 0.5, 1);
+            transition: var(--transition);
+            transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
+        }
+
+        .shiny-cta,
+        .shiny-cta::before,
+        .shiny-cta::after {
+            animation: var(--animation) var(--duration) linear infinite,
+                var(--animation) calc(var(--duration) / 0.4) reverse paused linear infinite;
+            animation-composition: add;
+        }
+
+        .shiny-cta:is(:hover, :focus-visible) {
+            --gradient-percent: 20%;
+            --gradient-angle-offset: 95deg;
+            --gradient-shine: var(--shiny-cta-highlight-subtle);
+        }
+
+        .shiny-cta:is(:hover, :focus-visible),
+        .shiny-cta:is(:hover, :focus-visible)::before,
+        .shiny-cta:is(:hover, :focus-visible)::after {
+            animation-play-state: running;
+        }
+
+
+
+        @keyframes gradient-angle {
+            to {
+                --gradient-angle: 360deg;
+            }
+        }
+
+        @keyframes shimmer {
+            to {
+                rotate: 360deg;
+            }
+        }
+
+        @keyframes breathe {
+
+            from,
+            to {
+                scale: 1;
+            }
+
+            50% {
+                scale: 1.2;
+            }
+        }
+
+        /* Epic Electricity Effect */
+        .electricity-container .bolt {
+            fill: none;
+            stroke-dasharray: 15 100;
+            animation: zap 3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+            stroke-linecap: round;
+        }
+
+        .electricity-container .bolt-1 {
+            stroke: #ffffff;
+            stroke-width: 3px;
+            filter: drop-shadow(0 0 5px #ffffff) drop-shadow(0 0 20px #f20d0d);
+        }
+
+        .electricity-container .bolt-2 {
+            stroke: #f20d0d;
+            stroke-width: 6px;
+            filter: blur(4px) drop-shadow(0 0 10px #f20d0d);
+            animation-duration: 3.1s;
+            animation-delay: 0.1s;
+        }
+
+        .electricity-container .bolt-3 {
+            stroke: #ff7373;
+            stroke-width: 1.5px;
+            animation-duration: 2.9s;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes zap {
+            0% {
+                stroke-dashoffset: 15;
+                opacity: 0;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            45% {
+                stroke-dashoffset: -100;
+                opacity: 0;
+            }
+
+            100% {
+                stroke-dashoffset: -100;
+                opacity: 0;
+            }
+        }
+
+        .text-glow-fx {
+            animation: text-flash 3s linear infinite;
+        }
+
+        @keyframes text-flash {
+
+            0%,
+            5%,
+            45%,
+            100% {
+                text-shadow: none;
+            }
+
+            10%,
+            25%,
+            35% {
+                text-shadow: 0 0 15px rgba(242, 13, 13, 0.8), 0 0 35px rgba(242, 13, 13, 0.5);
+            }
+
+            20%,
+            30% {
+                text-shadow: 0 0 5px rgba(242, 13, 13, 0.5);
+            }
+        }
     </style>
 </head>
 
@@ -197,7 +439,7 @@
         <span
             class="text-white font-epic text-3xl md:text-6xl tracking-[0.5em] font-black px-4 text-center drop-shadow-[0_0_20px_rgba(242,13,13,0.8)]">INICIALIZANDO</span>
     </div>
-    <div class="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 transition-transform duration-500 ease-out"
+    <div class="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 transition-transform duration-500 ease-out"
         id="epic-nav">
         <!-- Animated glowing border wrapper -->
         <div
@@ -210,13 +452,13 @@
             <nav
                 class="relative bg-black/80 backdrop-blur-3xl rounded-full px-6 md:px-10 py-3 flex items-center justify-between gap-8 md:gap-12 w-full border border-slate-800/50">
                 <div class="flex items-center cursor-pointer group">
-                    <img src="thames-logo.png" alt="Thames Sites Logo"
+                    <img src="images/thames-logo.png" alt="Thames Sites Logo"
                         class="h-10 md:h-14 w-auto transition-all duration-700 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(242,13,13,0.8)]" />
                 </div>
 
                 <!-- Cool magnetic link effect with sliding underline -->
                 <div
-                    class="hidden md:flex items-center gap-10 font-epic uppercase text-[10px] tracking-[0.2em] font-bold">
+                    class="hidden md:flex items-center gap-10 font-sans uppercase text-xs font-semibold tracking-widest">
                     <a class="relative text-slate-400 hover:text-white transition-colors duration-300 group/link"
                         href="#services">
                         Servicios
@@ -245,7 +487,7 @@
 
                 <div class="flex items-center gap-4">
                     <a href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer"
-                        class="hidden md:flex items-center justify-center h-10 px-6 rounded-full bg-gradient-to-r from-green-600/20 to-green-500/20 border border-green-500/30 hover:border-green-400 text-white text-[10px] font-epic tracking-[0.2em] transition-all duration-500 hover:bg-green-500/30 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] flex gap-2 group cursor-pointer relative z-50 overflow-hidden">
+                        class="hidden md:flex items-center justify-center h-10 px-6 rounded-full bg-gradient-to-r from-green-600/20 to-green-500/20 border border-green-500/30 hover:border-green-400 text-white text-xs font-sans font-semibold tracking-widest transition-all duration-500 hover:bg-green-500/30 hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] flex gap-2 group cursor-pointer relative z-50 overflow-hidden">
                         <div
                             class="absolute inset-0 w-full h-full bg-green-400/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300">
                         </div>
@@ -298,9 +540,8 @@
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
-                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">Disponible para
-                        nuevos
-                        proyectos</span>
+                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">La mejor relacion calidad
+                        precio</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white font-display">
                     Creamos tu próxima <br />
@@ -308,27 +549,20 @@
                         id="hero-typewriter"></span><span class="text-primary animate-pulse ml-1">_</span>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                    Construimos experiencias web inmersivas y de alto rendimiento para marcas visionarias que
-                    exigen
-                    distinción tecnológica.
+                    Construimos experiencias web inmersivas y rapidas para hacer tu proyecto soñado una realidad.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                    <a href="#plans"
-                        class="h-12 px-8 rounded-lg bg-white text-black text-base font-bold transition-all hover:bg-slate-200 flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                        Ver Opciones
-                        <span
-                            class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    <a href="#plans" class="shiny-cta">
+                        <span>Ver Opciones</span>
                     </a>
-                    <a href="#contact"
-                        class="h-12 px-8 rounded-lg border border-slate-700 hover:border-primary text-white text-base font-bold transition-all flex items-center justify-center bg-transparent backdrop-blur-sm hover:text-primary">
-                        Contactar
+                    <a href="#contact" class="shiny-cta shiny-cta-black">
+                        <span>Contactar</span>
                     </a>
                 </div>
                 <div
                     class="pt-8 flex items-center justify-center lg:justify-start gap-8 text-slate-500 text-sm font-medium">
                     <span class="flex items-center gap-2"><span
-                            class="material-symbols-outlined text-primary text-lg">code</span> Arquitectura
-                        Limpia</span>
+                            class="material-symbols-outlined text-primary text-lg">code</span> HTML, CSS y JS</span>
                     <span class="flex items-center gap-2"><span
                             class="material-symbols-outlined text-primary text-lg">speed</span> Ultra
                         Rápido</span>
@@ -398,10 +632,10 @@
         <div class="container mx-auto px-6 relative z-10 w-full">
             <div class="text-center mb-24 matrix-title">
                 <h2
-                    class="text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#aaa] via-white to-[#aaa] font-epic uppercase tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] perspective-text">
-                    LA MATRIZ</h2>
-                <p class="text-primary font-mono text-sm tracking-[0.5em] mt-6 uppercase">Capacidad
-                    Computacional</p>
+                    class="epic-scramble text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#aaa] via-white to-[#aaa] font-epic uppercase tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] perspective-text">
+                    NUESTROS PLANES</h2>
+                <p class="text-primary font-mono text-sm tracking-[0.5em] mt-6 uppercase">Los precios mas bajos del
+                    mercado</p>
             </div>
 
             <div
@@ -416,10 +650,16 @@
                         <div
                             class="absolute top-0 right-0 w-32 h-32 bg-slate-800 rounded-bl-[100px] -z-10 blur-xl opacity-50 group-hover:bg-primary/50 transition-colors duration-700">
                         </div>
-                        <div>
-                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">Protocolo
-                                01</span>
-                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">INICIO</h3>
+                        <div
+                            class="absolute top-14 -right-20 w-80 bg-slate-800/90 text-slate-200 py-3 border-y border-slate-600 shadow-2xl flex items-center justify-center z-[40] transform rotate-45 backdrop-blur-md">
+                            <span
+                                class="bg-slate-900 border border-slate-500 text-white font-display font-black text-lg md:text-xl rounded-full px-5 py-1.5 whitespace-nowrap tracking-widest drop-shadow-md">$75.000
+                                ARS</span>
+                        </div>
+                        <div class="relative z-[60] pr-20 lg:pr-28">
+                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">Ideal para
+                                empezar</span>
+                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">LANDING PAGE</h3>
                             <div class="h-px bg-gradient-to-r from-slate-700 to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Single
@@ -431,7 +671,7 @@
                             </ul>
                         </div>
                         <button
-                            class="mt-20 w-full py-4 text-white font-epic text-xs uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Seleccionar</button>
+                            class="mt-20 w-full py-4 text-white font-sans text-sm font-semibold uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Consultar</button>
                     </div>
                 </div>
 
@@ -447,14 +687,20 @@
                         <div
                             class="absolute top-0 right-0 w-48 h-48 bg-primary rounded-bl-[150px] -z-10 blur-2xl opacity-40 group-hover:opacity-80 animate-pulse-slow">
                         </div>
-
-                        <div class="relative z-10">
+                        <div
+                            class="absolute top-10 -right-24 w-80 bg-primary/90 text-white py-2 border-y border-red-300 shadow-[0_0_30px_rgba(242,13,13,0.8)] flex items-center justify-center z-[40] transform rotate-45 backdrop-blur-md">
                             <span
-                                class="text-primary font-mono text-xs tracking-widest uppercase font-bold glitch-hover">LA
-                                VANGUARDIA</span>
+                                class="bg-black/80 border border-red-400 text-white font-display font-black text-base md:text-lg rounded-full px-5 py-1.5 whitespace-nowrap tracking-widest drop-shadow-xl">$150.000
+                                ARS</span>
+                        </div>
+
+                        <div class="relative z-[60] pr-20 lg:pr-28">
+                            <span
+                                class="text-primary font-mono text-xs tracking-widest uppercase font-bold glitch-hover">IDEAL
+                                PARA POTENCIAR TU NEGOCIO</span>
                             <h3
-                                class="text-5xl font-epic font-bold text-white mt-4 mb-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">
-                                ÉPICO</h3>
+                                class="text-[45px] font-epic font-bold text-white mt-4 mb-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-none">
+                                TIENDA ECOMMERCE</h3>
                             <div class="h-px bg-gradient-to-r from-primary to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
@@ -468,18 +714,18 @@
                             </ul>
                         </div>
                         <button
-                            class="relative mt-20 w-full py-5 text-white font-epic text-sm uppercase tracking-[0.2em] bg-primary rounded-xl overflow-hidden group/btn hover:shadow-[0_0_30px_rgba(242,13,13,0.8)] transition-all">
-                            <span class="relative z-10">Ascender</span>
+                            class="relative mt-20 w-full py-5 text-white font-sans font-bold text-sm uppercase tracking-[0.2em] bg-primary rounded-xl overflow-hidden group/btn hover:shadow-[0_0_30px_rgba(242,13,13,0.8)] transition-all">
+                            <span class="relative z-10">Consultar</span>
                             <div
                                 class="absolute inset-0 h-full w-full translate-y-full bg-white group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0">
                             </div>
                             <span
-                                class="absolute inset-0 h-full w-full flex items-center justify-center text-primary z-20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 font-bold uppercase tracking-[0.2em]">Ascender</span>
+                                class="absolute inset-0 h-full w-full flex items-center justify-center text-primary z-20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 font-bold uppercase tracking-[0.2em]">Consultar</span>
                         </button>
                     </div>
                     <div
                         class="absolute -top-4 -right-4 bg-primary text-black font-epic font-bold text-[10px] uppercase px-4 py-2 rounded-full transform rotate-12 shadow-lg">
-                        El Dominio</div>
+                        Más elegido</div>
                 </div>
 
                 <!-- Enterprise -->
@@ -493,9 +739,9 @@
                             class="absolute top-0 left-0 w-32 h-32 bg-slate-800 rounded-br-[100px] -z-10 blur-xl opacity-50 group-hover:bg-primary/50 transition-colors duration-700">
                         </div>
                         <div>
-                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">Protocolo
-                                MAX</span>
-                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">SISTEMA</h3>
+                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">CUMPLIMOS TUS
+                                PEDIDOS</span>
+                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">SISTEMA A MEDIDA</h3>
                             <div class="h-px bg-gradient-to-r from-transparent to-slate-700 my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
@@ -507,7 +753,7 @@
                             </ul>
                         </div>
                         <button
-                            class="mt-20 w-full py-4 text-white font-epic text-xs uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Desbloquear</button>
+                            class="mt-20 w-full py-4 text-white font-sans font-semibold text-sm uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Cotizar</button>
                     </div>
                 </div>
             </div>
@@ -518,9 +764,9 @@
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="max-w-2xl">
                     <h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2 font-mono">
-                        Capabilities_v2.0</h2>
-                    <h3 class="text-3xl md:text-5xl font-bold text-white leading-tight">
-                        Servicios Diseñados para <br /> Crecimiento Exponencial
+                        Nuestras promesas</h2>
+                    <h3 class="offer-title-gsap text-3xl md:text-5xl font-bold text-white leading-tight">
+                        Que ofrecemos:
                     </h3>
                 </div>
                 <p class="text-slate-400 max-w-md text-base leading-relaxed">
@@ -594,18 +840,18 @@
                 <div class="max-w-3xl relative z-10">
                     <span
                         class="text-primary font-mono tracking-widest text-sm mb-4 block uppercase flex items-center justify-center md:justify-start gap-2">
-                        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div> Capacidades Centrales
+                        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div> INTEGRACIONES Y MEJORAS
                     </span>
                     <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase font-epic tracking-tighter feature-title">
-                        Funcionalidades <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Extra</span>
+                        class="text-[28px] sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase font-epic tracking-tighter feature-title leading-none">
+                        <span class="epic-scramble inline-block">Funcionalidades</span> <span
+                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Extra</span>
                     </h2>
                 </div>
                 <p
                     class="text-slate-400 font-mono text-sm max-w-sm mx-auto md:mx-0 mt-6 md:mt-0 leading-relaxed text-right feature-para hidden md:block">
-                    Inspirado en la excelencia. Diseñado para escalar. Implementamos la arquitectura web más avanzada
-                    del sector.
+                    No solo construimos paginas webs, desde logos hasta automatizaciones, cumplimos con todo lo que
+                    necesites.
                 </p>
             </div>
 
@@ -703,8 +949,8 @@
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
             <div class="seo-text-content">
                 <h2 class="text-4xl md:text-6xl font-epic font-black text-white mb-6 uppercase tracking-tighter">
-                    ALGORITMO <br /><span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">DOMINANTE</span>
+                    <span class="epic-scramble inline-block">ALGORITMO</span> <br /><span
+                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">DOMINANTE</span>
                 </h2>
                 <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed font-mono">
                     Nuestro enfoque de SEO técnico garantiza que el ecosistema digital te priorice.
@@ -888,8 +1134,8 @@
             <div>
                 <h2
                     class="text-4xl md:text-6xl font-black text-white mb-2 font-epic tracking-tighter uppercase whitespace-normal">
-                    PROYECTOS <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">SELECTOS</span>
+                    <span class="epic-scramble inline-block">PROYECTOS</span> <span
+                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">SELECTOS</span>
                 </h2>
                 <p class="text-primary font-mono tracking-widest text-xs uppercase mt-4">La Vanguradia / El
                     Código</p>
@@ -990,13 +1236,34 @@
                 class="w-full h-full bg-gradient-to-t from-primary/30 to-transparent transform rotate-x-60 scale-150 origin-bottom animate-pulse-slow">
             </div>
         </div>
+        <!-- Dynamic GSAP Morphing Blob -->
         <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[200px] mix-blend-screen pointer-events-none">
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] mix-blend-screen pointer-events-none z-0 blur-[40px] md:blur-[80px] opacity-40">
+            <svg id="epic-morph-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <defs>
+                    <linearGradient id="blob-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#f20d0d" />
+                        <stop offset="60%" stop-color="#800000" />
+                        <stop offset="100%" stop-color="#2a0000" />
+                    </linearGradient>
+                </defs>
+                <path id="blob-path" fill="url(#blob-grad)"
+                    d="M482.5,584.5C408.5,654,233.5,630,157.5,548.5C81.5,467,110.5,304,182.5,232.5C254.5,161,466.5,152,544.5,232.5C622.5,313,556.5,515,482.5,584.5Z" />
+            </svg>
         </div>
+        <!-- Hidden paths for morphing -->
+        <svg class="hidden">
+            <path id="blob-shape-1"
+                d="M532.5,546.5C453.5,660,250.5,662,154.5,546.5C58.5,431,64.5,224,154.5,151.5C244.5,79,481.5,79,532.5,151.5C583.5,224,611.5,433,532.5,546.5Z" />
+            <path id="blob-shape-2"
+                d="M504.5,561.5C397.5,604,271.5,618,171.5,540.5C71.5,463,55.5,273,154.5,191.5C253.5,110,488.5,123,554.5,214.5C620.5,306,611.5,519,504.5,561.5Z" />
+            <path id="blob-shape-3"
+                d="M482.5,584.5C408.5,654,233.5,630,157.5,548.5C81.5,467,110.5,304,182.5,232.5C254.5,161,466.5,152,544.5,232.5C622.5,313,556.5,515,482.5,584.5Z" />
+        </svg>
 
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2
-                class="text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter mix-blend-difference font-epic inline-block transform -skew-x-12 contact-title-gsap">
+                class="text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter mix-blend-difference font-epic inline-block contact-title-gsap">
                 INICIA<br />
                 <span class="text-primary text-4xl md:text-6xl">TU PROYECTO</span>
             </h2>
@@ -1006,36 +1273,70 @@
                 nuestra
                 pasarela cifrada.</p>
 
-            <a href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer"
-                class="group relative inline-flex items-center justify-center contact-btn-gsap perspective-1000 shadow-[0_0_50px_rgba(34,197,94,0.1)] hover:shadow-[0_0_80px_rgba(34,197,94,0.3)] transition-transform duration-700">
-                <!-- Glowing borders -->
-                <div
-                    class="absolute -inset-2 bg-gradient-to-r from-green-600 to-green-400 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-700 animate-pulse">
-                </div>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-5xl mx-auto">
+                <a href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer"
+                    class="group relative inline-flex items-center justify-center rounded-full contact-btn-gsap perspective-1000 shadow-[0_0_50px_rgba(34,197,94,0.1)] hover:shadow-[0_0_80px_rgba(34,197,94,0.3)] transition-transform duration-700 w-full sm:w-auto">
+                    <!-- Glowing borders -->
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-green-600 to-green-400 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-700 animate-pulse">
+                    </div>
 
-                <!-- Main button -->
-                <div
-                    class="relative bg-black border border-green-500/50 group-hover:border-green-400 px-8 py-6 md:px-16 md:py-8 rounded-full flex gap-4 md:gap-6 items-center transform group-hover:-translate-y-2 group-hover:rotate-1 transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
-                        class="text-green-500 group-hover:text-green-400 group-hover:scale-110 transition-transform duration-300"
-                        viewBox="0 0 16 16">
-                        <path
-                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.065 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.708 1.916.808 2.049c.1.133 1.394 2.132 3.377 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
-                    </svg>
-                    <span
-                        class="text-white font-epic text-xl md:text-3xl tracking-widest text-left font-black group-hover:tracking-[0.3em] transition-all duration-500">
-                        WHATSAPP
-                    </span>
-                </div>
-            </a>
+                    <!-- Main button -->
+                    <div
+                        class="relative bg-black border border-green-500/50 group-hover:border-green-400 px-8 py-5 md:px-12 md:py-6 rounded-full flex gap-4 md:gap-6 items-center transform group-hover:-translate-y-2 group-hover:rotate-1 transition-all duration-300 w-full justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                            class="text-green-500 group-hover:text-green-400 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.065 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.708 1.916.808 2.049c.1.133 1.394 2.132 3.377 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                        </svg>
+                        <div class="flex flex-col items-start text-left">
+                            <span
+                                class="text-white font-epic text-xl md:text-3xl tracking-widest font-black group-hover:tracking-[0.2em] transition-all duration-500 leading-none">
+                                WHATSAPP
+                            </span>
+                            <span
+                                class="text-xs font-mono text-green-500 mt-1 opacity-80 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">+54
+                                9 11 0000-0000</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="mailto:thamesites@gmail.com" target="_blank" rel="noopener noreferrer"
+                    class="group relative inline-flex items-center justify-center rounded-full contact-btn-gsap perspective-1000 shadow-[0_0_50px_rgba(242,13,13,0.1)] hover:shadow-[0_0_80px_rgba(242,13,13,0.3)] transition-transform duration-700 w-full sm:w-auto mt-4 sm:mt-0">
+                    <!-- Glowing borders -->
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-r from-red-600 to-red-400 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition duration-700 animate-pulse">
+                    </div>
+
+                    <!-- Main button -->
+                    <div
+                        class="relative bg-black border border-red-500/50 group-hover:border-red-400 px-8 py-5 md:px-12 md:py-6 rounded-full flex gap-4 md:gap-6 items-center transform group-hover:translate-y-2 group-hover:-rotate-1 transition-all duration-300 w-full justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor"
+                            class="text-red-500 group-hover:text-red-400 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                        </svg>
+                        <div class="flex flex-col items-start text-left">
+                            <span
+                                class="text-white font-epic text-xl md:text-3xl tracking-widest font-black group-hover:tracking-[0.2em] transition-all duration-500 leading-none">
+                                MAIL
+                            </span>
+                            <span
+                                class="text-xs font-mono text-primary mt-1 opacity-80 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">thamesites@gmail.com</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Floating WhatsApp Fixed Icon -->
     <a href="https://wa.me/5491100000000" target="_blank" rel="noopener noreferrer"
-        class="fixed bottom-8 right-8 z-50 flex items-center justify-center size-14 rounded-full bg-green-500 hover:bg-green-400 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all hover:-translate-y-2 hover:scale-110 group cursor-pointer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-            class="transition-transform group-hover:rotate-12" viewBox="0 0 16 16">
+        class="fixed bottom-8 right-8 z-50 flex items-center justify-center size-14 md:size-20 rounded-full bg-green-500 hover:bg-green-400 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all hover:-translate-y-2 hover:scale-110 group cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            class="w-7 h-7 md:w-10 md:h-10 transition-transform group-hover:rotate-12" viewBox="0 0 16 16">
             <path
                 d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.065 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.708 1.916.808 2.049c.1.133 1.394 2.132 3.377 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
         </svg>
@@ -1051,18 +1352,35 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col items-center justify-center text-center max-w-3xl mx-auto mb-16">
                 <!-- Glitching rotating logo -->
-                <div class="mb-2 w-72 h-72 relative perspective-1000 group">
+                <div class="mb-2 w-72 h-72 relative perspective-1000 group gsap-footer-logo">
                     <div
                         class="absolute inset-0 bg-primary/20 blur-[60px] rounded-full group-hover:bg-primary/50 transition-colors duration-700">
                     </div>
-                    <img src="thames-logo.png" alt="Thames Sites Logo"
+                    <img src="images/thames-logo.png" alt="Thames Sites Logo"
                         class="w-full h-full object-contain relative z-10 transform group-hover:rotate-y-180 transition-transform duration-1000" />
                 </div>
 
-                <h3 class="text-3xl md:text-5xl font-epic font-bold text-white mb-6 tracking-tight z-10 relative">
-                    ELEVANDO EL <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">ESTÁNDAR</span>
-                </h3>
+                <div class="relative inline-block electricity-container z-10 w-full mb-6 max-w-2xl gsap-footer-title">
+                    <!-- Overlapping glowing lightning paths -->
+                    <svg class="absolute inset-x-0 w-[120%] h-[150%] -left-[10%] -top-[25%] pointer-events-none z-[-1] overflow-visible"
+                        preserveAspectRatio="none" viewBox="0 0 400 100">
+                        <path class="bolt bolt-2"
+                            d="M-50,60 L20,30 L60,70 L110,20 L150,80 L200,10 L250,70 L300,20 L350,60 L450,40"
+                            pathLength="100" />
+                        <path class="bolt bolt-1"
+                            d="M-50,60 L20,30 L60,70 L110,20 L150,80 L200,10 L250,70 L300,20 L350,60 L450,40"
+                            pathLength="100" />
+                        <path class="bolt bolt-3"
+                            d="M-50,50 L30,20 L70,80 L100,30 L160,90 L190,20 L260,80 L290,30 L350,50 L450,30"
+                            pathLength="100" />
+                    </svg>
+
+                    <h3
+                        class="text-3xl md:text-5xl font-epic font-bold text-white tracking-tight relative text-glow-fx">
+                        ELEVANDO EL <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">ESTÁNDAR</span>
+                    </h3>
+                </div>
                 <p class="text-slate-400 font-mono text-sm leading-relaxed mb-4 max-w-lg z-10 relative">
                     Diseño, Arquitectura e Ingeniería de Software de Vanguardia. No seguimos tendencias,
                     construimos la
@@ -1089,11 +1407,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrambleTextPlugin3.min.js"></script>
+    <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Register ScrollTrigger FIRST before anything else
-            gsap.registerPlugin(ScrollTrigger);
+            // Register ScrollTrigger & Plugins FIRST before anything else
+            gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin, MorphSVGPlugin, SplitText);
 
             // Initialize Lenis
             const lenis = new Lenis({
@@ -1105,6 +1426,43 @@
             lenis.on('scroll', ScrollTrigger.update);
             gsap.ticker.add((time) => { lenis.raf(time * 1000); });
             gsap.ticker.lagSmoothing(0);
+
+            // Native Smooth Scrolling Interceptor for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+                    if (target && target !== "#") {
+                        lenis.scrollTo(target, { offset: -50, duration: 1.5 });
+                    }
+                });
+            });
+
+            // Footer Epic Entrance Animation — Manual ScrollTrigger approach
+            // Step 1: Hide elements immediately via gsap.set
+            gsap.set(".gsap-footer-logo", { y: 150, opacity: 0, scale: 0.3, rotation: -180 });
+            gsap.set(".gsap-footer-title", { y: 120, opacity: 0, scale: 0.7, rotationX: -90, transformOrigin: "50% 100%" });
+            gsap.set("#footer-epic .text-slate-400.font-mono.text-sm", { y: 30, opacity: 0 });
+
+            // Step 2: Create a paused timeline that plays ONLY on scroll enter
+            const footerEnterTl = gsap.timeline({ paused: true });
+            footerEnterTl
+                .to(".gsap-footer-logo", { y: 0, opacity: 1, scale: 1, rotation: 0, duration: 2, ease: "elastic.out(1, 0.5)" })
+                .to(".gsap-footer-title", { y: 0, opacity: 1, scale: 1, rotationX: 0, duration: 1.5, ease: "back.out(2)" }, "-=1.5")
+                .to("#footer-epic .text-slate-400.font-mono.text-sm", { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=1");
+
+            // Step 3: Use ScrollTrigger.create with explicit callbacks
+            ScrollTrigger.create({
+                trigger: "#footer-epic",
+                start: "top 85%",
+                onEnter: () => footerEnterTl.restart(),
+                onLeaveBack: () => {
+                    footerEnterTl.pause(0);
+                    gsap.set(".gsap-footer-logo", { y: 150, opacity: 0, scale: 0.3, rotation: -180 });
+                    gsap.set(".gsap-footer-title", { y: 120, opacity: 0, scale: 0.7, rotationX: -90 });
+                    gsap.set("#footer-epic .text-slate-400.font-mono.text-sm", { y: 30, opacity: 0 });
+                }
+            });
 
             // Hero Animations
             const tlHero = gsap.timeline();
@@ -1477,16 +1835,16 @@
                 });
             });
 
-            // Mobile Navbar Hide on Scroll
+            // Navbar Hide on Scroll Down, Show on Scroll Up (Everywhere)
             let lastScrollY = window.scrollY;
             const epicNav = document.getElementById('epic-nav');
             window.addEventListener('scroll', () => {
-                if (window.innerWidth < 768) {
-                    if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                        gsap.to(epicNav, { y: "-150%", duration: 0.4, ease: 'power2.inOut' });
-                    } else {
-                        gsap.to(epicNav, { y: 0, duration: 0.4, ease: 'power2.inOut' });
-                    }
+                if (window.scrollY > lastScrollY && window.scrollY > 50) {
+                    // Scrolling down: hide
+                    gsap.to(epicNav, { y: "-150%", duration: 0.4, ease: 'power2.inOut' });
+                } else {
+                    // Scrolling up: show
+                    gsap.to(epicNav, { y: 0, duration: 0.4, ease: 'power2.inOut' });
                 }
                 lastScrollY = window.scrollY;
             });
@@ -1793,6 +2151,94 @@
                     if (desc) gsap.to(desc, { z: 0, duration: 0.6 });
                     gsap.to(glare, { opacity: 0, duration: 0.4 });
                 });
+            });
+
+            // --- Epic Scramble Backward Effect via GSAP Plugin ---
+            const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*<>[]{}";
+            const scrambles = document.querySelectorAll('.epic-scramble');
+
+            scrambles.forEach(el => {
+                const originalText = el.innerText.trim();
+                el.style.minWidth = el.offsetWidth + 'px'; // Prevent jumping
+                el.innerText = ""; // Clear text initially so plugin builds it
+
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: "top 90%",
+                    onEnter: () => {
+                        gsap.to(el, {
+                            duration: 0.7,
+                            scrambleText: {
+                                text: originalText,
+                                chars: scrambleChars,
+                                revealDelay: 0.05,
+                                speed: 1,
+                                rightToLeft: true // backward decode behaviour
+                            }
+                        });
+                    }
+                });
+            });
+
+            // --- Epic Dynamic Blob Morphing (Anteultima Seccion #contact) ---
+            gsap.to("#epic-morph-svg", {
+                rotation: 360,
+                duration: 40,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "center center"
+            });
+
+            // Smoothly morph between the 3 blob paths indefinitely
+            const morphTl = gsap.timeline({ repeat: -1, yoyo: true });
+            morphTl.to("#blob-path", { duration: 5, morphSVG: "#blob-shape-1", ease: "power2.inOut" })
+                .to("#blob-path", { duration: 5, morphSVG: "#blob-shape-2", ease: "power2.inOut" })
+                .to("#blob-path", { duration: 5, morphSVG: "#blob-shape-3", ease: "power2.inOut" });
+
+            // --- Epic SplitText Animation on Contact Title ---
+            gsap.set(".contact-title-gsap", { perspective: 800 });
+
+            const epicSplit = new SplitText(".contact-title-gsap", {
+                type: "words,chars"
+            });
+
+            ScrollTrigger.create({
+                trigger: "#contact",
+                start: "top 60%",
+                onEnter: () => {
+                    gsap.from(epicSplit.chars, {
+                        duration: 1.2,
+                        opacity: 0,
+                        scale: 0.5,
+                        y: () => Math.random() * 100 + 50,
+                        rotationX: 180,
+                        rotationY: () => (Math.random() - 0.5) * 180,
+                        transformOrigin: "0% 50% -50",
+                        ease: "back.out(1.5)",
+                        stagger: 0.03
+                    });
+                }
+            });
+
+            // --- Epic SplitText Animation on "Que Ofrecemos" ---
+            const offerSplit = new SplitText(".offer-title-gsap", {
+                type: "words,chars"
+            });
+
+            ScrollTrigger.create({
+                trigger: "#services",
+                start: "top 70%",
+                onEnter: () => {
+                    gsap.from(offerSplit.chars, {
+                        duration: 0.8,
+                        opacity: 0,
+                        y: 50,
+                        rotationX: -90,
+                        transformOrigin: "0% 50% -50",
+                        ease: "back.out(2)",
+                        stagger: 0.04
+                    });
+                }
             });
 
         });
