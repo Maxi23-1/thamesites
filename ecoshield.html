@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EcoShield Solar Brisbane</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b273b", // Deep Navy
+                        "accent": "#2D6A4F", // Emerald Green
+                        "background-light": "#f6f7f7",
+                        "background-dark": "#15181d",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2329",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light text-[#131416] antialiased min-h-screen flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#f1f2f3]">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-8 text-accent">
+<span class="material-symbols-outlined text-4xl">solar_power</span>
+</div>
+<h2 class="text-primary text-xl font-bold tracking-tight">EcoShield Solar</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary hover:text-accent transition-colors text-sm font-semibold" href="#process">Our Process</a>
+<a class="text-primary hover:text-accent transition-colors text-sm font-semibold" href="#projects">Projects</a>
+<a class="text-primary hover:text-accent transition-colors text-sm font-semibold" href="#calculator">Savings Calculator</a>
+</nav>
+<button class="hidden md:flex bg-accent hover:bg-[#23543e] transition-colors text-white text-sm font-bold px-6 py-2.5 rounded-lg shadow-sm">
+                Get Quote
+            </button>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative">
+<div class="relative w-full h-[600px] flex items-center bg-cover bg-center" data-alt="Modern Australian home with sleek solar panels on roof" style='background-image: linear-gradient(rgba(27, 39, 59, 0.7), rgba(27, 39, 59, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT2EOPkIFslxXb6LVoErSOAgi6jqSmDuWQZwqKozwJDZVCgxK0RU6bqa18FS07ue2lcg87QhacKqQFFaTLbELcZfMaI6MbWd5zYiVQ-sEFTu796DKWbcf6v8cX9z4NzU2C4zri1ND5TJpFDG0VKc33CteB9A1wJDG2HhZNppl3M2164HaFfk4ZTErXzIdHhTPvV-MuwBHeS2QBr4LlSgABQT0NqYX2p54tlovFIekrrxiI9EdcemSlpkHzQyqbELP1Bg6gEHTX8rdE");'>
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 w-full">
+<div class="max-w-[700px] flex flex-col gap-6 text-white">
+<span class="inline-block px-3 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent-100 text-xs font-bold tracking-wide w-fit uppercase text-white">Brisbane's #1 Solar Installers</span>
+<h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                            Stop Overpaying for Electricity. Master the Sun with EcoShield.
+                        </h1>
+<p class="text-lg md:text-xl text-gray-200 max-w-[540px] font-medium">
+                            Custom solar solutions for Brisbane homeowners. Guaranteed savings up to $2,500 AUD annually.
+                        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-accent hover:bg-[#23543e] text-white text-base md:text-lg font-bold px-8 py-3.5 rounded-lg shadow-lg transition-all transform hover:scale-105">
+                                Get Your Free Savings Audit
+                            </button>
+<button class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white text-base font-bold px-6 py-3.5 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">play_circle</span> Watch Video
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Authority Grid -->
+<section class="py-20 bg-white" id="process">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10">
+<div class="mb-12 text-center max-w-3xl mx-auto">
+<h2 class="text-primary text-3xl md:text-4xl font-bold mb-4">Why Choose EcoShield?</h2>
+<p class="text-gray-600 text-lg">We deliver premium solar solutions backed by industry-leading warranties and government support.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="bg-background-light p-8 rounded-xl border border-gray-100 hover:border-accent/30 transition-all hover:shadow-lg group">
+<div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-accent transition-colors">
+<span class="material-symbols-outlined text-3xl">solar_power</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Tier-1 Technology</h3>
+<p class="text-gray-600 leading-relaxed">
+                            We use only the highest rated solar panels and inverters from global leaders for maximum efficiency and longevity in the harsh Australian climate.
+                        </p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-background-light p-8 rounded-xl border border-gray-100 hover:border-accent/30 transition-all hover:shadow-lg group">
+<div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-accent transition-colors">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">25-Year Performance Warranty</h3>
+<p class="text-gray-600 leading-relaxed">
+                            Enjoy absolute peace of mind with our comprehensive performance guarantee. If your system underperforms, we fix it for free.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-background-light p-8 rounded-xl border border-gray-100 hover:border-accent/30 transition-all hover:shadow-lg group">
+<div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center text-white mb-6 group-hover:bg-accent transition-colors">
+<span class="material-symbols-outlined text-3xl">request_quote</span>
+</div>
+<h3 class="text-xl font-bold text-primary mb-3">Government Rebate Assistance</h3>
+<p class="text-gray-600 leading-relaxed">
+                            Navigate the STC landscape effortlessly. We handle all the paperwork to ensure you get the maximum government rebates available in QLD.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof: Projects & Reviews -->
+<section class="py-20 bg-background-light" id="projects">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-primary text-3xl md:text-4xl font-bold mb-4">Recent Installations</h2>
+<p class="text-gray-600 text-lg max-w-xl">See how we're helping Brisbane homeowners transform their energy bills.</p>
+</div>
+<div class="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm border border-gray-100">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+<span class="material-symbols-outlined fill-current">star</span>
+</div>
+<span class="font-bold text-primary">4.9/5</span>
+<span class="text-gray-500 text-sm font-medium">from 200+ Google Reviews</span>
+</div>
+</div>
+<!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<!-- Project 1 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="aspect-[4/3] bg-gray-200 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Solar panel installation on a suburban roof in New Farm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNtXheVQ5YyPzJKWTGZEWhHFO8co2b5nRKmILawWs1Z8QqT-i8OZoZ55w9J_XvEfBJubGe7MuFrEJwvdAfPqmpHDBe-7Mni5I-3KJVaB29baqCvciyDA4R-YunrCva_-iZa_rVSCkxlowde9VFBumL2z-v8GOdP1V4DlEjRwntR_nmKMaEt7C1bQ1zG9UWFG1fCjfaMXdTDrgXmgEdf5UhqcvpbK347Yeoo1kjC-rIbFrqKNBbvaencLqpvIwfz-TI8YdHL9O6Wf-z");'></div>
+</div>
+<div class="p-6">
+<h4 class="font-bold text-lg text-primary mb-1">Installation in New Farm</h4>
+<div class="flex items-center justify-between mt-3">
+<span class="inline-flex items-center gap-1 text-sm text-gray-500">
+<span class="material-symbols-outlined text-[18px]">bolt</span> 6.6kW System
+                                </span>
+<span class="text-accent text-sm font-bold">Saved $1,800/yr</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="aspect-[4/3] bg-gray-200 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern solar system on Paddington home" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2Atdle_z6_A1oVu36s0SI-vV_tiSzNeHxMitp2Ak9SW9TW1TyGWn0da8dL4Yfjon8A9MXKhvaVT-Y3FbOvfsROvHvH2rIusFo_CKFSZ3_RIPkl7P0jIkj1RpmPd2hCr7rMtaY9EJWGi-_aRegL_EkBugH1mzEUoS3GEyWpy0bkiR7QnF4sBXOlQC2AHtC5LnmydkpUekCLsQ5BCtqrhwNOpES84TelsJlcREKLlYLHt5CBYtRdfabaMSWWsWeFST-wuaaTnpMP_oP");'></div>
+</div>
+<div class="p-6">
+<h4 class="font-bold text-lg text-primary mb-1">System Upgrade in Paddington</h4>
+<div class="flex items-center justify-between mt-3">
+<span class="inline-flex items-center gap-1 text-sm text-gray-500">
+<span class="material-symbols-outlined text-[18px]">battery_charging_full</span> 10kW + Battery
+                                </span>
+<span class="text-accent text-sm font-bold">Saved $2,900/yr</span>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="aspect-[4/3] bg-gray-200 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Commercial solar installation in Fortitude Valley" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASwWWohGaEzHgYgL4uP6G5lmU8f_XTdmU8wEfXHFta4oVWQIY8OWDLFahkxXZhVLl-aiGrayK_vH2ZN43k3FzYaGjhoz-Gv4xFiJZdw28Kj7A4R4XgvhWjcBo38CvVqXRV556Fy0Cgm11-B7ze55cmBnuezNs3iqksU9iOEc4n6k9PMsp3lm9mE8t-dqZGroFENSUFYqKt63l98Vj3e-4pmAUl1fknGFBUPEAXhE9CeMVod8ace1A-v6lhxXbFWJOTMOJi_0lV4lfW");'></div>
+</div>
+<div class="p-6">
+<h4 class="font-bold text-lg text-primary mb-1">Commercial Solar in Fortitude Valley</h4>
+<div class="flex items-center justify-between mt-3">
+<span class="inline-flex items-center gap-1 text-sm text-gray-500">
+<span class="material-symbols-outlined text-[18px]">domain</span> 30kW System
+                                </span>
+<span class="text-accent text-sm font-bold">Saved $8,500/yr</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonial -->
+<div class="bg-primary rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<span class="material-symbols-outlined text-accent text-5xl mb-6">format_quote</span>
+<p class="text-white text-xl md:text-2xl font-medium leading-relaxed mb-8">
+                            "The team at EcoShield made the entire process seamless. From the initial quote to the final installation, everything was professional. My first bill dropped by 85%!"
+                        </p>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full mb-3 bg-cover bg-center" data-alt="Portrait of Sarah Jenkins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAVSxCJ2hjhnLzntG0PGe72Ru1csX7bUO5e1mNz1vl6Mbe4lfwD8y5wbRJBNjgWjXu6ta3Vi-qUy2rtyQq4queXE2waYp0oO-xg-5aGRv4SZsOiZ5vvUToiMFWaKPnfifSDdvQfHx9ivkZGwWWV_jfC_x3EIp69CHdFv5E_yaylbliSC-yz9xHfdmz12vn-upc-FPTnAkno-O6pUtFKr16fEELZdYMWf26L0Ke32fwhLa8SmwfCnC6uRuZXnJHiq5JywGn6dYmxLo70')"></div>
+<cite class="text-white font-bold not-italic">Sarah Jenkins</cite>
+<span class="text-gray-400 text-sm">Homeowner, Ashgrove</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Magnet Calculator -->
+<section class="py-20 bg-white" id="calculator">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10">
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="lg:w-1/2">
+<span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Interactive Tool</span>
+<h2 class="text-primary text-3xl md:text-4xl font-bold mb-6">Calculate Your Potential Savings</h2>
+<p class="text-gray-600 text-lg mb-8">
+                            Use our smart calculator to estimate how much you could save by switching to solar today. It takes less than 30 seconds.
+                        </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent mt-0.5">check_circle</span>
+<span class="text-gray-700">Instant estimate based on Brisbane sunlight hours</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent mt-0.5">check_circle</span>
+<span class="text-gray-700">Includes current government rebate values</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent mt-0.5">check_circle</span>
+<span class="text-gray-700">No obligation, 100% free audit</span>
+</li>
+</ul>
+</div>
+<div class="lg:w-1/2 w-full">
+<div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
+<form class="flex flex-col gap-6">
+<!-- Step 1 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">Quarterly Electricity Bill ($)</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="text-gray-500 font-bold">$</span>
+</div>
+<input class="block w-full pl-8 pr-12 py-3 border-gray-300 rounded-lg focus:ring-accent focus:border-accent" placeholder="e.g. 800" type="number"/>
+</div>
+</div>
+<!-- Step 2 -->
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-3">Roof Shading</label>
+<div class="grid grid-cols-3 gap-3">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="shading" type="radio"/>
+<div class="rounded-lg border border-gray-200 p-3 text-center peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent hover:bg-gray-50 transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 block">wb_sunny</span>
+<span class="text-sm font-medium">None</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="shading" type="radio"/>
+<div class="rounded-lg border border-gray-200 p-3 text-center peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent hover:bg-gray-50 transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 block">cloud</span>
+<span class="text-sm font-medium">Partial</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="shading" type="radio"/>
+<div class="rounded-lg border border-gray-200 p-3 text-center peer-checked:border-accent peer-checked:bg-accent/5 peer-checked:text-accent hover:bg-gray-50 transition-all">
+<span class="material-symbols-outlined text-3xl mb-1 block">cloud_off</span>
+<span class="text-sm font-medium">Heavy</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Step 3: Contact -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">First Name</label>
+<input class="block w-full px-4 py-3 border-gray-300 rounded-lg focus:ring-accent focus:border-accent" placeholder="John" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
+<input class="block w-full px-4 py-3 border-gray-300 rounded-lg focus:ring-accent focus:border-accent" placeholder="0400 000 000" type="tel"/>
+</div>
+</div>
+<button class="w-full bg-accent hover:bg-[#23543e] text-white text-lg font-bold py-4 rounded-lg shadow-lg transition-colors mt-2 flex items-center justify-center gap-2" type="button">
+                                    Calculate Savings <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-xs text-center text-gray-400 mt-2">
+                                    Your information is secure. We don't share data with 3rd parties.
+                                </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-white border-t border-white/10">
+<div class="max-w-[1280px] mx-auto px-4 md:px-10 py-16">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+<!-- Brand & Info -->
+<div class="col-span-1 lg:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-accent text-3xl">solar_power</span>
+<span class="text-xl font-bold">EcoShield Solar</span>
+</div>
+<p class="text-gray-400 mb-6 leading-relaxed text-sm">
+                        Brisbane's premier solar energy provider. Helping Australian families save money and the planet, one rooftop at a time.
+                    </p>
+<div class="flex gap-4">
+<!-- Placeholder Social Icons -->
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent transition-colors" href="#">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="font-bold text-lg mb-6 text-white">Quick Links</h4>
+<ul class="space-y-3 text-sm text-gray-400">
+<li><a class="hover:text-accent transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Our Process</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Projects</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Savings Calculator</a></li>
+<li><a class="hover:text-accent transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Contact Info -->
+<div>
+<h4 class="font-bold text-lg mb-6 text-white">Contact Us</h4>
+<ul class="space-y-4 text-sm text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-accent shrink-0">location_on</span>
+<span>Level 5, 123 Eagle Street,<br/>Brisbane City QLD 4000</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent shrink-0">call</span>
+<span>(07) 3000 0000</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent shrink-0">mail</span>
+<span>hello@ecoshieldsolar.com.au</span>
+</li>
+</ul>
+</div>
+<!-- Map -->
+<div class="col-span-1 h-48 lg:h-auto rounded-lg overflow-hidden bg-white/5 relative">
+<div class="absolute inset-0 bg-cover bg-center" data-location="Brisbane" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAW05BP2K_TVSC0bito8VpvjtsWCwoT6eBMlpYiYdM0ABoB-A4JCFg3AP1jk0krW9KaBPezBzW005_nZfrL30ZHIKcUN5FdTj0GldL2q5s1EE2qGFHcaBi0BROcZbv5K70PcuaEXfTykWfCUdyS8WMrEPwnLV3AqIfwWNOj8gavNbPt7fLzJAS7XVDa_xJIxaJsfQtmZOXLsDImPd-RjXg0cWFXh8a0PMnzkncDouAC4uBOYdHpt3nf7U7btfZYA0s0F15KVraUsVEQ')">
+<!-- Fallback for no API key in demo -->
+<div class="w-full h-full bg-slate-800 flex items-center justify-center text-gray-500">
+<span class="material-symbols-outlined text-4xl mb-2">map</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+<p>© 2023 EcoShield Solar Brisbane. All rights reserved.</p>
+<div class="flex items-center gap-4">
+<span class="px-2 py-1 border border-white/10 rounded">CEC Accredited</span>
+<span class="px-2 py-1 border border-white/10 rounded">Master Electricians</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
