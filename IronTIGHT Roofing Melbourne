@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IronTIGHT Roofing Melbourne</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#f26419",
+                        "primary-dark": "#d44e0b",
+                        "slate-gray": "#333533",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#221610",
+                        "surface-dark": "#2d1f18",
+                        "surface-border": "#493022",
+                    },
+                    fontFamily: {
+                        display: ["Space Grotesk", "sans-serif"],
+                        body: ["Space Grotesk", "sans-serif"], // Keeping it consistent
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-dark font-body text-slate-100 antialiased selection:bg-primary selection:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Sticky Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-surface-border bg-background-dark/95 backdrop-blur-sm">
+<div class="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-6 lg:px-12">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined !text-2xl">roofing</span>
+</div>
+<h2 class="font-display text-xl font-bold tracking-tight text-white">IronTIGHT</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-gray-300 hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium text-gray-300 hover:text-primary transition-colors" href="#">Process</a>
+<a class="text-sm font-medium text-gray-300 hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-sm font-medium text-gray-300 hover:text-primary transition-colors" href="#">Reviews</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded bg-primary px-5 py-2.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-primary-dark shadow-[0_0_15px_rgba(242,100,25,0.3)]">
+<span class="material-symbols-outlined mr-2 !text-lg">call</span>
+<span class="hidden sm:inline">Emergency Call</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex flex-col">
+<!-- Authority Hero -->
+<section class="relative flex min-h-[600px] flex-col justify-center overflow-hidden py-20 lg:py-32">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" data-alt="Restored roof with city skyline background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBhV7RUXmZ8bJK5BVrQdgyBNewMbS2JRpuhq7l0M__3K36xLAxyojskX0K8emro0KzBrjJIVSw3ql4jhaeKfuQybXKUSMOqY89QM4fNikGX7TM-FiMoGK-Z4OlbNIajM3j_bog1J2Jh-A81919aKYgHMq2FYW83JgSKtFkIcqlU90b8Cj_WozqAl6Ag2LlbNE2BbVMCWY8kBUgFcR7xO-H6tayQfF9mrTm26naVgC9DHbuDDY69CmbiAzXXb6HL-HApgLVTKBEY7U');">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/95 via-background-dark/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 mx-auto w-full max-w-[1280px] px-6 lg:px-12">
+<div class="max-w-2xl">
+<div class="mb-4 inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary backdrop-blur-md">
+<span class="material-symbols-outlined mr-1 !text-sm">verified_user</span>
+                            Melbourne's Trusted Experts
+                        </div>
+<h1 class="mb-6 font-display text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                            Melbourne’s Most <span class="text-primary">Trusted</span> Roof Restorations
+                        </h1>
+<p class="mb-8 text-lg font-light leading-relaxed text-gray-300 sm:text-xl">
+                            Industrial-grade protection for your home. Backed by our comprehensive <strong class="text-white">15-year warranty</strong>. Serving all Melbourne suburbs.
+                        </p>
+<div class="flex flex-col gap-4 sm:flex-row">
+<button class="flex h-14 items-center justify-center rounded bg-primary px-8 text-base font-bold uppercase tracking-wide text-white transition-all hover:bg-primary-dark hover:scale-[1.02] shadow-lg shadow-primary/20">
+                                Book Free Inspection TODAY
+                            </button>
+<button class="flex h-14 items-center justify-center rounded border border-gray-600 bg-surface-dark/50 px-8 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-surface-dark hover:border-gray-500">
+                                View Our Portfolio
+                            </button>
+</div>
+<div class="mt-10 flex items-center gap-6 text-sm font-medium text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                Licensed &amp; Insured
+                            </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                Family Owned
+                            </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+                                24/7 Support
+                            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Grid -->
+<section class="bg-surface-dark py-20 border-y border-surface-border">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-12">
+<div class="mb-12 flex flex-col gap-4 md:mb-16">
+<h2 class="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                            Industrial-Grade <span class="text-primary">Services</span>
+</h2>
+<p class="max-w-2xl text-lg text-gray-400">
+                            We don't just patch roofs; we engineer solutions designed to withstand Melbourne's harshest weather conditions.
+                        </p>
+</div>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<!-- Card 1 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-surface-border bg-background-dark p-8 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-surface-dark border border-surface-border text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">water_drop</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">Emergency Leak Repair</h3>
+<p class="mb-6 flex-grow text-gray-400">
+                                24/7 rapid response team for storm damage and urgent leaks. We stop water intrusion instantly to protect your structure.
+                            </p>
+<a class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary group-hover:text-white transition-colors" href="#">
+                                Learn More <span class="material-symbols-outlined ml-1 !text-lg">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-surface-border bg-background-dark p-8 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-surface-dark border border-surface-border text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">format_paint</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">Heat Shield Painting</h3>
+<p class="mb-6 flex-grow text-gray-400">
+                                Advanced reflective coating technology that reduces heat absorption by up to 30%, lowering your energy bills significantly.
+                            </p>
+<a class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary group-hover:text-white transition-colors" href="#">
+                                Learn More <span class="material-symbols-outlined ml-1 !text-lg">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-surface-border bg-background-dark p-8 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
+<div class="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-surface-dark border border-surface-border text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined !text-3xl">umbrella</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">Full Gutter Replacement</h3>
+<p class="mb-6 flex-grow text-gray-400">
+                                Complete removal and installation of high-capacity gutter systems designed for heavy rainfall and maximum drainage flow.
+                            </p>
+<a class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-primary group-hover:text-white transition-colors" href="#">
+                                Learn More <span class="material-symbols-outlined ml-1 !text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- The Process (Numbered 1-2-3) -->
+<section class="py-20 lg:py-28 bg-background-dark">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-12">
+<div class="mb-16 text-center">
+<span class="mb-3 block text-sm font-bold uppercase tracking-widest text-primary">How We Work</span>
+<h2 class="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                            The IronTIGHT Process
+                        </h2>
+</div>
+<div class="relative grid gap-8 md:grid-cols-3">
+<!-- Connector Line (Desktop) -->
+<div class="absolute top-12 left-0 hidden h-0.5 w-full bg-surface-border md:block lg:left-16 lg:w-[calc(100%-8rem)]"></div>
+<!-- Step 1 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-background-dark border-4 border-surface-dark shadow-[0_0_0_8px_rgba(34,22,16,1)]">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+<span class="material-symbols-outlined !text-3xl">flight</span>
+</div>
+<div class="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-surface-border text-sm font-bold text-white">1</div>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">Drone Inspection</h3>
+<p class="max-w-xs text-sm leading-relaxed text-gray-400">
+                                We use high-res aerial imaging to detect hidden issues without walking on your roof unnecessarily.
+                            </p>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-background-dark border-4 border-surface-dark shadow-[0_0_0_8px_rgba(34,22,16,1)]">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-surface-dark text-primary border border-surface-border shadow-lg">
+<span class="material-symbols-outlined !text-3xl">request_quote</span>
+</div>
+<div class="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-surface-border text-sm font-bold text-white">2</div>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">No-Surprise Quote</h3>
+<p class="max-w-xs text-sm leading-relaxed text-gray-400">
+                                Detailed itemized pricing. What we quote is what you pay. No hidden fees or last-minute additions.
+                            </p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="relative z-10 mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-background-dark border-4 border-surface-dark shadow-[0_0_0_8px_rgba(34,22,16,1)]">
+<div class="flex h-16 w-16 items-center justify-center rounded-full bg-surface-dark text-primary border border-surface-border shadow-lg">
+<span class="material-symbols-outlined !text-3xl">construction</span>
+</div>
+<div class="absolute -right-2 -top-2 flex h-8 w-8 items-center justify-center rounded-full bg-surface-border text-sm font-bold text-white">3</div>
+</div>
+<h3 class="mb-3 text-xl font-bold text-white">Execution &amp; Cleanup</h3>
+<p class="max-w-xs text-sm leading-relaxed text-gray-400">
+                                Professional restoration followed by magnetic sweeping of your property to ensure total safety.
+                            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Quality Proof / Before & After -->
+<section class="bg-surface-dark py-20 border-y border-surface-border">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-12">
+<div class="flex flex-col gap-12 lg:flex-row lg:items-center">
+<div class="flex-1">
+<div class="mb-6 inline-flex items-center gap-2 rounded bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+<span class="material-symbols-outlined !text-lg">handshake</span>
+                                Family Owned &amp; Operated
+                            </div>
+<h2 class="mb-6 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                                See The Difference <br/> Professional Restoration Makes
+                            </h2>
+<p class="mb-8 text-lg text-gray-400">
+                                Don't let a weathered roof devalue your property. Our restoration process adds decades to your roof's lifespan and instantly boosts curb appeal.
+                            </p>
+<div class="flex flex-col gap-4 border-l-2 border-primary pl-6">
+<div class="flex flex-col">
+<span class="text-3xl font-black text-white">450+</span>
+<span class="text-sm font-medium uppercase tracking-wider text-gray-500">Roofs Restored</span>
+</div>
+<div class="h-px w-20 bg-surface-border"></div>
+<div class="flex flex-col">
+<span class="text-3xl font-black text-white">100%</span>
+<span class="text-sm font-medium uppercase tracking-wider text-gray-500">Satisfaction Rate</span>
+</div>
+</div>
+</div>
+<div class="flex-1">
+<div class="grid gap-4 sm:grid-cols-2">
+<!-- Before -->
+<div class="group relative overflow-hidden rounded-lg border border-surface-border">
+<div class="aspect-[4/3] bg-cover bg-center" data-alt="Old damaged roof tiles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBoILUAB5D9Jd_LFnvLIu0uYSwkZ29ZDsDc6QykwRoaEoK1UrOYWs0lPxx9mbX7OE2kfdGvKiF7YfkLzyg_EnkTCgYtuyeja6vX5z-RMBC999QddBDFr-Yy0N02Gwi_0BUGWUhcl4WOcqYxduJ1QD92gtN4rgrkpEiX2A_jOxFxjmVQRDSA6LbS4RLtqS26USoLCHVAMzeKIdSM_imVQwlxFaabfUncdtAiCQ3sbJT_OE0MuvdP2LPPA1euqfsk5OnuJO0t6DH5T98'); filter: grayscale(80%);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="rounded bg-red-600/90 px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">Before</span>
+<p class="mt-1 text-sm text-gray-300">Worn, faded tiles with moss.</p>
+</div>
+</div>
+<!-- After -->
+<div class="group relative overflow-hidden rounded-lg border-2 border-primary shadow-2xl shadow-primary/20">
+<div class="aspect-[4/3] bg-cover bg-center" data-alt="Restored pristine roof tiles" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIhST36BsoRwT8U3zt8YIaspw3woQVpiLFPaSSNsEzw6n--dEpg-jwdIfaZQiECa7JlFwkVwXxLKTz2xNQSBPxLt09Qiw5vr4M1dMF21uGGaG5AaJreNpBA_BN4CNjuL4Ahxy80IZ26UDWbL9gYq8UH3CYhOhmldWiiWUhllU29HxHSskBrW1YaPLCQOmoTNgOrGYGsinNXEd1h14Lqjg_r4czSoxQyoV_-S-tbGKG97jwm60a5fbZzUbUSTVJFLw5Kj2Dfg4vzTc');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<span class="rounded bg-green-600/90 px-2 py-1 text-xs font-bold uppercase text-white backdrop-blur-sm">After Restoration</span>
+<p class="mt-1 text-sm text-white font-medium">Sealed, painted &amp; protected.</p>
+</div>
+<!-- Badge overlay -->
+<div class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-lg">
+<span class="material-symbols-outlined !text-xl">check</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-20 text-center">
+<div class="mx-auto max-w-3xl px-6">
+<h2 class="mb-6 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Ready to Secure Your Roof?
+                    </h2>
+<p class="mb-10 text-lg text-gray-400">
+                        Get a comprehensive roof health check valued at $299 for free. Limited slots available for this month in Melbourne.
+                    </p>
+<button class="inline-flex h-14 items-center justify-center rounded bg-primary px-8 text-base font-bold uppercase tracking-wide text-white transition-all hover:bg-primary-dark hover:scale-[1.02] shadow-[0_0_20px_rgba(242,100,25,0.4)]">
+                        Claim Your Free Inspection
+                    </button>
+<p class="mt-6 text-sm text-gray-500">
+                        No obligation required. 15-Year Warranty on all restorations.
+                    </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-surface-border bg-background-dark py-12">
+<div class="mx-auto max-w-[1280px] px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">roofing</span>
+<span class="font-bold text-white">IronTIGHT Roofing</span>
+</div>
+<div class="text-sm text-gray-500">
+                    © 2024 IronTIGHT Roofing Melbourne. All rights reserved.
+                </div>
+<div class="flex gap-4">
+<a class="text-gray-500 hover:text-primary" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-gray-500 hover:text-primary" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
