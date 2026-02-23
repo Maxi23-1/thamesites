@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  mautic-db:
+    image: mysql:8.0
+    container_name: mautic-db
+    environment:
+      MYSQL_ROOT_PASSWORD: mautic_root_password
+      MYSQL_DATABASE: mautic
+      MYSQL_USER: mautic
+      MYSQL_PASSWORD: mautic_password
+    volumes:
+      - mautic-db-data:/var/lib/mysql
+    networks:
+      - mautic-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  mautic:
+    image: mautic/mautic:v5-apache
+    container_name: mautic
+    ports:
+      - "8080:80"
+    environment:
+      MAUTIC_DB_HOST: mautic-db:3306
+      MAUTIC_DB_NAME: mautic
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: mautic_password
+      MAUTIC_RUN_CRON_JOBS: "true"
+      MAUTIC_TRUSTED_PROXIES: 0.0.0.0/0
+    volumes:
+      - mautic-data:/var/www/html
+    networks:
+      - mautic-network
+    depends_on:
+      mautic-db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  mautic-db-data:
+  mautic-data:
+
+networks:
+  mautic-network:
+    driver: bridge
