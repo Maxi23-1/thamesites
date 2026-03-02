@@ -14,53 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-        async function updatePrices() {
-            const baseLanding = 80;
-            const baseEcommerce = 160;
-            const rates = {
-                'AUD': 1.54,
-                'AED': 3.67,
-                'EUR': 0.95,
-                'ARS': 1000,
-                'USD': 1
-            };
-
-            let currency = 'ARS';
-            let symbol = '$';
-
-            try {
-                const res = await fetch('https://ipapi.co/json/');
-                const data = await res.json();
-                const country = data.country_code;
-                console.log('Detected country:', country);
-
-                if (country === 'AU') { currency = 'AUD'; symbol = '$'; }
-                else if (country === 'AE') { currency = 'AED'; symbol = 'DH '; }
-                else if (['ES', 'FR', 'DE', 'IT', 'IE'].includes(country)) { currency = 'EUR'; symbol = '€'; }
-                else if (country === 'AR') { currency = 'ARS'; symbol = '$'; }
-                else { currency = 'USD'; symbol = '$'; }
-            } catch (e) {
-                console.log('Region detection failed, defaulting to ARS');
-                currency = 'ARS'; symbol = '$';
-            }
-
-            const rate = rates[currency] || 1;
-            const finalLanding = Math.round(baseLanding * rate).toLocaleString();
-            const finalEcommerce = Math.round(baseEcommerce * rate).toLocaleString();
-
-            console.log(`Setting prices: ${finalLanding} ${currency}`);
-
-            document.querySelectorAll('.price-landing').forEach(el => {
-                el.innerText = `${symbol}${finalLanding} ${currency}`;
-            });
-            document.querySelectorAll('.price-ecommerce').forEach(el => {
-                el.innerText = `${symbol}${finalEcommerce} ${currency}`;
-            });
-        }
-        window.addEventListener('DOMContentLoaded', updatePrices);
-
-        tailwind.config = {
+    <script>        tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
