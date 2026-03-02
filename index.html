@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth overflow-x-hidden w-full bg-background-dark">
+<html lang="es" class="dark scroll-smooth overflow-x-hidden w-full bg-background-dark">
 
 <head>
     <meta charset="utf-8" />
@@ -16,8 +16,8 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         async function updatePrices() {
-            const baseLanding = 150;
-            const baseEcommerce = 300;
+            const baseLanding = 80;
+            const baseEcommerce = 160;
             const rates = {
                 'AUD': 1.54,
                 'AED': 3.67,
@@ -26,7 +26,7 @@
                 'USD': 1
             };
 
-            let currency = 'USD';
+            let currency = 'ARS';
             let symbol = '$';
 
             try {
@@ -41,8 +41,8 @@
                 else if (country === 'AR') { currency = 'ARS'; symbol = '$'; }
                 else { currency = 'USD'; symbol = '$'; }
             } catch (e) {
-                console.log('Region detection failed, defaulting to USD');
-                currency = 'USD'; symbol = '$';
+                console.log('Region detection failed, defaulting to ARS');
+                currency = 'ARS'; symbol = '$';
             }
 
             const rate = rates[currency] || 1;
@@ -483,7 +483,7 @@
     <div id="page-transition"
         class="fixed inset-0 z-[100] bg-black border-b-[10px] border-primary transform translate-y-full flex items-center justify-center pointer-events-none">
         <span
-            class="text-white font-epic text-3xl md:text-6xl tracking-[0.5em] font-black px-4 text-center drop-shadow-[0_0_20px_rgba(242,13,13,0.8)]">INITIALIZING</span>
+            class="text-white font-epic text-3xl md:text-6xl tracking-[0.5em] font-black px-4 text-center drop-shadow-[0_0_20px_rgba(242,13,13,0.8)]">INICIALIZANDO</span>
     </div>
     <div class="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 transition-transform duration-500 ease-out"
         id="epic-nav">
@@ -506,11 +506,11 @@
                 <div
                     class="hidden md:flex items-center gap-10 font-sans uppercase text-xs font-semibold tracking-widest">
                     <a class="relative text-slate-400 hover:text-white transition-colors duration-300 group/link"
-                        href="#services">Services<span
+                        href="#services">Servicios<span
                             class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-hover/link:w-full transition-all duration-300 origin-center"></span>
                     </a>
                     <a class="relative text-slate-400 hover:text-white transition-colors duration-300 group/link"
-                        href="#works">Portfolio<span
+                        href="#works">Portafolio<span
                             class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-hover/link:w-full transition-all duration-300 origin-center"></span>
                     </a>
                     <a class="relative text-slate-400 hover:text-white transition-colors duration-300 group/link"
@@ -518,7 +518,7 @@
                             class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-hover/link:w-full transition-all duration-300 origin-center"></span>
                     </a>
                     <a class="relative text-slate-400 hover:text-white transition-colors duration-300 group/link"
-                        href="#plans">Plans<span
+                        href="#plans">Planes<span
                             class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary group-hover/link:w-full transition-all duration-300 origin-center"></span>
                     </a>
                 </div>
@@ -582,27 +582,27 @@
                         ratio</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white font-display">
-                    We create your next <br />
+                    Creamos tu próxima <br />
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white"
                         id="hero-typewriter"></span><span class="text-primary animate-pulse ml-1">_</span>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                    We design and engineer lightning-fast digital storefronts that turn visitors into customers.
+                    Diseñamos y desarrollamos sitios ultrarrápidos que convierten visitantes en clientes.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                     <a href="#plans" class="shiny-cta">
-                        <span>View Options</span>
+                        <span>Ver Opciones</span>
                     </a>
                     <a href="#contact" class="shiny-cta shiny-cta-black">
-                        <span>Contact</span>
+                        <span>Contactar</span>
                     </a>
                 </div>
                 <div
                     class="pt-8 flex items-center justify-center lg:justify-start gap-8 text-slate-500 text-sm font-medium">
                     <span class="flex items-center gap-2"><span
-                            class="material-symbols-outlined text-primary text-lg">code</span> HTML, CSS & JS</span>
+                            class="material-symbols-outlined text-primary text-lg">code</span> HTML, CSS y JS</span>
                     <span class="flex items-center gap-2"><span
-                            class="material-symbols-outlined text-primary text-lg">speed</span> Lightning Fast</span>
+                            class="material-symbols-outlined text-primary text-lg">speed</span> Ultra Rápido</span>
                 </div>
             </div>
             <div class="relative hidden lg:block h-full min-h-[500px]">
@@ -630,10 +630,10 @@
                                 class="absolute top-1/4 -right-4 glass-card p-4 rounded-xl shadow-lg border-l-2 border-l-primary w-48 backdrop-blur-xl bg-black/40">
                                 <div class="flex justify-between items-center mb-2">
                                     <div class="h-2 w-12 bg-primary rounded-full animate-pulse"></div>
-                                    <span class="text-[10px] text-green-400 font-mono">ONLINE</span>
+                                    <span class="text-[10px] text-green-400 font-mono">EN LÍNEA</span>
                                 </div>
                                 <div class="h-2 w-24 bg-slate-700/50 rounded-full"></div>
-                                <div class="mt-2 text-[10px] text-slate-400 font-mono">System: Optimized</div>
+                                <div class="mt-2 text-[10px] text-slate-400 font-mono">Sistema: Optimizado</div>
                             </div>
                             <div
                                 class="absolute bottom-1/4 -left-4 glass-card p-4 rounded-xl shadow-lg border-r-2 border-r-primary w-48 backdrop-blur-xl bg-black/40">
@@ -644,7 +644,7 @@
                                     </div>
                                     <div class="flex flex-col gap-1">
                                         <div class="h-2 w-16 bg-white/20 rounded-full"></div>
-                                        <div class="text-[10px] text-slate-500 font-mono">Deploying...</div>
+                                        <div class="text-[10px] text-slate-500 font-mono">Desplegando...</div>
                                     </div>
                                 </div>
                             </div>
@@ -670,7 +670,7 @@
             <div class="text-center mb-24 matrix-title">
                 <h2
                     class="epic-scramble text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#aaa] via-white to-[#aaa] font-epic uppercase tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] perspective-text">
-                    OUR PLANS</h2>
+                    NUESTROS PLANES</h2>
                 <p class="text-primary font-mono text-sm tracking-[0.5em] mt-6 uppercase">The most competitive prices on
                     the market</p>
             </div>
@@ -688,35 +688,35 @@
                             class="absolute top-0 right-0 w-32 h-32 bg-slate-800 rounded-bl-[100px] -z-10 blur-xl opacity-50 group-hover:bg-primary/50 transition-colors duration-700">
                         </div>
                         <div class="relative z-[60] pr-20 lg:pr-28">
-                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">Launch Fast</span>
+                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">Lanza Rápido</span>
                             <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">LANDING PAGE</h3>
                             <div class="h-px bg-gradient-to-r from-slate-700 to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    High-converting one-page design</li>
+                                    Diseño One-Page de alta conversión</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Flawless on mobile screens</li>
+                                    Perfecto en pantallas móviles</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Built-in SEO fundamentals</li>
+                                    Estructura optimizada para SEO</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Instant WhatsApp contact</li>
+                                    Contacto rápido por WhatsApp</li>
                             </ul>
                         </div>
 
                         <div class="mt-8 mb-4 flex flex-col items-center">
-                            <span class="text-slate-500 font-mono text-[10px] tracking-[0.2em] uppercase mb-1">Starting
-                                from</span>
+                            <span
+                                class="text-slate-500 font-mono text-[10px] tracking-[0.2em] uppercase mb-1">Desde</span>
                             <div
                                 class="bg-black/50 border border-slate-700/50 rounded-2xl px-6 py-3 shadow-[inset_0_0_20px_rgba(0,0,0,0.8)] backdrop-blur-md relative overflow-hidden group/price">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover/price:translate-x-[100%] transition-transform duration-1000">
                                 </div>
                                 <span
-                                    class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] price-landing">$200AUD</span>
+                                    class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] price-landing">$80.000</span>
                             </div>
                         </div>
                         <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
-                            class="mt-6 block text-center w-full py-4 text-white font-sans text-sm font-semibold uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Inquire</a>
+                            class="mt-6 block text-center w-full py-4 text-white font-sans text-sm font-semibold uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Consultar</a>
                     </div>
                 </div>
 
@@ -734,49 +734,49 @@
                         </div>
                         <div class="relative z-[60] pr-20 lg:pr-28">
                             <span
-                                class="text-primary font-mono text-xs tracking-widest uppercase font-bold glitch-hover">SCALE
-                                RAPIDLY</span>
+                                class="text-primary font-mono text-xs tracking-widest uppercase font-bold glitch-hover">ESCALA
+                                RÁPIDO</span>
                             <h3
                                 class="text-[32px] sm:text-[38px] font-epic font-bold text-white mt-4 mb-2 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-none">
-                                E-COMMERCE STORE</h3>
+                                TIENDA ECOMMERCE</h3>
                             <div class="h-px bg-gradient-to-r from-primary to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Full catalog management</li>
+                                    Gestión de catálogo completa</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Seamless payment gateways</li>
+                                    Integración de pagos sin fisuras</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Lightning-fast loading</li>
+                                    Carga ultra rápida</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Stunning UX/UI design</li>
+                                    Diseño UX/UI espectacular</li>
                             </ul>
                         </div>
 
                         <div class="mt-8 mb-4 flex flex-col items-center">
-                            <span class="text-primary/80 font-mono text-[10px] tracking-[0.2em] uppercase mb-1">Starting
-                                from</span>
+                            <span
+                                class="text-primary/80 font-mono text-[10px] tracking-[0.2em] uppercase mb-1">Desde</span>
                             <div
                                 class="bg-black/60 border border-red-900/50 rounded-2xl px-6 py-3 shadow-[0_0_30px_rgba(242,13,13,0.15),inset_0_0_20px_rgba(242,13,13,0.1)] backdrop-blur-md relative overflow-hidden group/price">
                                 <div
                                     class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-[100%] group-hover/price:translate-x-[100%] transition-transform duration-1000">
                                 </div>
                                 <span
-                                    class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_15px_rgba(242,13,13,0.5)] price-ecommerce">$450AUD</span>
+                                    class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_15px_rgba(242,13,13,0.5)] price-ecommerce">$160.000</span>
                             </div>
                         </div>
                         <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
                             class="relative block text-center mt-6 w-full py-5 text-white font-sans font-bold text-sm uppercase tracking-[0.2em] bg-primary rounded-xl overflow-hidden group/btn hover:shadow-[0_0_30px_rgba(242,13,13,0.8)] transition-all">
-                            <span class="relative z-10">Inquire</span>
+                            <span class="relative z-10">Consultar</span>
                             <div
                                 class="absolute inset-0 h-full w-full translate-y-full bg-white group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0">
                             </div>
                             <span
-                                class="absolute inset-0 h-full w-full flex items-center justify-center text-primary z-20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 font-bold uppercase tracking-[0.2em]">Inquire</span>
+                                class="absolute inset-0 h-full w-full flex items-center justify-center text-primary z-20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 font-bold uppercase tracking-[0.2em]">Consultar</span>
                         </a>
                     </div>
                     <div
                         class="absolute -top-4 -right-4 bg-primary text-black font-epic font-bold text-[10px] uppercase px-4 py-2 rounded-full transform rotate-12 shadow-lg">
-                        Most Popular</div>
+                        Más Elegido</div>
                 </div>
 
                 <!-- Enterprise -->
@@ -790,18 +790,18 @@
                             class="absolute top-0 left-0 w-32 h-32 bg-slate-800 rounded-br-[100px] -z-10 blur-xl opacity-50 group-hover:bg-primary/50 transition-colors duration-700">
                         </div>
                         <div>
-                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">TAILOR MADE</span>
-                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">CUSTOM SYSTEM</h3>
+                            <span class="text-slate-500 font-mono text-xs tracking-widest uppercase">A MEDIDA</span>
+                            <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">SISTEMA A MEDIDA</h3>
                             <div class="h-px bg-gradient-to-r from-transparent to-slate-700 my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    100% bespoke architecture</li>
+                                    Arquitectura 100% a medida</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Scalable Web App (PWA)</li>
+                                    Experiencia de App Web (PWA)</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Enterprise-grade security</li>
+                                    Seguridad nivel empresarial</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Ready for high traffic</li>
+                                    Listo para alto tráfico</li>
                             </ul>
                         </div>
 
@@ -816,8 +816,7 @@
                             </div>
                         </div>
                         <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
-                            class="mt-6 block text-center w-full py-4 text-white font-sans font-semibold text-sm uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Request
-                            Quote</a>
+                            class="mt-6 block text-center w-full py-4 text-white font-sans font-semibold text-sm uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Cotizar</a>
                     </div>
                 </div>
             </div>
@@ -827,14 +826,15 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                 <div class="max-w-2xl text-left">
-                    <h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2 font-mono">Why choose us
+                    <h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2 font-mono">Por qué
+                        elegirnos
                     </h2>
                     <h3 class="offer-title-gsap text-3xl md:text-5xl font-bold text-white leading-tight">Our Core
                         Values:
                     </h3>
                 </div>
                 <p class="text-slate-400 max-w-md text-base leading-relaxed">
-                    We turn your ideas into powerful, fast, and stunning websites that drive real results.
+                    Convertimos tus ideas en sitios web potentes, rápidos y sorprendentes que generan resultados.
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -849,16 +849,17 @@
                                 stroke-width="1.5"></path>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">HIGH PERFORMANCE</h4>
+                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">ALTO RENDIMIENTO</h4>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
                         <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Optimized loading speed so your
-                                customers don't wait a single second.</span></li>
+                                class="text-primary text-xs mt-1">✦</span><span>Velocidad de carga optimizada para que
+                                tus clientes no esperen un segundo.</span></li>
                         <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Flawless performance that improves your
-                                Google ranking.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Smooth
-                                and fast user experience on any device.</span></li>
+                                class="text-primary text-xs mt-1">✦</span><span>Rendimiento impecable que mejora tu
+                                posicionamiento en Google.</span></li>
+                        <li class="flex items-start gap-2"><span
+                                class="text-primary text-xs mt-1">✦</span><span>Experiencia de usuario fluida y rápida
+                                en cualquier dispositivo.</span></li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
                 </div>
@@ -874,14 +875,15 @@
                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">CUSTOM UI</h4>
+                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">UI PERSONALIZADA</h4>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Unique
-                                designs built from scratch so your brand stands out from the competition.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Modern
-                                and attractive interfaces that reflect your business identity.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>No
-                                generic templates: every detail is designed to impact your audience.</span>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Diseños
+                                únicos creados desde cero para que tu marca destaque.</span></li>
+                        <li class="flex items-start gap-2"><span
+                                class="text-primary text-xs mt-1">✦</span><span>Interfaces modernas y atractivas que
+                                reflejan la identidad de tu negocio.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Sin
+                                plantillas genéricas: cada detalle está pensado para impactar a tu audiencia.</span>
                         </li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
@@ -898,15 +900,16 @@
                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">SCALABILITY</h4>
+                    <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">ESCALABILIDAD</h4>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Solid
-                                structure prepared to grow at the same pace as your sales.</span></li>
                         <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Cutting-edge technology that allows
-                                adding new capabilities seamlessly.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Support
-                                for thousands of users, from startups to large enterprises.</span></li>
+                                class="text-primary text-xs mt-1">✦</span><span>Estructura sólida preparada para crecer
+                                al ritmo de tus ventas.</span></li>
+                        <li class="flex items-start gap-2"><span
+                                class="text-primary text-xs mt-1">✦</span><span>Tecnología de punta que permite añadir
+                                nuevas funciones sin problemas.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Soporte
+                                para miles de usuarios, desde emprendimientos hasta grandes empresas.</span></li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
                 </div>
@@ -921,17 +924,17 @@
                 <div class="max-w-3xl relative z-10">
                     <span
                         class="text-primary font-mono tracking-widest text-sm mb-4 block uppercase flex items-center justify-center md:justify-start gap-2">
-                        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div> INTEGRATIONS AND UPGRADES
+                        <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div> INTEGRACIONES Y MEJORAS
                     </span>
                     <h2
                         class="text-[28px] sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase font-epic tracking-tighter feature-title leading-none">
-                        <span class="epic-scramble inline-block">Additional</span> <span
-                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Features</span>
+                        <span class="epic-scramble inline-block">MÁS</span> <span
+                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Funcionalidades</span>
                     </h2>
                 </div>
                 <p
                     class="text-slate-400 font-mono text-sm max-w-sm mx-auto md:mx-0 mt-6 md:mt-0 leading-relaxed text-right feature-para hidden md:block">
-                    We don't just build websites; from brand logos to automations, we deliver exactly what you need.
+                    No solo construimos páginas webs, cumplimos con todo lo que necesites.
                 </p>
             </div>
 
@@ -944,9 +947,10 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">smart_toy</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Automated AI WhatsApp</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Smart AI chatbots that engage your
-                        customers and close sales automatically, 24/7 directly through WhatsApp.</p>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">WhatsApp con IA
+                        Automatizada</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Chatbots inteligentes con IA que
+                        interactúan y cierran ventas 24/7 por WhatsApp.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div
@@ -956,9 +960,10 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">admin_panel_settings</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Admin Panel</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Total control over your contents and
-                        settings via a secure customized administrative dashboard experience.</p>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Panel de Administración
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Control total sobre tus contenidos y
+                        ajustes mediante un panel administrativo seguro.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div
@@ -968,9 +973,9 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">translate</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Multi Language</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Expand globally with advanced
-                        automatic translations enabling frictionless accessibility for international users.</p>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Multi Idiomas</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Expándete globalmente con
+                        traducciones automáticas avanzadas.</p>
                 </div>
                 <!-- Feature 4 -->
                 <div
@@ -980,7 +985,7 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">calendar_month</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Appointment Calendar</h3>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Calendario de Citas</h3>
                     <p class="text-slate-400 text-sm leading-relaxed relative z-10">Integrated online booking system
                         allowing your clients to easily schedule appointments or consultations 24/7 directly from your
                         website.</p>
@@ -993,9 +998,9 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">find_in_page</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">SEO Architecture</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Aggressive indexation. Verified
-                        semantic W3C markup that will organically skyrocket your Google search ranking.</p>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Arquitectura SEO</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Indexación agresiva. Marcado W3C
+                        válido que subirá tu posición en Google orgánicamente.</p>
                 </div>
                 <!-- Feature 6 -->
                 <div
@@ -1005,9 +1010,9 @@
                     </div>
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">construction</span>
-                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Global Maintenance</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Active 24/7 continuous monitoring
-                        and support. We scale your company with the most rigorous software engineering.</p>
+                    <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Mantenimiento Global</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Monitoreo activo y soporte 24/7.
+                        Escalamos tu empresa con rigurosa ingeniería.</p>
                 </div>
             </div>
 
@@ -1029,12 +1034,11 @@
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
             <div class="seo-text-content">
                 <h2 class="text-4xl md:text-6xl font-epic font-black text-white mb-6 uppercase tracking-tighter">
-                    <span class="epic-scramble inline-block">DOMINANT</span> <br /><span
-                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">ALGORITHM</span>
+                    <span class="epic-scramble inline-block">ALGORITMO</span> <br /><span
+                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">DOMINANTE</span>
                 </h2>
                 <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed font-mono">
-                    Our profound technical SEO focus guarantees the digital ecosystem strongly prioritizes you. Data
-                    structure, quantum optimization, and semantic keywords.
+                    Nuestro enfoque técnico SEO asegura que el algoritmo te priorice.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-4">
@@ -1042,8 +1046,8 @@
                             <span class="material-symbols-outlined">analytics</span>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold">Data Analytics</h4>
-                            <p class="text-slate-500 text-sm">We use real data to maximize your conversions.
+                            <h4 class="text-white font-bold">Análisis de Datos</h4>
+                            <p class="text-slate-500 text-sm">Usamos datos reales para maximizar tus conversiones.
                             </p>
                         </div>
                     </li>
@@ -1052,8 +1056,9 @@
                             <span class="material-symbols-outlined">rocket_launch</span>
                         </div>
                         <div>
-                            <h4 class="text-white font-bold">Traffic Skyrocketing</h4>
-                            <p class="text-slate-500 text-sm">Drastically increase high-quality organic visitors.</p>
+                            <h4 class="text-white font-bold">Impulso de Tráfico</h4>
+                            <p class="text-slate-500 text-sm">Aumenta drásticamente las visitas orgánicas de calidad.
+                            </p>
                         </div>
                     </li>
                 </ul>
@@ -1088,13 +1093,13 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8">
-                    <h2 class="text-primary font-bold text-sm tracking-widest uppercase font-mono">INFRASTRUCTURE</h2>
+                    <h2 class="text-primary font-bold text-sm tracking-widest uppercase font-mono">INFRAESTRUCTURA</h2>
                     <h3 class="text-3xl md:text-5xl font-bold text-white leading-tight">
-                        Premium Hosting Included <br /> <span class="text-slate-400">Leave everything to us</span>
+                        Hosting Premium Incluido <br /> <span class="text-slate-400">Despreocúpate de todo</span>
                     </h3>
                     <p class="text-slate-400 text-lg">
-                        Your website deserves the absolute best home. We provide actively managed high-performance
-                        hosting so you only focus on your business.
+                        Tu web merece el mejor hogar. Brindamos hosting de alto rendimiento gestionado para que te
+                        enfoques en tu negocio.
                     </p>
                     <ul class="space-y-6 mt-8">
                         <li class="flex gap-4 items-start group">
@@ -1103,9 +1108,9 @@
                                 <span class="material-symbols-outlined">support_agent</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">24/7 Maintenance</h4>
-                                <p class="text-slate-500 text-sm mt-1">Continuous technical support architecture to
-                                    guarantee 99.9% uptime.</p>
+                                <h4 class="text-white font-bold text-lg">Mantenimiento 24/7</h4>
+                                <p class="text-slate-500 text-sm mt-1">Soporte técnico continuo para garantizar 99.9% EN
+                                    LÍNEA.</p>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start group">
@@ -1114,9 +1119,9 @@
                                 <span class="material-symbols-outlined">lock</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">Free SSL Security Certificate</h4>
-                                <p class="text-slate-500 text-sm mt-1">End-to-end military-grade security to fully
-                                    protect your users' private data.</p>
+                                <h4 class="text-white font-bold text-lg">Certificado SSL Gratis</h4>
+                                <p class="text-slate-500 text-sm mt-1">Seguridad total para proteger los datos privados
+                                    de tus usuarios.</p>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start group">
@@ -1125,9 +1130,9 @@
                                 <span class="material-symbols-outlined">no_meeting_room</span>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold text-lg">No Strings Attached</h4>
-                                <p class="text-slate-500 text-sm mt-1">Cancel anytime and take your entire website with
-                                    you. You own 100% of your source code.</p>
+                                <h4 class="text-white font-bold text-lg">Sin Ataduras</h4>
+                                <p class="text-slate-500 text-sm mt-1">Cancela cuando quieras y llévate tu web. Eres
+                                    dueño absoluto de tu código.</p>
                             </div>
                         </li>
                     </ul>
@@ -1189,7 +1194,7 @@
                         </div>
                         <div
                             class="absolute -right-4 -bottom-4 bg-primary text-white text-xs font-bold px-4 py-2 rounded-lg shadow-lg shadow-red-900/40">
-                            99.9% UPTIME
+                            99.9% EN LÍNEA
                         </div>
                     </div>
                     <div
@@ -1207,15 +1212,15 @@
             <div>
                 <h2
                     class="text-4xl md:text-6xl font-black text-white mb-2 font-epic tracking-tighter uppercase whitespace-normal">
-                    <span class="epic-scramble inline-block">SELECTED</span> <span
-                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">PROJECTS</span>
+                    <span class="epic-scramble inline-block">PROYECTOS</span> <span
+                        class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">DESTACADOS</span>
                 </h2>
-                <p class="text-primary font-mono tracking-widest text-xs uppercase mt-4">Our Portfolio / Highlighted Web
-                    Projects</p>
+                <p class="text-primary font-mono tracking-widest text-xs uppercase mt-4">Nuestro Portafolio / Proyectos
+                    Web Destacados</p>
             </div>
             <div class="hidden md:flex gap-4 mt-8 md:mt-0">
                 <div class="w-16 h-px bg-slate-800 self-center"></div>
-                <span class="text-slate-500 font-mono text-xs">Our work</span>
+                <span class="text-slate-500 font-mono text-xs">Nuestro trabajo</span>
             </div>
         </div>
         <div class="flex overflow-visible pb-12 px-6 gap-8 cursor-grab active:cursor-grabbing"
@@ -1236,8 +1241,8 @@
                         <div class="flex justify-between items-end">
                             <div>
                                 <span
-                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">ROOF
-                                    RESTORATIONS</span>
+                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">RESTAURACIÓN
+                                    DE TECHOS</span>
                                 <h3 class="text-2xl md:text-3xl font-bold text-white glitch-hover">Iron Tight</h3>
                             </div>
                             <div
@@ -1264,8 +1269,8 @@
                         <div class="flex justify-between items-end">
                             <div>
                                 <span
-                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">REAL
-                                    ESTATE</span>
+                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">BIENES
+                                    RAÍCES</span>
                                 <h3 class="text-2xl md:text-3xl font-bold text-white glitch-hover">Horizon Apex
                                 </h3>
                             </div>
@@ -1293,8 +1298,8 @@
                         <div class="flex justify-between items-end">
                             <div>
                                 <span
-                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">SOLAR
-                                    ENERGY</span>
+                                    class="text-primary font-mono text-xs mb-2 block tracking-widest bg-black/50 w-fit px-2 py-1 rounded">ENERGÍA
+                                    SOLAR</span>
                                 <h3 class="text-2xl md:text-3xl font-bold text-white glitch-hover">Ecoshield Systems
                                 </h3>
                             </div>
@@ -1345,13 +1350,12 @@
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2
                 class="text-5xl md:text-8xl font-black text-white mb-6 uppercase tracking-tighter mix-blend-difference font-epic inline-block contact-title-gsap">
-                START<br />
-                <span class="text-primary text-4xl md:text-6xl">YOUR PROJECT</span>
+                INICIA<br />
+                <span class="text-primary text-4xl md:text-6xl">TU PROYECTO</span>
             </h2>
             <p
                 class="text-slate-400 font-mono tracking-widest text-base md:text-lg mb-16 max-w-2xl mx-auto uppercase contact-para-gsap">
-                We build sales machines, not just simple websites. Reach out to us now
-                platform and let's start architecting your digital success.</p>
+                Construimos herramientas de venta. Contáctanos y empecemos a darle forma a tu éxito digital.</p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-5xl mx-auto">
                 <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
@@ -1464,7 +1468,7 @@
                 </div>
                 <p class="text-slate-400 font-mono text-sm leading-relaxed mb-4 max-w-lg z-10 relative">
                     Cutting-edge design and performance. We do not follow trends, we build the
-                    unshakeable infrastructure of the future.
+                    unshakeable INFRAESTRUCTURA of the future.
                 </p>
             </div>
 
@@ -2009,7 +2013,7 @@
                 );
 
             // Typewriter Effect (Gokywebs styled)
-            const phrases = ["Corporate Web", "Online Store", "Landing Page", "SaaS Platform"];
+            const phrases = ["Web Corporativa", "Tienda Online", "Landing Page", "Plataforma SaaS"];
             let phraseIndex = 0;
             let letterIndex = 0;
             let currentPhrase = "";
