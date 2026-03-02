@@ -783,7 +783,8 @@
                     <h2 class="text-primary font-bold text-sm tracking-widest uppercase mb-2 font-mono">Por qué
                         elegirnos
                     </h2>
-                    <h3 class="offer-title-gsap text-3xl md:text-5xl font-bold text-white leading-tight">Que Ofrecemos:
+                    <h3 class="offer-title-gsap text-3xl md:text-5xl font-bold text-white leading-tight">Our Core
+                        Values:
                     </h3>
                 </div>
                 <p class="text-slate-400 max-w-md text-base leading-relaxed">
@@ -881,8 +882,8 @@
                     </span>
                     <h2
                         class="text-[28px] sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase font-epic tracking-tighter feature-title leading-none">
-                        <span class="epic-scramble inline-block">FUNCIONALIDADES</span> <span
-                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Extra</span>
+                        <span class="epic-scramble inline-block">MÁS</span> <span
+                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Funcionalidades</span>
                     </h2>
                 </div>
                 <p
@@ -1339,7 +1340,7 @@
                     </div>
                 </a>
 
-                <a href="mailto:info@thamesites.store?subject=New%20Project&body=Hello!" target="_blank"
+                <a href="mailto:claudio.rossi@thamesites.store?subject=New%20Project&body=Hello!" target="_blank"
                     rel="noopener noreferrer"
                     class="group relative inline-flex items-center justify-center rounded-full contact-btn-gsap perspective-1000 shadow-[0_0_50px_rgba(242,13,13,0.1)] hover:shadow-[0_0_80px_rgba(242,13,13,0.3)] transition-transform duration-700 w-full sm:w-auto mt-4 sm:mt-0">
                     <!-- Glowing borders -->
@@ -1362,7 +1363,7 @@
                                 EMAIL
                             </span>
                             <span
-                                class="text-xs font-mono text-primary mt-1 opacity-80 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">info@thamesites.store</span>
+                                class="text-xs font-mono text-primary mt-1 opacity-80 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">claudio.rossi@thamesites.store</span>
                         </div>
                     </div>
                 </a>
@@ -1415,12 +1416,13 @@
 
                     <h3
                         class="text-3xl md:text-5xl font-epic font-bold text-white tracking-tight relative text-glow-fx">
-                        ELEVANDO EL  <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">ESTANDAR</span>
+                        ELEVATING THE <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">STANDARD</span>
                     </h3>
                 </div>
                 <p class="text-slate-400 font-mono text-sm leading-relaxed mb-4 max-w-lg z-10 relative">
-                    Diseño y rendimiento de vanguardia. No seguimos tendencias; construimos la INFRAESTRUCTURA inquebrantable del futuro.
+                    Cutting-edge design and performance. We do not follow trends, we build the
+                    unshakeable INFRAESTRUCTURA of the future.
                 </p>
             </div>
 
@@ -1429,11 +1431,11 @@
                 <!-- Clean, minimal copyright with no boring legal jargon -->
                 <p class="text-slate-600 text-[10px] md:text-xs font-epic tracking-[0.2em] font-bold">© 2026
                     THAMES
-                    SITES.<br class="md:hidden" /> VENTA DE PAGINAS WEBS.</p>
+                    SITES.<br class="md:hidden" /> ALL PROTOCOLS OPERATIONAL.</p>
                 <div
                     class="flex items-center gap-2 bg-black px-4 py-2 rounded-lg border border-slate-800 shadow-[inset_0_0_10px_rgba(0,0,0,1)]">
                     <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                    <span class="text-green-500 text-[10px] font-bold font-mono tracking-widest uppercase">Sistema
+                    <span class="text-green-500 text-[10px] font-bold font-mono tracking-widest uppercase">System
                         Online</span>
                 </div>
             </div>
@@ -2428,6 +2430,159 @@
                     }
                 })
                 .catch(err => console.error('IP fetch error:', err));
+        });
+    </script>
+
+    <!-- Dynamic Language & Currency Switcher -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => {
+                    const country = data.country_code;
+                    const esCountries = ['AR', 'ES', 'MX', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
+                    
+                    if (!esCountries.includes(country)) {
+                        const isUK = (country === 'GB');
+                        
+                        const dict = [
+                            ["INICIALIZANDO", isUK ? "INITIALISING" : "INITIALIZING"],
+                            [">Servicios<", ">Services<"],
+                            [">Portafolio<", ">Portfolio<"],
+                            [">Hosting<", ">Hosting<"],
+                            [">Planes<", ">Plans<"],
+                            ["La mejor relación calidad-precio", isUK ? "The best quality-value ratio" : "The best quality-price ratio"],
+                            ["Creamos tu próxima", "We create your next"],
+                            ["Construimos experiencias web inmersivas y rápidas para hacer tu proyecto soñado una realidad.", "We build immersive and fast web experiences to make your dream project a reality."],
+                            ["Diseñamos y desarrollamos sitios ultrarrápidos que convierten visitantes en clientes.", "We design and engineer lightning-fast digital storefronts that turn visitors into customers."],
+                            [">Ver Opciones<", ">View Options<"],
+                            [">Contactar<", ">Contact<"],
+                            ["HTML, CSS y JS", "HTML, CSS & JS"],
+                            ["Ultra Rápido", "Lightning Fast"],
+                            ["Sistema: Optimizado", isUK ? "System: Optimised" : "System: Optimized"],
+                            ["Desplegando...", "Deploying..."],
+                            ["EN LÍNEA", "ONLINE"],
+                            ["NUESTROS PLANES", "OUR PLANS"],
+                            ["Los precios más bajos del mercado", "The most competitive prices on the market"],
+                            ["Lanza Rápido", "Launch Fast"],
+                            ["LANDING PAGE", "LANDING PAGE"],
+                            ["Diseño One-Page de alta conversión", "High-converting one-page design"],
+                            ["Perfecto en pantallas móviles", "Flawless on mobile screens"],
+                            ["Estructura optimizada para SEO", isUK ? "Optimised structure for SEO" : "Optimized structure for SEO"],
+                            ["Contacto rápido por WhatsApp", "Instant WhatsApp contact"],
+                            ["Desde", "Starting from"],
+                            [">Consultar<", ">Inquire<"],
+                            ["ESCALA RÁPIDO", "SCALE RAPIDLY"],
+                            ["TIENDA ECOMMERCE", "E-COMMERCE STORE"],
+                            ["Gestión de catálogo completa", isUK ? "Full catalogue management" : "Full catalog management"],
+                            ["Integración de pagos sin fisuras", "Seamless payment gateways"],
+                            ["Carga ultra rápida", "Lightning-fast loading"],
+                            ["Diseño UX/UI espectacular", "Stunning UX/UI design"],
+                            ["Más Elegido", "Most Popular"],
+                            ["A MEDIDA", "TAILOR MADE"],
+                            ["SISTEMA A MEDIDA", "CUSTOM SYSTEM"],
+                            ["Arquitectura 100% a medida", "100% bespoke architecture"],
+                            ["Experiencia de App Web (PWA)", "Scalable Web App (PWA)"],
+                            ["Seguridad nivel empresarial", "Enterprise-grade security"],
+                            ["Listo para alto tráfico", "Ready for high traffic"],
+                            [">Cotizar<", ">Request Quote<"],
+                            ["COTIZACIÓN A MEDIDA", "CUSTOM QUOTE"],
+                            ["Por qué elegirnos", "Why choose us"],
+                            ["Nuestros Valores:", "Our Core Values:"],
+                            ["Convertimos tus ideas en sitios web potentes, rápidos y sorprendentes que generan resultados.", "We turn your ideas into powerful, fast, and stunning websites that drive real results."],
+                            ["ALTO RENDIMIENTO", "HIGH PERFORMANCE"],
+                            ["Velocidad de carga optimizada para que tus clientes no esperen un segundo.", isUK ? "Optimised loading speed so your customers don't wait a single second." : "Optimized loading speed so your customers don't wait a single second."],
+                            ["Rendimiento impecable que mejora tu posicionamiento en Google.", "Flawless performance that improves your Google ranking."],
+                            ["Experiencia de usuario fluida y rápida en cualquier dispositivo.", "Smooth and fast user experience on any device."],
+                            ["UI PERSONALIZADA", "CUSTOM UI"],
+                            ["Diseños únicos creados desde cero para que tu marca destaque.", "Unique designs built from scratch so your brand stands out from the competition."],
+                            ["Interfaces modernas y atractivas que reflejan la identidad de tu negocio.", "Modern and attractive interfaces that reflect your business identity."],
+                            ["Sin plantillas genéricas: cada detalle está pensado para impactar a tu audiencia.", "No generic templates: every detail is designed to impact your audience."],
+                            ["ESCALABILIDAD", "SCALABILITY"],
+                            ["Estructura sólida preparada para crecer al ritmo de tus ventas.", "Solid structure prepared to grow at the same pace as your sales."],
+                            ["Tecnología de punta que permite añadir nuevas funciones sin problemas.", "Cutting-edge technology that allows adding new capabilities seamlessly."],
+                            ["Soporte para miles de usuarios, desde emprendimientos hasta grandes empresas.", "Support for thousands of users, from startups to large enterprises."],
+                            ["INTEGRACIONES Y MEJORAS", "INTEGRATIONS AND UPGRADES"],
+                            [">MÁS<", ">ADDITIONAL<"],
+                            [">Funcionalidades<", ">FEATURES<"],
+                            ["No solo construimos páginas webs, cumplimos con todo lo que necesites.", "We don't just build websites; from brand logos to automations, we deliver exactly what you need."],
+                            ["WhatsApp con IA Automatizada", "Automated AI WhatsApp"],
+                            ["Chatbots inteligentes con IA que interactúan y cierran ventas 24/7 por WhatsApp.", "Smart AI chatbots that engage your customers and close sales automatically, 24/7 directly through WhatsApp."],
+                            ["Panel de Administración", "Admin Panel"],
+                            ["Control total sobre tus contenidos y ajustes mediante un panel administrativo seguro.", isUK ? "Total control over your contents and settings via a secure customised administrative dashboard experience." : "Total control over your contents and settings via a secure customized administrative dashboard experience."],
+                            ["Multi Idiomas", "Multi Language"],
+                            ["Expándete globalmente con traducciones automáticas avanzadas.", "Expand globally with advanced automatic translations enabling frictionless accessibility for international users."],
+                            ["Calendario de Citas", "Appointment Calendar"],
+                            ["Sistema de reservas integrado para agendar citas 24/7 desde tu web.", "Integrated online booking system allowing your clients to easily schedule appointments 24/7 directly from your website."],
+                            ["Arquitectura SEO", "SEO Architecture"],
+                            ["Indexación agresiva. Marcado W3C válido que subirá tu posición en Google orgánicamente.", "Aggressive indexation. Verified semantic W3C markup that will organically skyrocket your Google search ranking."],
+                            ["Mantenimiento Global", "Global Maintenance"],
+                            ["Monitoreo activo y soporte 24/7. Escalamos tu empresa con rigurosa ingeniería.", "Active 24/7 continuous monitoring and support. We scale your company with the most rigorous software engineering."],
+                            ["ALGORITMO", "ALGORITHM"],
+                            ["DOMINANTE", "DOMINANT"],
+                            ["Nuestro enfoque técnico SEO asegura que el algoritmo te priorice.", isUK ? "Our profound technical SEO focus guarantees the algorithm strongly prioritises you." : "Our profound technical SEO focus guarantees the algorithm strongly prioritizes you."],
+                            ["Análisis de Datos", "Data Analytics"],
+                            ["Usamos datos reales para maximizar tus conversiones.", isUK ? "We use real data to maximise your conversions." : "We use real data to maximize your conversions."],
+                            ["Impulso de Tráfico", "Traffic Skyrocketing"],
+                            ["Aumenta drásticamente las visitas orgánicas de calidad.", "Drastically increase high-quality organic visitors."],
+                            ["ROI", "ROI"],
+                            ["INFRAESTRUCTURA", "INFRASTRUCTURE"],
+                            ["Hosting Premium Incluido", "Premium Hosting Included"],
+                            ["Despreocúpate de todo", "Leave everything to us"],
+                            ["Tu web merece el mejor hogar. Brindamos hosting de alto rendimiento gestionado para que te enfoques en tu negocio.", "Your website deserves the absolute best home. We provide actively managed high-performance hosting so you only focus on your business."],
+                            ["Mantenimiento 24/7", "24/7 Maintenance"],
+                            ["Soporte técnico continuo para garantizar 99.9% uptime.", "Continuous technical support architecture to guarantee 99.9% uptime."],
+                            ["Certificado SSL Gratis", "Free SSL Security Certificate"],
+                            ["Seguridad total para proteger los datos privados de tus usuarios.", "End-to-end military-grade security to fully protect your users' private data."],
+                            ["Sin Ataduras", "No Strings Attached"],
+                            ["Cancela cuando quieras y llévate tu web. Eres dueño absoluto de tu código.", "Cancel anytime and take your entire website with you. You own 100% of your source code."],
+                            ["99.9% EN LÍNEA", "99.9% UPTIME"],
+                            ["PROYECTOS", "SELECTED"],
+                            ["DESTACADOS", "PROJECTS"],
+                            ["Nuestro Portafolio / Proyectos Web Destacados", "Our Portfolio / Highlighted Web Projects"],
+                            ["Nuestro trabajo", "Our work"],
+                            ["RESTAURACIÓN DE TECHOS", "ROOF RESTORATIONS"],
+                            ["BIENES RAÍCES", "REAL ESTATE"],
+                            ["ENERGÍA SOLAR", "SOLAR ENERGY"],
+                            ["INICIA", "START"],
+                            ["TU PROYECTO", "YOUR PROJECT"],
+                            ["Construimos herramientas de venta. Contáctanos y empecemos a darle forma a tu éxito digital.", "We build sales tools. Reach out to us now and let's start architecting your digital success."],
+                            // Typewriter replacements
+                            ["Web Corporativa", "Corporate Web"],
+                            ["Tienda Online", "Online Store"],
+                            ["Plataforma SaaS", "SaaS Platform"]
+                        ];
+
+                        const textNodes = [];
+                        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+                        let node;
+                        while(node = walker.nextNode()) {
+                            textNodes.push(node);
+                        }
+                        
+                        textNodes.forEach(tNode => {
+                            let text = tNode.nodeValue;
+                            let changed = false;
+                            dict.forEach(([es, en]) => {
+                                if (text.includes(es)) {
+                                    text = text.split(es).join(en);
+                                    changed = true;
+                                }
+                            });
+                            if (changed) {
+                                tNode.nodeValue = text;
+                            }
+                        });
+
+                        // Set USD pricing
+                        document.querySelectorAll('.price-landing').forEach(el => el.innerText = '$80 USD');
+                        document.querySelectorAll('.price-ecommerce').forEach(el => el.innerText = '$160 USD');
+                        
+                        // Change Lang attribute
+                        document.documentElement.lang = "en";
+                    }
+                })
+                .catch(err => console.error(err));
         });
     </script>
 </body>
