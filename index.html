@@ -1420,7 +1420,8 @@
                     </h3>
                 </div>
                 <p class="text-slate-400 font-mono text-sm leading-relaxed mb-4 max-w-lg z-10 relative">
-                    Diseño y rendimiento de vanguardia. No seguimos tendencias; construimos la INFRAESTRUCTURA inquebrantable del futuro.
+                    Diseño y rendimiento de vanguardia. No seguimos tendencias; construimos la INFRAESTRUCTURA
+                    inquebrantable del futuro.
                 </p>
             </div>
 
@@ -2439,22 +2440,22 @@
                 .then(data => {
                     const country = data.country_code;
                     const esCountries = ['AR', 'ES', 'MX', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
-                    
+
                     if (!esCountries.includes(country)) {
                         const isUK = (country === 'GB');
-                        
+
                         const dict = [
-                            [/INICIALIZANDO/gi, isUK ? "INITIALISING" : "INITIALIZING"],
-                            [/>\s*Servicios\s*</gi, ">Services<"],
-                            [/>\s*Portafolio\s*</gi, ">Portfolio<"],
-                            [/>\s*Hosting\s*</gi, ">Hosting<"],
-                            [/>\s*Planes\s*</gi, ">Plans<"],
+                            [/\bINICIALIZANDO\b/g, isUK ? "INITIALISING" : "INITIALIZING"],
+                            [/^\s*Servicios\s*$/i, "Services"],
+                            [/^\s*Portafolio\s*$/i, "Portfolio"],
+                            [/^\s*Hosting\s*$/i, "Hosting"],
+                            [/^\s*Planes\s*$/i, "Plans"],
                             [/La\s*mejor\s*relación\s*calidad-precio/gi, isUK ? "The best quality-value ratio" : "The best quality-price ratio"],
                             [/Creamos\s*tu\s*próxima/gi, "We create your next"],
                             [/Construimos\s*experiencias\s*web\s*inmersivas\s*y\s*rápidas\s*para\s*hacer\s*tu\s*proyecto\s*soñado\s*una\s*realidad\.?/gi, "We build immersive and fast web experiences to make your dream project a reality."],
                             [/Diseñamos\s*y\s*desarrollamos\s*sitios\s*ultrarrápidos\s*que\s*convierten\s*visitantes\s*en\s*clientes\.?/gi, "We design and engineer lightning-fast digital storefronts that turn visitors into customers."],
-                            [/>\s*Ver\s*Opciones\s*</gi, ">View Options<"],
-                            [/>\s*Contactar\s*</gi, ">Contact<"],
+                            [/^\s*Ver\s*Opciones\s*$/i, "View Options"],
+                            [/^\s*Contactar\s*$/i, "Contact"],
                             [/HTML,\s*CSS\s*y\s*JS/g, "HTML, CSS & JS"],
                             [/Ultra\s*Rápido/gi, "Lightning Fast"],
                             [/Sistema:\s*Optimizado/gi, isUK ? "System: Optimised" : "System: Optimized"],
@@ -2469,7 +2470,7 @@
                             [/Estructura\s*optimizada\s*para\s*SEO/gi, isUK ? "Optimised structure for SEO" : "Optimized structure for SEO"],
                             [/Contacto\s*rápido\s*por\s*WhatsApp/gi, "Instant WhatsApp contact"],
                             [/Desde/g, "Starting from"],
-                            [/>\s*Consultar\s*</gi, ">Inquire<"],
+                            [/^\s*Consultar\s*$/i, "Inquire"],
                             [/ESCALA\s*RÁPIDO/gi, "SCALE RAPIDLY"],
                             [/TIENDA\s*ECOMMERCE/gi, "E-COMMERCE STORE"],
                             [/Gestión\s*de\s*catálogo\s*completa/gi, isUK ? "Full catalogue management" : "Full catalog management"],
@@ -2483,7 +2484,7 @@
                             [/Experiencia\s*de\s*App\s*Web\s*\(PWA\)/gi, "Scalable Web App (PWA)"],
                             [/Seguridad\s*nivel\s*empresarial/gi, "Enterprise-grade security"],
                             [/Listo\s*para\s*alto\s*tráfico/gi, "Ready for high traffic"],
-                            [/>\s*Cotizar\s*</gi, ">Request Quote<"],
+                            [/^\s*Cotizar\s*$/i, "Request Quote"],
                             [/COTIZACIÓN\s*A\s*MEDIDA/gi, "CUSTOM QUOTE"],
                             [/Por\s*qué\s*elegirnos/gi, "Why choose us"],
                             [/Nuestros\s*Valores:/gi, "Our Core Values:"],
@@ -2502,8 +2503,8 @@
                             [/Tecnología\s*de\s*punta\s*que\s*permite\s*añadir\s*nuevas\s*funciones\s*sin\s*problemas\.?/gi, "Cutting-edge technology that allows adding new capabilities seamlessly."],
                             [/Soporte\s*para\s*miles\s*de\s*usuarios,\s*desde\s*emprendimientos\s*hasta\s*grandes\s*empresas\.?/gi, "Support for thousands of users, from startups to large enterprises."],
                             [/INTEGRACIONES\s*Y\s*MEJORAS/gi, "INTEGRATIONS AND UPGRADES"],
-                            [/>\s*MÁS\s*</gi, ">ADDITIONAL<"],
-                            [/>\s*Funcionalidades\s*</gi, ">FEATURES<"],
+                            [/MÁS/g, "ADDITIONAL"],
+                            [/Funcionalidades/gi, "FEATURES"],
                             [/No\s*solo\s*construimos\s*páginas\s*webs,\s*cumplimos\s*con\s*todo\s*lo\s*que\s*necesites\.?/gi, "We don't just build websites; from brand logos to automations, we deliver exactly what you need."],
                             [/WhatsApp\s*con\s*IA\s*Automatizada/gi, "Automated AI WhatsApp"],
                             [/Chatbots\s*inteligentes\s*con\s*IA\s*que\s*interactúan\s*y\s*cierran\s*ventas\s*24\/7\s*por\s*WhatsApp\.?/gi, "Smart AI chatbots that engage your customers and close sales automatically, 24/7 directly through WhatsApp."],
@@ -2524,7 +2525,7 @@
                             [/Usamos\s*datos\s*reales\s*para\s*maximizar\s*tus\s*conversiones\.?/gi, isUK ? "We use real data to maximise your conversions." : "We use real data to maximize your conversions."],
                             [/Impulso\s*de\s*Tráfico/gi, "Traffic Skyrocketing"],
                             [/Aumenta\s*drásticamente\s*las\s*visitas\s*orgánicas\s*de\s*calidad\.?/gi, "Drastically increase high-quality organic visitors."],
-                            [/ROI/g, "ROI"],
+                            [/^ROI$/g, "ROI"],
                             [/INFRAESTRUCTURA/g, "INFRASTRUCTURE"],
                             [/Hosting\s*Premium\s*Incluido/gi, "Premium Hosting Included"],
                             [/Despreocúpate\s*de\s*todo/gi, "Leave everything to us"],
@@ -2548,26 +2549,22 @@
                             [/Diseño\s*y\s*rendimiento\s*de\s*vanguardia\.\s*No\s*seguimos\s*tendencias;\s*construimos\s*la\s*INFRAESTRUCTURA\s*inquebrantable\s*del\s*futuro\.?/gi, "Cutting-edge design and performance. We do not follow trends, we build the unshakeable INFRASTRUCTURE of the future."],
                             [/AGENCIA\s*DE\s*PAGINAS\s*WEB\.?/gi, "WEB AGENCY."],
                             [/Sistema\s*Online/gi, "System Online"],
-                            [/INICIA/gi, "START"],
+                            [/^INICIA$/gi, "START"],
                             [/TU\s*PROYECTO/gi, "YOUR PROJECT"],
-                            [/Construimos\s*herramientas\s*de\s*venta\.\s*Contáctanos\s*y\s*empecemos\s*a\s*darle\s*forma\s*a\s*tu\s*éxito\s*digital\.?/gi, "We build sales tools. Reach out to us now and let's start architecting your digital success."],
-                            // Typewriter replacements
-                            [/"Web\s*Corporativa"/gi, '"Corporate Web"'],
-                            [/"Tienda\s*Online"/gi, '"Online Store"'],
-                            [/"Plataforma\s*SaaS"/gi, '"SaaS Platform"']
+                            [/Construimos\s*herramientas\s*de\s*venta\.\s*Contáctanos\s*y\s*empecemos\s*a\s*darle\s*forma\s*a\s*tu\s*éxito\s*digital\.?/gi, "We build sales tools. Reach out to us now and let's start architecting your digital success."]
                         ];
 
-                        // First we run regex replacements on text nodes
                         const textNodes = [];
                         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
                         let node;
-                        while(node = walker.nextNode()) {
-                            // ignore text nodes in script tags
-                            if(node.parentElement.tagName !== 'SCRIPT' && node.parentElement.tagName !== 'STYLE') {
-                                textNodes.push(node);
+                        while (node = walker.nextNode()) {
+                            // ignore text nodes in script tags or styles
+                            if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) {
+                                continue;
                             }
+                            textNodes.push(node);
                         }
-                        
+
                         textNodes.forEach(tNode => {
                             let text = tNode.nodeValue;
                             let changed = false;
@@ -2581,49 +2578,18 @@
                                 tNode.nodeValue = text;
                             }
                         });
-                        
-                        // We also need to process the innerHTML for cases where html tags are embedded, since text nodes won't catch tags
-                        // For safe subset of tags (like in the array dictionary)
-                        let rawHtml = document.body.innerHTML;
-                        let domChanged = false;
-                        dict.forEach(([regex, en]) => {
-                            // if regex has tags or spans we can run it on innerHTML safely for those specific items
-                            if(regex.source.includes('>') || regex.source.includes('<')) {
-                                if(regex.test(rawHtml)) {
-                                    rawHtml = rawHtml.replace(regex, en);
-                                    domChanged = true;
-                                }
-                            }
-                        });
-                        if (domChanged) {
-                            document.body.innerHTML = rawHtml;
-                            // Need to re-bind event listeners if we blow away HTML, so we only run this for specific elements. 
-                            // Actually it's safer to just do the text node replacements for 99% of things, 
-                            // but our dict contains tags like >MÁS<
-                        }
-
-                        // Manually replace specific innerHTML things without blowing away events
-                        const allEls = document.querySelectorAll('*');
-                        allEls.forEach(el => {
-                            if(el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
-                                // Just a text node wrapper
-                                return;
-                            }
-                            dict.forEach(([regex, en]) => {
-                                if(regex.source.includes(' Serv') || regex.source.includes('>') || regex.source.includes('MÁS')) {
-                                    if(el.innerHTML && el.innerHTML.match(regex)) {
-                                        el.innerHTML = el.innerHTML.replace(regex, en);
-                                    }
-                                }
-                            });
-                        });
 
                         // Set USD pricing
                         document.querySelectorAll('.price-landing').forEach(el => el.innerText = '$80 USD');
                         document.querySelectorAll('.price-ecommerce').forEach(el => el.innerText = '$160 USD');
-                        
+
                         // Change Lang attribute
                         document.documentElement.lang = "en";
+
+                        // Optional: update typewriter object dynamically if running on page load
+                        if (typeof window.heroTypes !== 'undefined') {
+                            window.heroTypes = ["Corporate Web", "Online Store", "SaaS Platform"];
+                        }
                     }
                 })
                 .catch(err => console.error(err));
