@@ -13,6 +13,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <script>
+        // Hide page instantly if cached as English country (prevents Spanish flash)
+        (function () {
+            var ES = ['AR', 'ES', 'MX', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
+            var c = localStorage.getItem('ts_country');
+            var t = parseInt(localStorage.getItem('ts_country_ts') || '0');
+            if (c && !ES.includes(c) && (Date.now() - t) < 86400000) {
+                document.documentElement.style.visibility = 'hidden';
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>        tailwind.config = {
             darkMode: "class",
@@ -439,7 +450,7 @@
         <span
             class="text-white font-epic text-3xl md:text-6xl tracking-[0.5em] font-black px-4 text-center drop-shadow-[0_0_20px_rgba(242,13,13,0.8)]">INICIALIZANDO</span>
     </div>
-    <div class="hidden md:block fixed top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 transition-transform duration-500 ease-out"
+    <div class="block fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-4xl px-4 transition-transform duration-500 ease-out"
         id="epic-nav">
         <!-- Animated glowing border wrapper -->
         <div
@@ -532,8 +543,8 @@
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                     </span>
-                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">The best quality-price
-                        ratio</span>
+                    <span class="text-xs font-semibold text-primary uppercase tracking-wider">La mejor relación
+                        calidad-precio</span>
                 </div>
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight tracking-tight text-white font-display">
                     Creamos tu próxima <br />
@@ -541,13 +552,13 @@
                         id="hero-typewriter"></span><span class="text-primary animate-pulse ml-1">_</span>
                 </h1>
                 <p class="text-lg md:text-xl text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                    Diseñamos y desarrollamos sitios ultrarrápidos que convierten visitantes en clientes.
+                    Páginas web que cargan rápido, se ven increíbles y convierten visitas en ventas.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                    <a href="#plans" class="shiny-cta">
+                <div class="flex flex-row flex-wrap gap-3 justify-center lg:justify-start pt-4">
+                    <a href="#plans" class="shiny-cta hero-cta-mobile">
                         <span>Ver Opciones</span>
                     </a>
-                    <a href="#contact" class="shiny-cta shiny-cta-black">
+                    <a href="#contact" class="shiny-cta shiny-cta-black hero-cta-mobile">
                         <span>Contactar</span>
                     </a>
                 </div>
@@ -625,8 +636,8 @@
                 <h2
                     class="epic-scramble text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#aaa] via-white to-[#aaa] font-epic uppercase tracking-tighter drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] perspective-text">
                     NUESTROS PLANES</h2>
-                <p class="text-primary font-mono text-sm tracking-[0.5em] mt-6 uppercase">The most competitive prices on
-                    the market</p>
+                <p class="text-primary font-mono text-sm tracking-[0.5em] mt-6 uppercase">Sin sorpresas. Sin letra
+                    chica. Solo resultados.</p>
             </div>
 
             <div
@@ -646,14 +657,14 @@
                             <h3 class="text-3xl font-epic font-bold text-white mt-4 mb-2">LANDING PAGE</h3>
                             <div class="h-px bg-gradient-to-r from-slate-700 to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
-                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Diseño One-Page de alta conversión</li>
-                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Perfecto en pantallas móviles</li>
+                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Diseño
+                                    One-Page de alta conversión</li>
+                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Se ve
+                                    perfecto en cualquier celular</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
                                     Estructura optimizada para SEO</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Contacto rápido por WhatsApp</li>
+                                    Contacto directo por WhatsApp</li>
                             </ul>
                         </div>
 
@@ -669,8 +680,8 @@
                                     class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] price-landing">$80.000</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
-                            class="mt-6 block text-center w-full py-4 text-white font-sans text-sm font-semibold uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Consultar</a>
+                        <button onclick="openContactPopup()"
+                            class="mt-6 block text-center w-full py-4 text-white font-sans text-sm font-semibold uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">Consultar</button>
                     </div>
                 </div>
 
@@ -696,13 +707,13 @@
                             <div class="h-px bg-gradient-to-r from-primary to-transparent my-6"></div>
                             <ul class="space-y-4 text-sm font-display font-medium text-slate-300 mt-4">
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Gestión de catálogo completa</li>
-                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Integración de pagos sin fisuras</li>
-                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Carga ultra rápida</li>
-                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Diseño UX/UI espectacular</li>
+                                    Catálogo de productos completo</li>
+                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Pagos
+                                    integrados sin fricción</li>
+                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Carga
+                                    ultra rápida</li>
+                                <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span> Diseño
+                                    UX/UI que vende solo</li>
                             </ul>
                         </div>
 
@@ -718,15 +729,15 @@
                                     class="text-white font-display font-black text-4xl tracking-widest drop-shadow-[0_0_15px_rgba(242,13,13,0.5)] price-ecommerce">$160.000</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
-                            class="relative block text-center mt-6 w-full py-5 text-white font-sans font-bold text-sm uppercase tracking-[0.2em] bg-primary rounded-xl overflow-hidden group/btn hover:shadow-[0_0_30px_rgba(242,13,13,0.8)] transition-all">
+                        <button onclick="openContactPopup()"
+                            class="relative block text-center mt-6 w-full py-5 text-white font-sans font-bold text-sm uppercase tracking-[0.2em] bg-primary rounded-xl overflow-hidden group/btn hover:shadow-[0_0_30px_rgba(242,13,13,0.8)] transition-all cursor-pointer">
                             <span class="relative z-10">Consultar</span>
                             <div
                                 class="absolute inset-0 h-full w-full translate-y-full bg-white group-hover/btn:translate-y-0 transition-transform duration-300 ease-out z-0">
                             </div>
                             <span
                                 class="absolute inset-0 h-full w-full flex items-center justify-center text-primary z-20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 font-bold uppercase tracking-[0.2em]">Consultar</span>
-                        </a>
+                        </button>
                     </div>
                     <div
                         class="absolute -top-4 -right-4 bg-primary text-black font-epic font-bold text-[10px] uppercase px-4 py-2 rounded-full transform rotate-12 shadow-lg">
@@ -755,7 +766,7 @@
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
                                     Seguridad nivel empresarial</li>
                                 <li class="flex items-center gap-2"><span class="text-primary font-bold">✦</span>
-                                    Listo para alto tráfico</li>
+                                    Preparado para alto tráfico</li>
                             </ul>
                         </div>
 
@@ -765,12 +776,12 @@
                             <div
                                 class="bg-transparent border border-dashed border-slate-600 rounded-2xl px-6 py-4 relative overflow-hidden group/price hover:border-slate-400 transition-colors">
                                 <span
-                                    class="text-slate-300 font-display font-black text-2xl tracking-widest drop-shadow-md font-mono group-hover/price:text-white transition-colors">CUSTOM
-                                    QUOTE</span>
+                                    class="text-slate-300 font-display font-black text-2xl tracking-widest drop-shadow-md font-mono group-hover/price:text-white transition-colors">COTIZACIÓN
+                                    A MEDIDA</span>
                             </div>
                         </div>
-                        <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
-                            class="mt-6 block text-center w-full py-4 text-white font-sans font-semibold text-sm uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300">Cotizar</a>
+                        <button onclick="openContactPopup()"
+                            class="mt-6 block text-center w-full py-4 text-white font-sans font-semibold text-sm uppercase tracking-widest border border-slate-700 rounded-xl hover:bg-white hover:text-black transition-all duration-300 cursor-pointer">Cotizar</button>
                     </div>
                 </div>
             </div>
@@ -787,7 +798,7 @@
                     </h3>
                 </div>
                 <p class="text-slate-400 max-w-md text-base leading-relaxed">
-                    Convertimos tus ideas en sitios web potentes, rápidos y sorprendentes que generan resultados.
+                    Construimos páginas que realmente trabajan para vos — rápidas, prolijas y diseñadas para vender.
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -806,13 +817,12 @@
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
                         <li class="flex items-start gap-2"><span
                                 class="text-primary text-xs mt-1">✦</span><span>Velocidad de carga optimizada para que
-                                tus clientes no esperen un segundo.</span></li>
+                                tus clientes no esperen ni un segundo.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Un
+                                sitio rápido sube posiciones en Google y retiene más visitas.</span></li>
                         <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Rendimiento impecable que mejora tu
-                                posicionamiento en Google.</span></li>
-                        <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Experiencia de usuario fluida y rápida
-                                en cualquier dispositivo.</span></li>
+                                class="text-primary text-xs mt-1">✦</span><span>Experiencia fluida en cualquier
+                                dispositivo, sin importar la pantalla.</span></li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
                 </div>
@@ -831,13 +841,11 @@
                     <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">UI PERSONALIZADA</h4>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
                         <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Diseños
-                                únicos creados desde cero para que tu marca destaque.</span></li>
-                        <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Interfaces modernas y atractivas que
-                                reflejan la identidad de tu negocio.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Sin
-                                plantillas genéricas: cada detalle está pensado para impactar a tu audiencia.</span>
-                        </li>
+                                únicos creados desde cero — sin plantillas, sin copias.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Tu
+                                marca merece una identidad visual que la haga memorable.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Cada
+                                pixel pensado para que tu negocio cause impacto.</span></li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
                 </div>
@@ -855,14 +863,13 @@
                     </div>
                     <h4 class="text-xl font-bold text-white mb-4 relative z-10 uppercase">ESCALABILIDAD</h4>
                     <ul class="space-y-3 text-slate-400 text-sm leading-relaxed relative z-10 mb-6">
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Tu web
+                                crece con tu negocio — sin tener que empezar de cero.</span></li>
                         <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Estructura sólida preparada para crecer
-                                al ritmo de tus ventas.</span></li>
-                        <li class="flex items-start gap-2"><span
-                                class="text-primary text-xs mt-1">✦</span><span>Tecnología de punta que permite añadir
-                                nuevas funciones sin problemas.</span></li>
-                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>Soporte
-                                para miles de usuarios, desde emprendimientos hasta grandes empresas.</span></li>
+                                class="text-primary text-xs mt-1">✦</span><span>Tecnología moderna que permite agregar
+                                nuevas funciones cuando las necesités.</span></li>
+                        <li class="flex items-start gap-2"><span class="text-primary text-xs mt-1">✦</span><span>De
+                                emprendimiento a gran empresa: la misma infraestructura te soporta.</span></li>
                     </ul>
                     <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
                 </div>
@@ -881,13 +888,13 @@
                     </span>
                     <h2
                         class="text-[28px] sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase font-epic tracking-tighter feature-title leading-none">
-                        <span class="epic-scramble inline-block">MÁS</span> <span
-                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">Funcionalidades</span>
+                        <span class="epic-scramble inline-block">FUNCIONES</span> <span
+                            class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-600 block md:inline">EXTRA</span>
                     </h2>
                 </div>
                 <p
                     class="text-slate-400 font-mono text-sm max-w-sm mx-auto md:mx-0 mt-6 md:mt-0 leading-relaxed text-right feature-para hidden md:block">
-                    No solo construimos páginas webs, cumplimos con todo lo que necesites.
+                    No sólo hacemos páginas — también automatizamos tu negocio para que trabaje solo.
                 </p>
             </div>
 
@@ -902,8 +909,8 @@
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">smart_toy</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">WhatsApp con IA
                         Automatizada</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Chatbots inteligentes con IA que
-                        interactúan y cierran ventas 24/7 por WhatsApp.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Chatbots inteligentes que atienden a
+                        tus clientes y cierran ventas 24/7 sin que muevas un dedo.</p>
                 </div>
                 <!-- Feature 2 -->
                 <div
@@ -915,8 +922,8 @@
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">admin_panel_settings</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Panel de Administración
                     </h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Control total sobre tus contenidos y
-                        ajustes mediante un panel administrativo seguro.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Manejá tu contenido y
+                        configuraciones desde un panel seguro y fácil de usar.</p>
                 </div>
                 <!-- Feature 3 -->
                 <div
@@ -927,8 +934,8 @@
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">translate</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Multi Idiomas</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Expándete globalmente con
-                        traducciones automáticas avanzadas.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Llegá a clientes de todo el mundo
+                        con traducciones automáticas y precisas.</p>
                 </div>
                 <!-- Feature 4 -->
                 <div
@@ -939,9 +946,8 @@
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">calendar_month</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Calendario de Citas</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Integrated online booking system
-                        allowing your clients to easily schedule appointments or consultations 24/7 directly from your
-                        website.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Sistema de reservas integrado para
+                        que tus clientes agenden citas y consultas 24/7 directamente desde tu web.</p>
                 </div>
                 <!-- Feature 5 -->
                 <div
@@ -952,8 +958,8 @@
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">find_in_page</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Arquitectura SEO</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Indexación agresiva. Marcado W3C
-                        válido que subirá tu posición en Google orgánicamente.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Indexación técnica avanzada para que
+                        Google te muestre antes que a tu competencia.</p>
                 </div>
                 <!-- Feature 6 -->
                 <div
@@ -964,8 +970,8 @@
                     <span
                         class="material-symbols-outlined text-4xl text-primary mb-6 block relative z-10 transition-transform duration-500 group-hover:scale-110">construction</span>
                     <h3 class="text-xl font-bold text-white mb-3 relative z-10 tracking-wide">Mantenimiento Global</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Monitoreo activo y soporte 24/7.
-                        Escalamos tu empresa con rigurosa ingeniería.</p>
+                    <p class="text-slate-400 text-sm leading-relaxed relative z-10">Monitoreo constante y soporte para
+                        que tu web nunca tenga problemas.</p>
                 </div>
             </div>
 
@@ -991,7 +997,7 @@
                         class="epic-scramble text-transparent bg-clip-text bg-gradient-to-r from-primary to-red-500">DOMINANTE</span>
                 </h2>
                 <p class="text-slate-400 text-sm md:text-base mb-8 leading-relaxed font-mono">
-                    Nuestro enfoque técnico SEO asegura que el algoritmo te priorice.
+                    Aplicamos SEO técnico real para que el algoritmo de Google trabaje a tu favor.
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-4">
@@ -1000,8 +1006,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-bold">Análisis de Datos</h4>
-                            <p class="text-slate-500 text-sm">Usamos datos reales para maximizar tus conversiones.
-                            </p>
+                            <p class="text-slate-500 text-sm">Usamos datos reales para maximizar tus conversiones.</p>
                         </div>
                     </li>
                     <li class="flex items-start gap-4">
@@ -1010,8 +1015,8 @@
                         </div>
                         <div>
                             <h4 class="text-white font-bold">Impulso de Tráfico</h4>
-                            <p class="text-slate-500 text-sm">Aumenta drásticamente las visitas orgánicas de calidad.
-                            </p>
+                            <p class="text-slate-500 text-sm">Más visitas orgánicas, de gente que ya está buscando lo
+                                que ofrecés.</p>
                         </div>
                     </li>
                 </ul>
@@ -1051,8 +1056,8 @@
                         Hosting Premium Incluido <br /> <span class="text-slate-400">Despreocúpate de todo</span>
                     </h3>
                     <p class="text-slate-400 text-lg">
-                        Tu web merece el mejor hogar. Brindamos hosting de alto rendimiento gestionado para que te
-                        enfoques en tu negocio.
+                        Tu web en los mejores servidores. Nosotros nos encargamos de todo para que vos te enfoques en tu
+                        negocio.
                     </p>
                     <ul class="space-y-6 mt-8">
                         <li class="flex gap-4 items-start group">
@@ -1062,8 +1067,8 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-bold text-lg">Mantenimiento 24/7</h4>
-                                <p class="text-slate-500 text-sm mt-1">Soporte técnico continuo para garantizar 99.9% EN
-                                    LÍNEA.</p>
+                                <p class="text-slate-500 text-sm mt-1">Soporte técnico permanente para garantizar que tu
+                                    web siempre funcione.</p>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start group">
@@ -1073,8 +1078,8 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-bold text-lg">Certificado SSL Gratis</h4>
-                                <p class="text-slate-500 text-sm mt-1">Seguridad total para proteger los datos privados
-                                    de tus usuarios.</p>
+                                <p class="text-slate-500 text-sm mt-1">Conexión segura incluida para que tus visitantes
+                                    confíen en tu sitio.</p>
                             </div>
                         </li>
                         <li class="flex gap-4 items-start group">
@@ -1084,8 +1089,8 @@
                             </div>
                             <div>
                                 <h4 class="text-white font-bold text-lg">Sin Ataduras</h4>
-                                <p class="text-slate-500 text-sm mt-1">Cancela cuando quieras y llévate tu web. Eres
-                                    dueño absoluto de tu código.</p>
+                                <p class="text-slate-500 text-sm mt-1">Cancelá cuando quieras y te quedás con todo el
+                                    código. Tu web es 100% tuya.</p>
                             </div>
                         </li>
                     </ul>
@@ -1308,7 +1313,7 @@
             </h2>
             <p
                 class="text-slate-400 font-mono tracking-widest text-base md:text-lg mb-16 max-w-2xl mx-auto uppercase contact-para-gsap">
-                Construimos herramientas de venta. Contáctanos y empecemos a darle forma a tu éxito digital.</p>
+                Contactanos hoy y empezamos. Sin vueltas.</p>
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center w-full max-w-5xl mx-auto">
                 <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
@@ -1370,6 +1375,62 @@
         </div>
     </section>
 
+    <!-- Contact Popup Modal -->
+    <div id="contact-popup"
+        class="fixed inset-0 z-[200] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300"
+        onclick="closeContactPopup()">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm pointer-events-none"></div>
+        <div id="contact-popup-card"
+            class="relative z-10 w-[90vw] max-w-md mx-auto pointer-events-auto scale-90 transition-transform duration-300"
+            onclick="event.stopPropagation()">
+            <div class="bg-[#0a0a0a] border border-slate-800 rounded-3xl p-8 shadow-[0_0_80px_rgba(242,13,13,0.15)]">
+                <button onclick="closeContactPopup()"
+                    class="absolute top-4 right-5 text-slate-500 hover:text-white transition-colors text-2xl leading-none">&times;</button>
+                <h3 class="text-white font-epic text-xl md:text-2xl font-bold mb-2 tracking-wide popup-title">¿Cómo
+                    querés contactarnos?</h3>
+                <p class="text-slate-500 text-sm font-mono mb-8 popup-subtitle">Respondemos rápido. Elegí tu canal
+                    favorito.</p>
+                <div class="flex flex-col gap-4">
+                    <a id="popup-whatsapp" href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-4 p-5 rounded-2xl bg-green-500/10 border border-green-500/30 hover:border-green-400 hover:bg-green-500/20 transition-all duration-300">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="text-green-400" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.065 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.708 1.916.808 2.049c.1.133 1.394 2.132 3.377 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-base popup-wa-label">WhatsApp</div>
+                            <div class="text-green-500 text-xs font-mono popup-wa-sub">+54 9 11 6587-0093 · Respuesta
+                                inmediata</div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-600 group-hover:text-green-400 transition-colors ml-auto">arrow_forward</span>
+                    </a>
+                    <a href="mailto:claudio.rossi@thamesites.store?subject=Consulta&body=Hola%2C%20me%20interesa..."
+                        target="_blank" rel="noopener noreferrer"
+                        class="group flex items-center gap-4 p-5 rounded-2xl bg-primary/10 border border-primary/30 hover:border-primary hover:bg-primary/20 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                class="text-primary" viewBox="0 0 16 16">
+                                <path
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="text-white font-bold text-base popup-email-label">Email</div>
+                            <div class="text-primary/80 text-xs font-mono">claudio.rossi@thamesites.store</div>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-slate-600 group-hover:text-primary transition-colors ml-auto">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating WhatsApp Fixed Icon -->
     <a href="https://wa.me/5491165870093" target="_blank" rel="noopener noreferrer"
         class="fixed bottom-8 right-8 z-50 flex items-center justify-center size-14 md:size-20 rounded-full bg-green-500 hover:bg-green-400 text-white shadow-[0_0_20px_rgba(34,197,94,0.4)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all hover:-translate-y-2 hover:scale-110 group cursor-pointer">
@@ -1420,8 +1481,7 @@
                     </h3>
                 </div>
                 <p class="text-slate-400 font-mono text-sm leading-relaxed mb-4 max-w-lg z-10 relative">
-                    Diseño y rendimiento de vanguardia. No seguimos tendencias; construimos la INFRAESTRUCTURA
-                    inquebrantable del futuro.
+                    No seguimos tendencias. Construimos la web que tu negocio necesita para crecer.
                 </p>
             </div>
 
@@ -1955,35 +2015,39 @@
                     "-=0.8"
                 )
                 .fromTo(".contact-btn-gsap",
-                    { scale: 0.5, opacity: 0 },
+                    { y: 30, opacity: 0 },
                     {
-                        scale: 1,
+                        y: 0,
                         opacity: 1,
-                        duration: 1.2,
-                        ease: "elastic.out(1, 0.5)"
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: "power3.out"
                     },
-                    "-=0.6"
+                    "-=0.4"
                 );
 
-            // Typewriter Effect (Gokywebs styled)
-            const phrases = ["Web Corporativa", "Tienda Online", "Landing Page", "Plataforma SaaS"];
+            // Typewriter Effect
+            window._twPhrases = ["Web Corporativa", "Tienda Online", "Landing Page", "Plataforma SaaS"];
             let phraseIndex = 0;
             let letterIndex = 0;
             let currentPhrase = "";
             let isDeleting = false;
             let typeSpeed = 80;
+            let twActive = true;
 
             const typewriterElement = document.getElementById("hero-typewriter");
 
             function typeWriter() {
-                if (!typewriterElement) return;
+                if (!typewriterElement || !twActive) return;
 
+                const phrases = window._twPhrases;
+                phraseIndex = phraseIndex % phrases.length;
                 const fullPhrase = phrases[phraseIndex];
 
                 if (isDeleting) {
                     currentPhrase = fullPhrase.substring(0, letterIndex - 1);
                     letterIndex--;
-                    typeSpeed = 40; // faster deletion
+                    typeSpeed = 40;
                 } else {
                     currentPhrase = fullPhrase.substring(0, letterIndex + 1);
                     letterIndex++;
@@ -1992,20 +2056,22 @@
 
                 typewriterElement.textContent = currentPhrase;
 
-                // Word completed
                 if (!isDeleting && currentPhrase === fullPhrase) {
-                    typeSpeed = 2000; // Pause at end of text
+                    typeSpeed = 2000;
                     isDeleting = true;
                 } else if (isDeleting && currentPhrase === "") {
-                    // Fully deleted
                     isDeleting = false;
                     phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typeSpeed = 300; // Pause before typing new text
+                    typeSpeed = 300;
                 }
 
                 setTimeout(typeWriter, typeSpeed);
             }
-            // Start typewriter
+            // Allow language switcher to update phrases
+            window._typewriterSetEN = function (newPhrases) {
+                window._twPhrases = newPhrases;
+                phraseIndex = 0; letterIndex = 0; currentPhrase = ""; isDeleting = false;
+            };
             setTimeout(typeWriter, 1000);
 
             // Features Section Animations (GSAP Staggering)
@@ -2182,22 +2248,28 @@
             const scrambles = document.querySelectorAll('.epic-scramble');
 
             scrambles.forEach(el => {
-                const originalText = el.innerText.trim();
-                el.style.minWidth = el.offsetWidth + 'px'; // Prevent jumping
-                el.innerText = ""; // Clear text initially so plugin builds it
+                // Store original text but don't clear — let language switcher update if needed
+                el.dataset.originalText = el.innerText.trim();
+                el.style.minWidth = el.offsetWidth + 'px';
+                // Hide visually until animation, but keep in flow
+                gsap.set(el, { opacity: 0 });
 
                 ScrollTrigger.create({
                     trigger: el,
                     start: "top 90%",
                     onEnter: () => {
+                        // Use current text (may have been translated) or original
+                        const text = (el.innerText.trim() || el.dataset.originalText);
+                        el.innerText = "";
+                        gsap.set(el, { opacity: 1 });
                         gsap.to(el, {
                             duration: 0.7,
                             scrambleText: {
-                                text: originalText,
+                                text: text,
                                 chars: scrambleChars,
                                 revealDelay: 0.05,
                                 speed: 1,
-                                rightToLeft: true // backward decode behaviour
+                                rightToLeft: true
                             }
                         });
                     }
@@ -2343,6 +2415,34 @@
         }
         // ]]>
     </script>
+    <script>
+        function openContactPopup() {
+            const popup = document.getElementById('contact-popup');
+            const card = document.getElementById('contact-popup-card');
+            popup.style.visibility = 'visible';
+            popup.style.opacity = '1';
+            popup.style.pointerEvents = 'auto';
+            card.style.transform = 'scale(1)';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactPopup() {
+            const popup = document.getElementById('contact-popup');
+            const card = document.getElementById('contact-popup-card');
+            popup.style.opacity = '0';
+            popup.style.pointerEvents = 'none';
+            card.style.transform = 'scale(0.9)';
+            // visibility:hidden blocks ALL child pointer events, applied after fade
+            setTimeout(() => { popup.style.visibility = 'hidden'; }, 300);
+            document.body.style.overflow = '';
+        }
+        // Initial state: fully hidden on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('contact-popup');
+            if (popup) popup.style.visibility = 'hidden';
+        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeContactPopup(); });
+    </script>
+
     <div id="custom-cursor"
         class="pointer-events-none fixed top-0 left-0 w-8 h-8 border-2 border-primary rounded-full z-[9999] mix-blend-difference hidden lg:block transition-transform duration-100 ease-out transform -translate-x-1/2 -translate-y-1/2">
     </div>
@@ -2359,6 +2459,13 @@
             input,
             textarea {
                 cursor: none !important;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .hero-cta-mobile {
+                padding: 0.8rem 1.4rem !important;
+                font-size: 0.9rem !important;
             }
         }
     </style>
@@ -2384,265 +2491,254 @@
                 });
             });
         }
-
-        // Dynamic country-based iMessage swap
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    const targetCountries = ['US', 'CA', 'AU'];
-                    if (targetCountries.includes(data.country_code) || targetCountries.includes(data.country)) {
-                        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-                            link.href = 'sms:+18324959977';
-
-                            const walker = document.createTreeWalker(link, NodeFilter.SHOW_TEXT, null, false);
-                            let node;
-                            while (node = walker.nextNode()) {
-                                if (node.nodeValue.includes('WHATSAPP')) {
-                                    node.nodeValue = node.nodeValue.replace('WHATSAPP', 'MESSAGE');
-                                }
-                                if (node.nodeValue.includes('+54') || node.nodeValue.includes('6587-0093')) {
-                                    node.nodeValue = '+1 832-495-9977';
-                                }
-                            }
-
-                            const svgs = link.querySelectorAll('svg');
-                            svgs.forEach(svg => {
-                                if (svg.innerHTML.includes('13.601') || svg.innerHTML.includes('zM7.994')) {
-                                    svg.innerHTML = '<path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>';
-                                    if (svg.getAttribute("viewBox") === "0 0 16 16") {
-                                        // ensure proper rendering of new path
-                                    }
-                                }
-                            });
-
-                            const replaceClasses = (el) => {
-                                Array.from(el.classList).forEach(cls => {
-                                    if (cls.includes('green')) {
-                                        el.classList.replace(cls, cls.replace('green', 'blue'));
-                                    }
-                                });
-                            };
-                            replaceClasses(link);
-                            link.querySelectorAll('*').forEach(child => replaceClasses(child));
-                        });
-                    }
-                })
-                .catch(err => console.error('IP fetch error:', err));
-        });
     </script>
 
-    <!-- Dynamic Language & Currency Switcher -->
+    <!-- Dynamic Language, Currency & Contact Switcher (merged, fast) -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('https://ipapi.co/json/')
-                .then(res => res.json())
-                .then(data => {
-                    const country = data.country_code;
-                    const esCountries = ['AR', 'ES', 'MX', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
+        (function () {
+            const ES_COUNTRIES = ['AR', 'ES', 'MX', 'CO', 'PE', 'VE', 'CL', 'EC', 'GT', 'CU', 'BO', 'DO', 'HN', 'PY', 'SV', 'NI', 'CR', 'PR', 'PA', 'UY', 'GQ'];
+            const iMessage_COUNTRIES = ['US', 'CA', 'AU'];
+            const CACHE_KEY = 'ts_country';
+            const CACHE_TTL = 24 * 60 * 60 * 1000; // 24h
 
-                    if (!esCountries.includes(country)) {
-                        const isUK = (country === 'GB');
+            function buildDict(country) {
+                const isUK = (country === 'GB');
+                return [
+                    // ---- HEADER / MENU ----
+                    [/INICIALIZANDO/gi, isUK ? "INITIALISING" : "INITIALIZING"],
+                    [/^\s*Servicios\s*$/i, "Services"],
+                    [/^\s*Portafolio\s*$/i, "Portfolio"],
+                    [/^\s*Hosting\s*$/i, "Hosting"],
+                    [/^\s*Planes\s*$/i, "Plans"],
+                    [/^\s*Ver\s*Opciones\s*$/i, "View Plans"],
+                    [/^\s*Contactar\s*$/i, "Contact"],
 
-                        const dict = [
+                    // ---- HERO ----
+                    [/La\s*mejor\s*relación\s*calidad-precio/gi, isUK ? "The best quality-value in the market" : "The best quality-price ratio"],
+                    [/Creamos\s*tu\s*próxima/gi, "We build your next"],
+                    [/Páginas\s*web\s*que\s*cargan\s*rápido,\s*se\s*ven\s*increíbles\s*y\s*convierten\s*visitas\s*en\s*ventas\.?/gi, isUK ? "Websites that load fast, look incredible, and turn traffic into sales." : "Websites that load fast, look amazing, and turn traffic into sales."],
+                    [/HTML,\s*CSS\s*y\s*JS/gi, "HTML, CSS & JS"],
+                    [/Ultra\s*Rápido/gi, "Lightning Fast"],
+                    [/Sistema:\s*Optimizado/gi, isUK ? "System: Optimised" : "System: Optimized"],
+                    [/Desplegando\.\.\./gi, "Deploying..."],
+                    [/^\s*EN\s+LÍNEA\s*$/gi, "ONLINE"],
 
-    // ---- HEADER / MENU ----
-    [/INICIALIZANDO/gi, isUK ? "INITIALISING" : "INITIALIZING"],
-    [/^\s*Servicios\s*$/i, "Services"],
-    [/^\s*Portafolio\s*$/i, "Portfolio"],
-    [/^\s*Hosting\s*$/i, "Hosting"],
-    [/^\s*Planes\s*$/i, "Plans"],
-    [/>\s*Ver\s*Opciones\s*</gi, ">View Options<"],
-    [/^\s*Contactar\s*$/i, "Contact"],
-    [/WHATSAPP/gi, "WHATSAPP"], // Just passing it over
+                    // ---- PLAN SECTION ----
+                    [/NUESTROS\s*PLANES/gi, "OUR PLANS"],
+                    [/Sin\s*sorpresas\.\s*Sin\s*letra\s*chica\.\s*Solo\s*resultados\.?/gi, "No hidden fees. No nonsense. Just results."],
+                    [/Lanza\s*Rápido/gi, "Launch Fast"],
+                    [/LANDING\s*PAGE/gi, "LANDING PAGE"],
+                    [/Diseño\s*One-Page\s*de\s*alta\s*conversión/gi, "High-converting one-page design"],
+                    [/Perfecto\s*en\s*pantallas\s*móviles/gi, "Flawless on mobile screens"],
+                    [/Estructura\s*optimizada\s*para\s*SEO/gi, isUK ? "Optimised structure for SEO" : "Optimized structure for SEO"],
+                    [/Contacto\s*rápido\s*por\s*WhatsApp/gi, "Direct WhatsApp contact"],
+                    [/^\s*Desde\s*$/gi, "Starting from"],
+                    [/^\s*Consultar\s*$/i, "Get a Quote"],
 
-    // ---- HERO ----
-    [/La\s*mejor\s*relación\s*calidad-precio/gi, isUK ? "The best quality-value ratio" : "The best quality-price ratio"],
-    [/Creamos\s*tu\s*próxima/gi, "We create your next"],
-    [/Diseñamos\s*y\s*desarrollamos\s*sitios\s*ultrarrápidos\s*que\s*convierten\s*visitantes\s*en\s*clientes\.?/gi, "We design and engineer lightning-fast digital storefronts that turn visitors into customers."],
-    [/"Web\s*Corporativa"/gi, '"Corporate Web"'],
-    [/"Tienda\s*Online"/gi, '"Online Store"'],
-    [/"Plataforma\s*SaaS"/gi, '"SaaS Platform"'],
+                    [/ESCALA\s*RÁPIDO/gi, "SCALE FAST"],
+                    [/TIENDA\s*ECOMMERCE/gi, "E-COMMERCE STORE"],
+                    [/Gestión\s*de\s*catálogo\s*completa/gi, isUK ? "Full catalogue management" : "Full catalog management"],
+                    [/Integración\s*de\s*pagos\s*sin\s*fisuras/gi, "Seamless payment integration"],
+                    [/Carga\s*ultra\s*rápida/gi, "Lightning-fast loading"],
+                    [/Diseño\s*UX\/UI\s*espectacular/gi, "Stunning UX/UI design"],
+                    [/Más\s*Elegido/gi, "Most Popular"],
 
-    // ---- TECH LOGOS (Tags like HTML, CSS y JS) ----
-    [/HTML,\s*CSS\s*y\s*JS/gi, "HTML, CSS & JS"],
-    [/Ultra\s*Rápido/gi, "Lightning Fast"],
-    [/Sistema:\s*Optimizado/gi, isUK ? "System: Optimised" : "System: Optimized"],
-    [/Desplegando\.\.\./gi, "Deploying..."],
-    [/^\s*EN\s+LÍNEA\s*$/gi, "ONLINE"],
+                    [/^\s*A\s*MEDIDA\s*$/gi, "TAILOR MADE"],
+                    [/SISTEMA\s*A\s*MEDIDA/gi, "CUSTOM BUILD"],
+                    [/Arquitectura\s*100%\s*a\s*medida/gi, "100% bespoke architecture"],
+                    [/Experiencia\s*de\s*App\s*Web\s*\(PWA\)/gi, "Scalable Web App (PWA)"],
+                    [/Seguridad\s*nivel\s*empresarial/gi, "Enterprise-grade security"],
+                    [/Listo\s*para\s*alto\s*tráfico/gi, "Built for high traffic"],
+                    [/^\s*Cotizar\s*$/i, "Get a Quote"],
+                    [/COTIZACIÓN\s*A\s*MEDIDA/gi, "CUSTOM QUOTE"],
 
-    // ---- PLAN SECTION ----
-    [/NUESTROS\s*PLANES/gi, "OUR PLANS"],
-    [/Los\s*precios\s*más\s*bajos\s*del\s*mercado/gi, "The most competitive prices on the market"],
-    [/Lanza\s*Rápido/gi, "Launch Fast"],
-    [/LANDING\s*PAGE/gi, "LANDING PAGE"],
-    [/Diseño\s*One-Page\s*de\s*alta\s*conversión/gi, "High-converting one-page design"],
-    [/Perfecto\s*en\s*pantallas\s*móviles/gi, "Flawless on mobile screens"],
-    [/Estructura\s*optimizada\s*para\s*SEO/gi, isUK ? "Optimised structure for SEO" : "Optimized structure for SEO"],
-    [/Contacto\s*rápido\s*por\s*WhatsApp/gi, "Instant WhatsApp contact"],
-    [/^\s*Desde\s*$/gi, "Starting from"],
-    [/^\s*Consultar\s*$/i, "Inquire"],
+                    // ---- WHY CHOOSE US ----
+                    [/Por\s*qué\s*elegirnos/gi, "Why choose us"],
+                    [/Que\s*ofrecemos:/gi, "What we do:"],
+                    [/Construimos\s*páginas\s*que\s*realmente\s*trabajan\s*para\s*vos\s*—\s*rápidas,\s*prolijas\s*y\s*diseñadas\s*para\s*vender\.?/gi, "We build websites that work hard for your business — fast, polished, and designed to sell."],
 
-    [/ESCALA\s*RÁPIDO/gi, "SCALE RAPIDLY"],
-    [/TIENDA\s*ECOMMERCE/gi, "E-COMMERCE STORE"],
-    [/Gestión\s*de\s*catálogo\s*completa/gi, isUK ? "Full catalogue management" : "Full catalog management"],
-    [/Integración\s*de\s*pagos\s*sin\s*fisuras/gi, "Seamless payment gateways"],
-    [/Carga\s*ultra\s*rápida/gi, "Lightning-fast loading"],
-    [/Diseño\s*UX\/UI\s*espectacular/gi, "Stunning UX/UI design"],
-    [/Más\s*Elegido/gi, "Most Popular"],
+                    [/ALTO\s*RENDIMIENTO/gi, "HIGH PERFORMANCE"],
+                    [/Velocidad\s*de\s*carga\s*optimizada\s*para\s*que\s*tus\s*clientes\s*no\s*esperen\s*ni\s*un\s*segundo\.?/gi, isUK ? "Optimised loading speed — your customers won't wait a second." : "Optimized loading speed — your customers won't wait a second."],
+                    [/Un\s*sitio\s*rápido\s*sube\s*posiciones\s*en\s*Google\s*y\s*retiene\s*más\s*visitas\.?/gi, "A fast site ranks higher on Google and keeps more visitors."],
+                    [/Experiencia\s*fluida\s*en\s*cualquier\s*dispositivo,\s*sin\s*importar\s*la\s*pantalla\.?/gi, "Smooth experience on any device, no matter the screen size."],
 
-    [/^\s*A\s*MEDIDA\s*$/gi, "TAILOR MADE"],
-    [/SISTEMA\s*A\s*MEDIDA/gi, "CUSTOM SYSTEM"],
-    [/Arquitectura\s*100%\s*a\s*medida/gi, "100% bespoke architecture"],
-    [/Experiencia\s*de\s*App\s*Web\s*\(PWA\)/gi, "Scalable Web App (PWA)"],
-    [/Seguridad\s*nivel\s*empresarial/gi, "Enterprise-grade security"],
-    [/Listo\s*para\s*alto\s*tráfico/gi, "Ready for high traffic"],
-    [/^\s*Cotizar\s*$/i, "Request Quote"],
-    [/COTIZACIÓN\s*A\s*MEDIDA/gi, "CUSTOM QUOTE"],
+                    [/UI\s*PERSONALIZADA/gi, "CUSTOM UI"],
+                    [/Diseños\s*únicos\s*creados\s*desde\s*cero\s*—\s*sin\s*plantillas,\s*sin\s*copias\.?/gi, "Unique designs built from scratch — no templates, no copies."],
+                    [/Tu\s*marca\s*merece\s*una\s*identidad\s*visual\s*que\s*la\s*haga\s*memorable\.?/gi, "Your brand deserves a visual identity that makes it unforgettable."],
+                    [/Cada\s*pixel\s*pensado\s*para\s*que\s*tu\s*negocio\s*cause\s*impacto\.?/gi, "Every pixel crafted to make your business leave a lasting impression."],
 
-    // ---- WHY CHOOSE US ----
-    [/Por\s*qué\s*elegirnos/gi, "Why choose us"],
-    [/Que\s*ofrecemos:/gi, "What we offer:"],
-    [/Convertimos\s*tus\s*ideas\s*en\s*sitios\s*web\s*potentes,\s*rápidos\s*y\s*sorprendentes\s*que\s*generan\s*resultados\.?/gi, "We turn your ideas into powerful, fast, and stunning websites that drive real results."],
+                    [/ESCALABILIDAD/gi, "SCALABILITY"],
+                    [/Tu\s*web\s*crece\s*con\s*tu\s*negocio\s*—\s*sin\s*tener\s*que\s*empezar\s*de\s*cero\.?/gi, "Your website grows with your business — no need to start from scratch."],
+                    [/Tecnología\s*moderna\s*que\s*permite\s*agregar\s*nuevas\s*funciones\s*cuando\s*las\s*necesités\.?/gi, "Modern tech that lets you add new features whenever you need them."],
+                    [/De\s*emprendimiento\s*a\s*gran\s*empresa:\s*la\s*misma\s*infraestructura\s*te\s*soporta\.?/gi, "From startup to enterprise — the same infrastructure scales with you."],
 
-    [/ALTO\s*RENDIMIENTO/gi, "HIGH PERFORMANCE"],
-    [/Velocidad\s*de\s*carga\s*optimizada\s*para\s*que\s*tus\s*clientes\s*no\s*esperen\s*un\s*segundo\.?/gi, isUK ? "Optimised loading speed so your customers don't wait a single second." : "Optimized loading speed so your customers don't wait a single second."],
-    [/Rendimiento\s*impecable\s*que\s*mejora\s*tu\s*posicionamiento\s*en\s*Google\.?/gi, "Flawless performance that improves your Google ranking."],
-    [/Experiencia\s*de\s*usuario\s*fluida\s*y\s*rápida\s*en\s*cualquier\s*dispositivo\.?/gi, "Smooth and fast user experience on any device."],
+                    // ---- FEATURES GRID ----
+                    [/INTEGRACIONES\s*Y\s*MEJORAS/gi, "INTEGRATIONS & ADD-ONS"],
+                    [/^\s*FUNCIONES\s*$/gi, "EXTRA"],
+                    [/^\s*EXTRA\s*$/gi, "FEATURES"],
+                    [/No\s*sólo\s*hacemos\s*páginas\s*—\s*también\s*automatizamos\s*tu\s*negocio\s*para\s*que\s*trabaje\s*solo\.?/gi, "We don't just build websites — we automate your business so it runs on autopilot."],
 
-    [/UI\s*PERSONALIZADA/gi, "CUSTOM UI"],
-    [/Diseños\s*únicos\s*creados\s*desde\s*cero\s*para\s*que\s*tu\s*marca\s*destaque\.?/gi, "Unique designs built from scratch so your brand stands out from the competition."],
-    [/Interfaces\s*modernas\s*y\s*atractivas\s*que\s*reflejan\s*la\s*identidad\s*de\s*tu\s*negocio\.?/gi, "Modern and attractive interfaces that reflect your business identity."],
-    [/Sin\s*plantillas\s*genéricas:\s*cada\s*detalle\s*está\s*pensado\s*para\s*impactar\s*a\s*tu\s*audiencia\.?/gi, "No generic templates: every detail is designed to impact your audience."],
+                    [/WhatsApp\s*con\s*IA\s*Automatizada/gi, "AI-Powered WhatsApp Bot"],
+                    [/Chatbots\s*inteligentes\s*que\s*atienden\s*a\s*tus\s*clientes\s*y\s*cierran\s*ventas\s*24\/7\s*sin\s*que\s*muevas\s*un\s*dedo\.?/gi, "Smart chatbots that handle your customers and close sales 24/7, completely hands-free."],
+                    [/Panel\s*de\s*Administración/gi, "Admin Dashboard"],
+                    [/Manejá\s*tu\s*contenido\s*y\s*configuraciones\s*desde\s*un\s*panel\s*seguro\s*y\s*fácil\s*de\s*usar\.?/gi, isUK ? "Manage your content and settings from a secure, easy-to-use dashboard." : "Manage your content and settings from a secure, easy-to-use dashboard."],
+                    [/Multi\s*Idiomas/gi, "Multi-Language"],
+                    [/Llegá\s*a\s*clientes\s*de\s*todo\s*el\s*mundo\s*con\s*traducciones\s*automáticas\s*y\s*precisas\.?/gi, "Reach customers worldwide with accurate, automatic translations built in."],
+                    [/Calendario\s*de\s*Citas/gi, "Booking Calendar"],
+                    [/Sistema\s*de\s*reservas\s*integrado\s*para\s*que\s*tus\s*clientes\s*agenden\s*citas\s*y\s*consultas\s*24\/7\s*directamente\s*desde\s*tu\s*web\.?/gi, "Integrated booking system — your clients schedule appointments 24/7 directly from your site."],
 
-    [/ESCALABILIDAD/gi, "SCALABILITY"],
-    [/Estructura\s*sólida\s*preparada\s*para\s*crecer\s*al\s*ritmo\s*de\s*tus\s*ventas\.?/gi, "Solid structure prepared to grow at the same pace as your sales."],
-    [/Tecnología\s*de\s*punta\s*que\s*permite\s*añadir\s*nuevas\s*funciones\s*sin\s*problemas\.?/gi, "Cutting-edge technology that allows adding new capabilities seamlessly."],
-    [/Soporte\s*para\s*miles\s*de\s*usuarios,\s*desde\s*emprendimientos\s*hasta\s*grandes\s*empresas\.?/gi, "Support for thousands of users, from startups to large enterprises."],
+                    [/Arquitectura\s*SEO/gi, "SEO Architecture"],
+                    [/Indexación\s*técnica\s*avanzada\s*para\s*que\s*Google\s*te\s*muestre\s*antes\s*que\s*a\s*tu\s*competencia\.?/gi, "Advanced technical SEO so Google shows you before your competitors."],
+                    [/Mantenimiento\s*Global/gi, "24\/7 Support"],
+                    [/Monitoreo\s*constante\s*y\s*soporte\s*para\s*que\s*tu\s*web\s*nunca\s*tenga\s*problemas\.?/gi, "Constant monitoring and support so your site never goes down."],
 
-    // ---- FEATURES GRID ----
-    [/INTEGRACIONES\s*Y\s*MEJORAS/gi, "INTEGRATIONS AND UPGRADES"],
-    [/^\s*MÁS\s*$/i, "ADDITIONAL"],
-    [/Funcionalidades/gi, "FEATURES"],
-    [/No\s*solo\s*construimos\s*páginas\s*webs,\s*cumplimos\s*con\s*todo\s*lo\s*que\s*necesites\.?/gi, "We don't just build websites; from brand logos to automations, we deliver exactly what you need."],
+                    // ---- ALGORITMO DOMINANTE ----
+                    [/^\s*ALGORITMO\s*$/gi, "DOMINANT"],
+                    [/^\s*DOMINANTE\s*$/gi, "ALGORITHM"],
+                    [/Aplicamos\s*SEO\s*técnico\s*real\s*para\s*que\s*el\s*algoritmo\s*de\s*Google\s*trabaje\s*a\s*tu\s*favor\.?/gi, isUK ? "We apply real technical SEO so Google's algorithm works in your favour." : "We apply real technical SEO so Google's algorithm works in your favor."],
+                    [/Análisis\s*de\s*Datos/gi, "Data Analytics"],
+                    [/Usamos\s*datos\s*reales\s*para\s*maximizar\s*tus\s*conversiones\.?/gi, isUK ? "We use real data to maximise your conversions." : "We use real data to maximize your conversions."],
+                    [/Impulso\s*de\s*Tráfico/gi, "Traffic Growth"],
+                    [/Más\s*visitas\s*orgánicas,\s*de\s*gente\s*que\s*ya\s*está\s*buscando\s*lo\s*que\s*ofrecés\.?/gi, "More organic traffic from people already searching for what you offer."],
 
-    [/WhatsApp\s*con\s*IA\s*Automatizada/gi, "Automated AI WhatsApp"],
-    [/Chatbots\s*inteligentes\s*con\s*IA\s*que\s*interactúan\s*y\s*cierran\s*ventas\s*24\/7\s*por\s*WhatsApp\.?/gi, "Smart AI chatbots that engage your customers and close sales automatically, 24/7 directly through WhatsApp."],
-    [/Panel\s*de\s*Administración/gi, "Admin Panel"],
-    [/Control\s*total\s*sobre\s*tus\s*contenidos\s*y\s*ajustes\s*mediante\s*un\s*panel\s*administrativo\s*seguro\.?/gi, isUK ? "Total control over your contents and settings via a secure customised administrative dashboard experience." : "Total control over your contents and settings via a secure customized administrative dashboard experience."],
-    [/Multi\s*Idiomas/gi, "Multi Language"],
-    [/Expándete\s*globalmente\s*con\s*traducciones\s*automáticas\s*avanzadas\.?/gi, "Expand globally with advanced automatic translations enabling frictionless accessibility for international users."],
-    [/Calendario\s*de\s*Citas/gi, "Appointment Calendar"],
-    [/Sistema\s*de\s*reservas\s*integrado\s*para\s*agendar\s*citas\s*24\/7/gi, "Integrated online booking system allowing your clients to easily schedule appointments 24/7"],
-    [/desde\s*tu\s*web\.?/gi, "directly from your website."],
+                    // ---- INFRAESTRUCTURA ----
+                    [/^\s*INFRAESTRUCTURA\s*$/gi, "INFRASTRUCTURE"],
+                    [/Hosting\s*Premium\s*Incluido/gi, "Premium Hosting Included"],
+                    [/Despreocúpate\s*de\s*todo/gi, "Leave it all to us"],
+                    [/Tu\s*web\s*en\s*los\s*mejores\s*servidores\.\s*Nosotros\s*nos\s*encargamos\s*de\s*todo\s*para\s*que\s*vos\s*te\s*enfoques\s*en\s*tu\s*negocio\.?/gi, "Your website on the best servers. We handle everything so you focus on your business."],
 
-    [/Arquitectura\s*SEO/gi, "SEO Architecture"],
-    [/Indexación\s*agresiva\.\s*Marcado\s*W3C/gi, "Aggressive indexation. Verified semantic W3C"],
-    [/válido\s*que\s*subirá\s*tu\s*posición\s*en\s*Google\s*orgánicamente\.?/gi, "markup that will organically skyrocket your Google search ranking."],
-    [/Mantenimiento\s*Global/gi, "Global Maintenance"],
-    [/Monitoreo\s*activo\s*y\s*soporte\s*24\/7\./gi, "Active 24/7 continuous monitoring and support."],
-    [/Escalamos\s*tu\s*empresa\s*con\s*rigurosa\s*ingeniería\.?/gi, "We scale your company with the most rigorous software engineering."],
+                    [/Mantenimiento\s*24\/7/gi, "24\/7 Maintenance"],
+                    [/Soporte\s*técnico\s*permanente\s*para\s*garantizar\s*que\s*tu\s*web\s*siempre\s*funcione\.?/gi, "Round-the-clock technical support to keep your website always running."],
+                    [/99\.9%\s*EN\s*LÍNEA/gi, "99.9% UPTIME"],
+                    [/^\s*EN\s+LÍNEA\s*$/gi, "ONLINE"],
 
-    // ---- ALGORITMO DOMINANTE ----
-    [/^\s*ALGORITMO\s*$/gi, "DOMINANT"],
-    [/^\s*DOMINANTE\s*$/gi, "ALGORITHM"],
-    [/Nuestro\s*enfoque\s*técnico\s*SEO\s*asegura\s*que\s*el\s*algoritmo\s*te\s*priorice\.?/gi, isUK ? "Our profound technical SEO focus guarantees the algorithm strongly prioritises you." : "Our profound technical SEO focus guarantees the algorithm strongly prioritizes you."],
-    [/Análisis\s*de\s*Datos/gi, "Data Analytics"],
-    [/Usamos\s*datos\s*reales\s*para\s*maximizar\s*tus\s*conversiones\.?/gi, isUK ? "We use real data to maximise your conversions." : "We use real data to maximize your conversions."],
-    [/Impulso\s*de\s*Tráfico/gi, "Traffic Skyrocketing"],
-    [/Aumenta\s*drásticamente\s*las\s*visitas\s*orgánicas\s*de\s*calidad\.?/gi, "Drastically increase high-quality organic visitors."],
+                    [/Certificado\s*SSL\s*Gratis/gi, "Free SSL Certificate"],
+                    [/Conexión\s*segura\s*incluida\s*para\s*que\s*tus\s*visitantes\s*confíen\s*en\s*tu\s*sitio\.?/gi, "Included secure connection so your visitors trust your site from day one."],
 
-    // ---- INFRAESTRUCTURA ----
-    [/^\s*INFRAESTRUCTURA\s*$/gi, "INFRASTRUCTURE"],
-    [/Hosting\s*Premium\s*Incluido/gi, "Premium Hosting Included"],
-    [/Despreocúpate\s*de\s*todo/gi, "Leave everything to us"],
-    [/Tu\s*web\s*merece\s*el\s*mejor\s*hogar\.\s*Brindamos\s*hosting\s*de\s*alto\s*rendimiento\s*gestionado\s*para\s*que\s*te\s*enfoques/gi, "Your website deserves the absolute best home. We provide actively managed high-performance hosting so you only focus"],
-    [/en\s*tu\s*negocio\.?/gi, "on your business."],
+                    [/Sin\s*Ataduras/gi, "No Lock-In"],
+                    [/Cancelá\s*cuando\s*quieras\s*y\s*te\s*quedás\s*con\s*todo\s*el\s*código\.\s*Tu\s*web\s*es\s*100%\s*tuya\.?/gi, "Cancel anytime and keep all the code. Your website is 100% yours."],
 
-    [/Mantenimiento\s*24\/7/gi, "24/7 Maintenance"],
-    [/Soporte\s*técnico\s*continuo\s*para\s*garantizar\s*99\.9%\s*EN/gi, "Continuous technical support architecture to guarantee 99.9% ON"],
-    [/^\s*LÍNEA\.\s*$/gi, "LINE."],
-    [/^\s*LÍNEA\s*$/gi, "LINE"],
+                    // ---- FOOTER / PORTFOLIO ----
+                    [/^\s*PROYECTOS\s*$/gi, "SELECTED"],
+                    [/^\s*DESTACADOS\s*$/gi, "PROJECTS"],
+                    [/Nuestro\s*Portafolio\s*\/\s*Proyectos/gi, "Our Portfolio /"],
+                    [/Web\s*Destacados/gi, "Featured Web Projects"],
+                    [/Nuestro\s*trabajo/gi, "Our work"],
 
-    [/Certificado\s*SSL\s*Gratis/gi, "Free SSL Security Certificate"],
-    [/Seguridad\s*total\s*para\s*proteger\s*los\s*datos\s*privados/gi, "End-to-end military-grade security to fully protect your users' private data."],
-    [/de\s*tus\s*usuarios\.?/gi, ""],  // empty out the leftover text node because we translated it fully in the previous portion!
+                    [/^\s*RESTAURACIÓN\s*DE\s*TECHOS\s*$/gi, "ROOF RESTORATIONS"],
+                    [/^\s*BIENES\s*RAÍCES\s*$/gi, "REAL ESTATE"],
+                    [/^\s*ENERGÍA\s*SOLAR\s*$/gi, "SOLAR ENERGY"],
 
-    [/Sin\s*Ataduras/gi, "No Strings Attached"],
-    [/Cancela\s*cuando\s*quieras\s*y\s*llévate\s*tu\s*web\.\s*Eres/gi, "Cancel anytime and take your entire website with you. You own"],
-    [/dueño\s*absoluto\s*de\s*tu\s*código\.?/gi, "100% of your source code."],
+                    [/^\s*ELEVANDO\s*EL\s*$/gi, "RAISING THE"],
+                    [/^\s*ESTANDAR\s*$/gi, "STANDARD"],
+                    [/No\s*seguimos\s*tendencias\.\s*Construimos\s*la\s*web\s*que\s*tu\s*negocio\s*necesita\s*para\s*crecer\.?/gi, "We don't follow trends. We build the web your business needs to grow."],
 
-    [/99\.9%\s*EN\s*LÍNEA/gi, "99.9% ONLINE"],
+                    [/AGENCIA\s*DE\s*PAGINAS\s*WEB\.?/gi, "WEB AGENCY."],
+                    [/Sistema\s*Online/gi, "System Online"],
+                    [/^INICIA$/gi, "START"],
+                    [/TU\s*PROYECTO/gi, "YOUR PROJECT"],
+                    [/Contactanos\s*hoy\s*y\s*empezamos\.\s*Sin\s*vueltas\.?/gi, "Get in touch today and let's get started. No fuss."],
 
-    // ---- FOOTER / PORTFOLIO ----
-    [/^\s*PROYECTOS\s*$/gi, "SELECTED"],
-    [/^\s*DESTACADOS\s*$/gi, "PROJECTS"],
-    [/Nuestro\s*Portafolio\s*\/\s*Proyectos/gi, "Our Portfolio / Highlighted"],
-    [/Web\s*Destacados/gi, "Web Projects"],
-    [/Nuestro\s*trabajo/gi, "Our work"],
+                    // ---- POPUP ----
+                    [/¿Cómo\s*querés\s*contactarnos\?/gi, "How would you like to reach us?"],
+                    [/Respondemos\s*rápido\.\s*Elegí\s*tu\s*canal\s*favorito\.?/gi, "We reply fast. Pick your preferred channel."],
+                    [/Respuesta\s*inmediata/gi, "Instant reply"],
+                ];
+            }
 
-    [/^\s*RESTAURACIÓN\s*$/gi, "ROOF"],
-    [/^\s*DE\s*TECHOS\s*$/gi, "RESTORATIONS"],
-    [/^\s*BIENES\s*$/gi, "REAL"],
-    [/^\s*RAÍCES\s*$/gi, "ESTATE"],
-    [/^\s*ENERGÍA\s*$/gi, "SOLAR"],
-    [/^\s*SOLAR\s*$/gi, "ENERGY"],
+            function applyTranslations(country) {
+                const isUK = (country === 'GB');
+                const dict = buildDict(country);
+                const textNodes = [];
+                const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+                let node;
+                while (node = walker.nextNode()) {
+                    if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) continue;
+                    textNodes.push(node);
+                }
+                textNodes.forEach(tNode => {
+                    let text = tNode.nodeValue;
+                    let changed = false;
+                    dict.forEach(([regex, en]) => {
+                        if (regex.test(text)) { text = text.replace(regex, en); changed = true; }
+                    });
+                    if (changed) tNode.nodeValue = text;
+                });
 
-    [/^\s*ELEVANDO\s*EL\s*$/gi, "ELEVATING THE"],
-    [/^\s*ESTANDAR\s*$/gi, "STANDARD"],
-    [/Diseño\s*y\s*rendimiento\s*de\s*vanguardia\.\s*No\s*seguimos\s*tendencias;\s*construimos\s*la\s*INFRAESTRUCTURA/gi, "Cutting-edge design and performance. We do not follow trends, we build the unshakeable INFRASTRUCTURE"],
-    [/inquebrantable\s*del\s*futuro\.?/gi, "of the future."],
+                // Pricing
+                document.querySelectorAll('.price-landing').forEach(el => el.innerText = isUK ? '£65 GBP' : '$80 USD');
+                document.querySelectorAll('.price-ecommerce').forEach(el => el.innerText = isUK ? '£130 GBP' : '$160 USD');
 
-    [/AGENCIA\s*DE\s*PAGINAS\s*WEB\.?/gi, "WEB AGENCY."],
-    [/^\s*Sistema\s*$/gi, "System"],
-    [/^\s*Online\s*$/gi, "Online"],
-    [/^INICIA$/gi, "START"],
-    [/TU\s*PROYECTO/gi, "YOUR PROJECT"],
-    [/Construimos\s*herramientas\s*de\s*venta\.\s*Contáctanos\s*y\s*empecemos\s*a\s*darle\s*forma/gi, "We build sales tools. Reach out to us now and let's start architecting"],
-    [/a\s*tu\s*éxito\s*digital\.?/gi, "your digital success."]
-];
-
-
-                        const textNodes = [];
-                        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-                        let node;
-                        while (node = walker.nextNode()) {
-                            // ignore text nodes in script tags or styles
-                            if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) {
-                                continue;
-                            }
-                            textNodes.push(node);
+                // iMessage swap for US/CA/AU
+                if (iMessage_COUNTRIES.includes(country)) {
+                    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+                        link.href = 'sms:+18324959977';
+                        const w = document.createTreeWalker(link, NodeFilter.SHOW_TEXT, null, false);
+                        let n;
+                        while (n = w.nextNode()) {
+                            n.nodeValue = n.nodeValue.replace(/WHATSAPP/gi, 'MESSAGE').replace(/\+54[^<]*/gi, '+1 832-495-9977');
                         }
-
-                        textNodes.forEach(tNode => {
-                            let text = tNode.nodeValue;
-                            let changed = false;
-                            dict.forEach(([regex, en]) => {
-                                if (regex.test(text)) {
-                                    text = text.replace(regex, en);
-                                    changed = true;
-                                }
-                            });
-                            if (changed) {
-                                tNode.nodeValue = text;
+                        link.querySelectorAll('svg').forEach(svg => {
+                            if (svg.innerHTML.includes('13.601')) {
+                                svg.innerHTML = '<path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>';
                             }
                         });
+                        const rc = el => Array.from(el.classList).forEach(c => { if (c.includes('green')) el.classList.replace(c, c.replace('green', 'blue')); });
+                        rc(link); link.querySelectorAll('*').forEach(rc);
+                    });
+                    // Update popup WA link
+                    const pwa = document.getElementById('popup-whatsapp');
+                    if (pwa) { pwa.href = 'sms:+18324959977'; }
+                }
 
-                        // Set USD pricing
-                        document.querySelectorAll('.price-landing').forEach(el => el.innerText = '$80 USD');
-                        document.querySelectorAll('.price-ecommerce').forEach(el => el.innerText = '$160 USD');
+                // Update popup WhatsApp sub text
+                const waSub = document.querySelector('.popup-wa-sub');
+                if (waSub) {
+                    if (iMessage_COUNTRIES.includes(country)) waSub.textContent = '+1 832-495-9977 · Instant reply';
+                    else waSub.textContent = isUK ? '+54 9 11 6587-0093 · Instant reply' : '+54 9 11 6587-0093 · Respuesta inmediata';
+                }
 
-                        // Change Lang attribute
-                        document.documentElement.lang = "en";
+                // Update typewriter phrases
+                window.heroPhrasesEN = ["Corporate Web", "Online Store", "SaaS Platform", "Landing Page"];
+                if (window._typewriterSetEN) window._typewriterSetEN(window.heroPhrasesEN);
 
-                        // Optional: update typewriter object dynamically if running on page load
-                        if (typeof window.heroTypes !== 'undefined') {
-                            window.heroTypes = ["Corporate Web", "Online Store", "SaaS Platform"];
-                        }
+                document.documentElement.lang = "en";
+                document.documentElement.style.visibility = '';
+            }
+
+            function detectAndApply() {
+                const cached = localStorage.getItem(CACHE_KEY);
+                const cachedTime = parseInt(localStorage.getItem(CACHE_KEY + '_ts') || '0');
+                const now = Date.now();
+
+                if (cached && (now - cachedTime) < CACHE_TTL) {
+                    if (!ES_COUNTRIES.includes(cached)) {
+                        applyTranslations(cached);
                     }
-                })
-                .catch(err => console.error(err));
-        });
+                    return;
+                }
+
+                // Fast: Cloudflare trace endpoint
+                fetch('https://cloudflare.com/cdn-cgi/trace')
+                    .then(r => r.text())
+                    .then(text => {
+                        const m = text.match(/loc=([A-Z]{2})/);
+                        const country = m ? m[1] : 'AR';
+                        localStorage.setItem(CACHE_KEY, country);
+                        localStorage.setItem(CACHE_KEY + '_ts', String(now));
+                        if (!ES_COUNTRIES.includes(country)) {
+                            applyTranslations(country);
+                        } else {
+                            document.documentElement.style.visibility = '';
+                        }
+                    })
+                    .catch(() => {
+                        document.documentElement.style.visibility = '';
+                    });
+            }
+
+            document.addEventListener('DOMContentLoaded', detectAndApply);
+        })();
     </script>
 </body>
 
