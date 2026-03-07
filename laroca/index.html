@@ -1,1 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LA ROCA - Membranas de Caucho</title>
+    <!-- Fonts -->
+    <!-- Utilizando Inter para un aspecto más formal, técnico y profesional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- Times New Roman o un Serif puede usarse para simular la tipografía clásica de La Roca si es necesario, pero Inter es muy corporativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'], // Para destacar Títulos formales o el logo
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0d1d30',      // Azul marino profundo inspirado en el logo
+                            navylight: '#1a3352', // Azul ligeramente más claro
+                            gold: '#ceab68',      // Dorado / Ocre inspirado en el logo
+                            goldhover: '#b5924e', // Dorado oscuro para hovers
+                            light: '#f4f5f7',     // Gris muy claro para fondos de sección
+                            dark: '#1f2937'       // Gris oscuro para textos principales
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Lenis base styles */
+        html.lenis,
+        html.lenis body {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* Estilos formales y corporativos */
+        .header-navy {
+            background-color: #0d1d30;
+            border-bottom: 3px solid #ceab68;
+        }
+
+        .btn-gold {
+            background-color: #ceab68;
+            color: #0d1d30;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-gold:hover {
+            background-color: #b5924e;
+            color: #ffffff;
+        }
+
+        .btn-outline-gold {
+            border: 2px solid #ceab68;
+            color: #ceab68;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: #ceab68;
+            color: #0d1d30;
+        }
+
+        .btn-outline-white {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline-white:hover {
+            background-color: #ffffff;
+            color: #0d1d30;
+        }
+
+        .section-navy {
+            background-color: #0d1d30;
+            color: #ffffff;
+        }
+
+        .section-light {
+            background-color: #f4f5f7;
+        }
+
+        .card-formal {
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-top: 4px solid #ceab68;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-formal:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Background - formal gradient */
+        .hero-bg {
+            background-image: linear-gradient(rgba(13, 29, 48, 0.85), rgba(13, 29, 48, 0.95)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVybXtFo0Qzkr3e3WLlktU72-qkS3_BK7euunxjq-htNjXFgUeT5k_BnTjSylqjefPPrQo3-FWzzC6VuXrgC4iSkx7qUfpaA803FHZUlDm1O_paj4-Zaw9dj5SWcclItAgZ1SBzN32MPUtkGWWZHSxfVEflO67NMeZFr2xWNK0OooOhOK20f4OPi05WpWPmrJ3KpgQyOZYAoRy7wFXS6snCRpmDizz_7XspM21yo7R_PeoIOktVCLVVfCFT3GTsM1b354lZvWFiFI');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .title-accent::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ceab68;
+            margin-top: 1rem;
+        }
+
+        .title-accent-center::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #ceab68;
+            margin-top: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-gold selection:text-brand-navy">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 header-navy shadow-lg transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex flex-col items-center">
+                <span class="font-serif text-3xl font-black tracking-wide text-white uppercase">LA ROCA</span>
+                <span class="text-brand-gold text-[10px] font-bold tracking-[0.2em] uppercase">Membranas de
+                    Caucho</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-300 uppercase tracking-wide">
+                <a href="#inicio" class="hover:text-brand-gold transition-colors block py-2">Inicio</a>
+                <a href="#beneficios" class="hover:text-brand-gold transition-colors block py-2">Nosotros</a>
+                <a href="#tecnico" class="hover:text-brand-gold transition-colors block py-2">Ficha Técnica</a>
+                <a href="#aplicacion" class="hover:text-brand-gold transition-colors block py-2">Aplicación</a>
+            </nav>
+
+            <a href="https://wa.me/5491123753788?text=Hola,%20quisiera%20solicitar%20un%20presupuesto." target="_blank"
+                rel="noopener noreferrer"
+                class="hidden lg:inline-flex btn-gold px-8 py-3 text-sm font-bold uppercase tracking-widest shadow-md">
+                Contactar
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden text-brand-gold"><span
+                    class="material-symbols-outlined text-3xl">menu</span></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-40 pb-32 hero-bg section-navy overflow-hidden">
+        <div
+            class="container mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 relative z-10">
+            <!-- Texto (Izquierda) -->
+            <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <span
+                    class="text-brand-gold font-bold tracking-[0.3em] uppercase text-sm mb-6 gs-reveal block text-center lg:text-left w-full">
+                    Calidad Industrial Argentina
+                </span>
+                <h1
+                    class="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-tight mb-8 text-white max-w-3xl gs-reveal">
+                    NO ESTÁS COMPRANDO UNA MEMBRANA MÁS,<br class="hidden lg:block">
+                    <span class="text-brand-gold">ESTÁS COMPRANDO TRANQUILIDAD POR AÑOS.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-10 font-light gs-reveal">
+                    Impermeabilizante elástico de alta resistencia. Máxima protección térmica y larga vida útil para
+                    techos y terrazas. Todo lo que necesitás en un solo producto.
+                </p>
+                <div class="flex flex-col sm:flex-row w-full sm:w-auto gap-6 gs-reveal justify-center lg:justify-start">
+                    <a href="#tecnico"
+                        class="btn-gold px-8 py-4 font-bold uppercase tracking-widest shadow-lg text-center text-sm">
+                        Especificaciones
+                    </a>
+                    <a href="https://wa.me/5491123753788?text=Hola,%20quisiera%20solicitar%20un%20presupuesto."
+                        target="_blank" rel="noopener noreferrer"
+                        class="btn-outline-white px-8 py-4 font-bold uppercase tracking-widest shadow-lg bg-white/5 backdrop-blur-sm text-center text-sm">
+                        Solicitar Presupuesto
+                    </a>
+                </div>
+            </div>
+
+            <!-- Balde de Membrana (Derecha) -->
+            <div class="w-full lg:w-1/2 flex justify-center lg:justify-end relative gs-reveal">
+                <!-- Efecto de luz premium detrás del balde -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-brand-gold/15 rounded-full blur-[80px] -z-10 pointer-events-none">
+                </div>
+                <!-- Imagen del balde flotante -->
+                <img src="images/baldemembrana.png" alt="Balde de Membrana La Roca"
+                    class="w-[70%] md:w-[60%] lg:w-[80%] max-w-[500px] object-contain drop-shadow-2xl hero-bucket-anim" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Por qué Elegir La Roca? -->
+    <section id="beneficios" class="py-24 section-light border-b border-gray-200">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-4xl font-black text-brand-navy mb-4 title-accent-center section-title">¿Por
+                    qué elegir LA ROCA?</h2>
+                <p class="text-gray-600 text-lg section-title mt-6">
+                    Hay muchas opciones más económicas, pero si buscás algo que <strong>realmente funcione y no
+                        falle</strong>, LA ROCA es tu mejor opción.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Beneficio 1 -->
+                <div class="card-formal p-8 flex flex-col items-center text-center gs-card">
+                    <span class="material-symbols-outlined text-5xl text-brand-gold mb-6">water_drop</span>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">100% Impermeable</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Protección total contra cualquier humedad o
+                        filtración y de larga duración.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="card-formal p-8 flex flex-col items-center text-center gs-card">
+                    <span class="material-symbols-outlined text-5xl text-brand-gold mb-6">show_chart</span>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Máxima Elasticidad</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Más de 600% de elasticidad. Acompaña los
+                        movimientos del techo sin fisurarse.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="card-formal p-8 flex flex-col items-center text-center gs-card">
+                    <span class="material-symbols-outlined text-5xl text-brand-gold mb-6">wb_sunny</span>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Resistencia Extrema</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Resiste completamente el sol, la lluvia, el granizo
+                        y temperaturas extremas (-20°C a +90°C).</p>
+                </div>
+                <!-- Beneficio 4 -->
+                <div class="card-formal p-8 flex flex-col items-center text-center gs-card">
+                    <span class="material-symbols-outlined text-5xl text-brand-gold mb-6">foundation</span>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Apta para Tránsito</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Te permite caminar por encima tranquilamente. Se
+                        pega perfecto sobre chapas y hormigón.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="tecnico" class="py-24 bg-white">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-16 items-start">
+            <div class="w-full lg:w-1/2 gs-fade-right">
+                <h2 class="text-3xl md:text-4xl font-black text-brand-navy mb-6 title-accent">Ficha Técnica</h2>
+                <p class="text-gray-600 mb-10 leading-relaxed">
+                    Detalles técnicos oficiales que demuestran por qué nuestra membrana es la mejor protección que podés
+                    darle a tu techo.
+                </p>
+
+                <div class="border border-gray-200 shadow-sm">
+                    <div class="flex justify-between py-4 px-6 border-b border-gray-200 bg-gray-50">
+                        <span class="font-bold text-brand-navy">Base Química</span>
+                        <span class="text-gray-600 text-right">Resinas acrílicas, Poliuretano, EPDM</span>
+                    </div>
+                    <div class="flex justify-between py-4 px-6 border-b border-gray-200">
+                        <span class="font-bold text-brand-navy">Aspecto</span>
+                        <span class="text-gray-600 text-right">Pasta líquida de alta viscosidad</span>
+                    </div>
+                    <div class="flex justify-between py-4 px-6 border-b border-gray-200 bg-gray-50">
+                        <span class="font-bold text-brand-navy">Rendimiento</span>
+                        <span class="text-gray-600 text-right">1 a 2 kg por m² (2 a 3 manos)</span>
+                    </div>
+                    <div class="flex justify-between py-4 px-6 border-b border-gray-200">
+                        <span class="font-bold text-brand-navy">Curado / Secado</span>
+                        <span class="text-gray-600 text-right">Entre manos: 4-6 hs.<br>Total: 24-72 hs.</span>
+                    </div>
+                    <div class="flex justify-between py-4 px-6">
+                        <span class="font-bold text-brand-navy">Temp. de Aplicación</span>
+                        <span class="text-gray-600 text-right">+10°C a +30°C</span>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <h4 class="font-bold text-brand-navy mb-4 tracking-wide uppercase text-sm">Colores Disponibles</h4>
+                    <div class="flex gap-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-white border border-gray-300 shadow-sm"></div>
+                            <span class="text-sm font-medium text-gray-700">Blanco Térmico</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-gray-400 border border-gray-500 shadow-sm"></div>
+                            <span class="text-sm font-medium text-gray-700">Gris</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-[#8c3a35] border border-[#6b2c28] shadow-sm"></div>
+                            <span class="text-sm font-medium text-gray-700">Rojo Teja</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2 gs-fade-left">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsDAoZcxdjizG4mAhg786UShl3kD_K5xpD32U3WSxsH7PlM3BNUV3QFtSNWHhn1OmpkVjLLPEsjx5bLae3WZKDrTyS8M1c6zOJm4DR6J5THPWg3CRVvzV6EhnyPQu7bFG0InIyjEMJmW8rJECUP5dUsD_pZUeGds564MXalN04bEKIbeBUL-CtyryLJf6c65joLfW14rHPZxNCvQdhTLI2jTwSAjvcqTy6mSB-HafFaLNPhoiKUtbfRpj-GQ7H3UbiHWvOj9-bVk0"
+                    alt="Textura de Membrana"
+                    class="w-full h-auto object-cover border-4 border-white shadow-xl max-h-[600px]" />
+                <div
+                    class="bg-brand-navy text-white p-6 mt-[-20px] mx-8 relative z-10 text-center shadow-lg border-b-4 border-brand-gold">
+                    <h4 class="font-bold text-lg uppercase tracking-widest">Garantía Profesional</h4>
+                    <p class="text-brand-gold text-sm mt-1">Óptima relación costo-rendimiento</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Module -->
+    <section id="aplicacion" class="py-24 section-navy border-t-4 border-brand-gold relative">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="gs-fade-right">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-6 title-accent">Guía de Aplicación</h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        Pasos rápidos para aplicar el producto correctamente y asegurar que te dure por años.
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-5">
+                            <div
+                                class="w-10 h-10 rounded-none bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-lg shrink-0 border border-brand-gold">
+                                1</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Preparar el techo</h4>
+                                <p class="text-gray-300 mt-1">Limpiá muy bien toda la superficie para que no quede
+                                    tierra ni humedad.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5">
+                            <div
+                                class="w-10 h-10 rounded-none bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-lg shrink-0 border border-brand-gold">
+                                2</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Pintar Base</h4>
+                                <p class="text-gray-300 mt-1">Pasá el rodillo, brocha o llana prestando atención a
+                                    rellenar las grietas.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5">
+                            <div
+                                class="w-10 h-10 rounded-none bg-brand-gold text-brand-navy flex items-center justify-center font-bold text-lg shrink-0 border border-brand-gold">
+                                3</div>
+                            <div>
+                                <h4 class="font-bold text-white text-lg">Repetir manos</h4>
+                                <p class="text-gray-300 mt-1">Dale por lo menos 2 manos cruzadas (una hacia adelante y
+                                    otra de lado) y dejá secar entre pintura y pintura.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-brand-navylight p-10 border border-brand-navy/50 shadow-2xl flex flex-col items-center text-center gs-fade-left">
+                    <img src="images/baldemembrana.png" alt="Balde de Membrana"
+                        class="w-32 h-auto object-contain drop-shadow-xl mb-6 hover:scale-110 transition-transform duration-300" />
+                    <h3 class="text-2xl font-bold text-white mb-2">Presentación</h3>
+                    <p class="text-lg text-brand-gold font-medium mb-6">Balde de 20 Litros</p>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">
+                        Balde rendidor (de 10 a 20 m²). Envase grande y robusto ideal para uso residencial y obras
+                        importantes.
+                    </p>
+                    <a href="https://wa.me/5491123753788?text=Hola,%20busco%20informaci%C3%B3n%20por%20ventas%20por%20mayor."
+                        target="_blank" rel="noopener noreferrer"
+                        class="btn-outline-gold px-8 py-3 uppercase tracking-widest font-bold text-sm block">
+                        Solicitar Cotización por Mayor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Corporativo -->
+    <footer id="contacto" class="bg-[#08121f] text-gray-400 py-20 border-t border-gray-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                <!-- Columna 1: Info Empresa -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex flex-col mb-6">
+                        <span class="font-serif text-2xl font-black tracking-wide text-white uppercase">LA ROCA</span>
+                        <span class="text-brand-gold text-[9px] font-bold tracking-[0.2em] uppercase">Membranas de
+                            Caucho</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Especialistas en impermeabilización de alta resistencia. Te brindamos la protección definitiva
+                        para que te olvides de las filtraciones.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Links -->
+                <div class="col-span-1">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Navegación</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#inicio" class="hover:text-brand-gold transition-colors block py-1">Inicio</a></li>
+                        <li><a href="#beneficios" class="hover:text-brand-gold transition-colors block py-1">Por qué
+                                elegir LA ROCA</a></li>
+                        <li><a href="#tecnico" class="hover:text-brand-gold transition-colors block py-1">Ficha
+                                Técnica</a></li>
+                        <li><a href="#aplicacion" class="hover:text-brand-gold transition-colors block py-1">Uso
+                                Profesional</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div class="col-span-1">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contacto Comercial</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-gold text-lg">location_on</span>
+                            <span>Buenos Aires, Argentina</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-gold text-lg">call</span>
+                            <span>+54 9 11 2375-3788</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-brand-gold text-lg">mail</span>
+                            <span>ventas@laroca-membranas.com.ar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>&copy; 2026 LA ROCA – Membranas de Caucho. Todos los derechos reservados.</p>
+                <a href="https://thamesites.store" target="_blank" rel="noopener noreferrer"
+                    class="mt-4 md:mt-0 hover:text-white transition-colors">
+                    Hecho por: <span class="text-brand-gold font-semibold hover:brightness-110">Thames sites</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/5491123753788?text=Hola,%20quisiera%20solicitar%20un%20presupuesto." target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-8 right-8 z-50 group flex items-center justify-center pointer-events-auto"
+        aria-label="Contactar por WhatsApp">
+
+        <!-- Efecto de pulso exterior -->
+        <div
+            class="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75 group-hover:opacity-100 transition-opacity duration-300">
+        </div>
+
+        <!-- Botón principal -->
+        <div
+            class="relative bg-[#25D366] text-white w-20 h-20 rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(37,211,102,0.6)] group-hover:scale-110 transition-transform duration-300 border-[3px] border-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                    d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+            </svg>
+        </div>
+    </a>
+
+    <!-- GSAP Initialization & Lenis -->
+    <script>
+        // Init Lenis para scroll suave pero con feel más sólido
+        const lenis = new Lenis({
+            duration: 1.0,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        // Configurar enlaces internos para usar Lenis scrollTo
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || !targetId.startsWith('#')) return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    // Usamos lenis.scrollTo y restamos la altura de la navbar (offset)
+                    lenis.scrollTo(targetElement, {
+                        offset: -76,
+                        duration: 1.2
+                    });
+                }
+            });
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Navbar bg change
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Navbar se achica un poco y toma opacidad
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+                navbar.style.backgroundColor = 'rgba(13, 29, 48, 0.98)';
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+                navbar.style.backgroundColor = 'rgba(13, 29, 48, 1)';
+            }
+        });
+
+        // Animación de entrada formal (Hero)
+        gsap.from(".gs-reveal", {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power2.out",
+            delay: 0.2
+        });
+
+        // Animación del balde hero (flotando levamente)
+        gsap.to(".hero-bucket-anim", {
+            y: -15,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 1.5 // Para que empiece después de aparecer
+        });
+
+        // Títulos de sección
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: "top 85%",
+                },
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // Tarjetas de beneficios - fade in secuencial formal
+        gsap.from(".gs-card", {
+            scrollTrigger: {
+                trigger: "#beneficios",
+                start: "top 70%",
+            },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out"
+        });
+
+        // Secciones laterales (Técnica)
+        gsap.from(".gs-fade-right", {
+            scrollTrigger: {
+                trigger: ".gs-fade-right",
+                start: "top 80%",
+            },
+            x: -30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+
+        gsap.from(".gs-fade-left", {
+            scrollTrigger: {
+                trigger: ".gs-fade-left",
+                start: "top 80%",
+            },
+            x: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    </script>
+</body>
+
+</html>
