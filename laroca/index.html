@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
     <!-- Times New Roman o un Serif puede usarse para simular la tipografía clásica de La Roca si es necesario, pero Inter es muy corporativa -->
-    <link rel="icon" type="image/x-icon" href="/laroca/images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -176,11 +175,13 @@
             </div>
 
             <!-- Desktop Nav -->
-            <nav class="hidden lg:flex items-center gap-8 font-medium text-sm text-gray-300 uppercase tracking-wide">
+            <nav class="hidden lg:flex items-center gap-6 font-medium text-sm text-gray-300 uppercase tracking-wide">
                 <a href="#inicio" class="hover:text-brand-gold transition-colors block py-2">Inicio</a>
                 <a href="#beneficios" class="hover:text-brand-gold transition-colors block py-2">Nosotros</a>
-                <a href="#tecnico" class="hover:text-brand-gold transition-colors block py-2">Ficha Técnica</a>
+                <a href="#tecnico" class="hover:text-brand-gold transition-colors block py-2">Técnica</a>
                 <a href="#aplicacion" class="hover:text-brand-gold transition-colors block py-2">Aplicación</a>
+                <a href="#cotizador" class="hover:text-brand-gold transition-colors block py-2">Cotizar</a>
+                <a href="#oportunidades" class="hover:text-brand-gold transition-colors block py-2">Revendedores</a>
             </nav>
 
             <a href="https://wa.me/5491123753788?text=Hola,%20quisiera%20solicitar%20un%20presupuesto." target="_blank"
@@ -413,6 +414,153 @@
         </div>
     </section>
 
+    <!-- Sección: Cotizador de Colocación -->
+    <section id="cotizador" class="py-24 bg-[#f8f9fa] border-y border-gray-200">
+        <div class="container mx-auto px-6 lg:px-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-brand-navy mb-4 title-accent-center section-title">Cotizar
+                Impermeabilización</h2>
+            <p class="text-gray-600 text-lg mb-10 max-w-2xl mx-auto gs-reveal">Calculá al instante el costo estimado de
+                la impermeabilización de tu techo. Podés optar por hacerlo vos mismo o contratar nuestra colocación
+                profesional.</p>
+
+            <div
+                class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg border-t-4 border-brand-gold text-left gs-reveal">
+
+                <div class="max-w-md mx-auto text-center mb-10">
+                    <label for="m2-input"
+                        class="block text-sm font-bold text-brand-navy mb-3 uppercase tracking-wide">Metros Cuadrados a
+                        Cubrir (m²)</label>
+                    <div class="flex items-center justify-center gap-4">
+                        <input type="number" id="m2-input" min="1" value="50"
+                            class="w-32 text-center text-3xl p-3 border-2 border-gray-300 rounded focus:ring-2 focus:ring-brand-gold focus:border-brand-gold outline-none transition-all font-black text-brand-navy">
+                        <span class="text-gray-400 font-bold text-2xl">m²</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Opción 1: Solo Materiales -->
+                    <div
+                        class="bg-gray-50 border border-gray-200 rounded-xl p-8 flex flex-col h-full hover:border-brand-gold transition-colors">
+                        <div class="mb-auto">
+                            <span
+                                class="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-xs font-bold uppercase tracking-widest rounded mb-4">Solo
+                                Producto</span>
+                            <h3 class="text-2xl font-black text-brand-navy mb-2">Comprar Material</h3>
+                            <p class="text-gray-600 text-sm mb-6">Ideal si querés aplicarlo vos mismo o ya tenés tu
+                                propio pintor. Incluye los baldes necesarios según rendimiento.</p>
+
+                            <div class="mb-8">
+                                <p class="text-gray-500 text-xs uppercase tracking-wide font-bold mb-1">Inversión
+                                    Estimada</p>
+                                <div class="text-4xl font-black text-brand-navy" id="precio-material">$0</div>
+                            </div>
+                        </div>
+
+                        <button id="btn-comprar-material"
+                            class="w-full btn-outline-gold py-4 text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded transition-all mt-auto">
+                            Comprar por WhatsApp
+                        </button>
+                    </div>
+
+                    <!-- Opción 2: Llave en Mano -->
+                    <div
+                        class="bg-[#0d1d30] border border-[#1a3352] text-white rounded-xl p-8 flex flex-col h-full shadow-xl relative overflow-hidden">
+                        <!-- Recomendado tag -->
+                        <div
+                            class="absolute top-0 right-0 bg-brand-gold text-brand-navy text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-bl-lg">
+                            Recomendado</div>
+
+                        <div class="mb-auto">
+                            <span
+                                class="inline-block px-3 py-1 bg-[#1a3352] text-brand-gold text-xs font-bold uppercase tracking-widest rounded mb-4 mt-2">Llave
+                                en Mano</span>
+                            <h3 class="text-2xl font-black text-white mb-2">Material + Colocación</h3>
+                            <p class="text-gray-400 text-sm mb-6">Nos encargamos de todo. Incluye la membrana LA ROCA y
+                                la mano de obra de aplicadores certificados.</p>
+
+                            <div class="mb-8">
+                                <p class="text-gray-400 text-xs uppercase tracking-wide font-bold mb-1">Inversión
+                                    Estimada</p>
+                                <div class="text-4xl font-black text-brand-gold" id="precio-total">$0</div>
+                            </div>
+                        </div>
+
+                        <button id="btn-cotizar-mano"
+                            class="w-full btn-gold py-4 text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 rounded transition-all mt-auto">
+                            Agendar Visita
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-center text-gray-400 text-xs mt-8">*Los valores son estimados y están sujetos a
+                    inspección técnica del estado actual de la superficie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Oportunidades -->
+    <section id="oportunidades" class="py-24 bg-white border-y border-gray-200">
+        <div class="container mx-auto px-6 lg:px-12">
+
+            <!-- Intro -->
+            <div class="text-center max-w-3xl mx-auto mb-20 gs-reveal">
+                <span class="text-brand-gold font-bold tracking-[0.3em] uppercase text-sm mb-4 block"></span>
+                <h2 class="text-3xl md:text-5xl font-black text-brand-navy mb-6"> Venta mayorista</h2>
+                <p class="text-gray-600 text-lg">
+                    
+                </p>
+            </div>
+
+            <!-- Grid de Oportunidades -->
+            <div class="max-w-6xl mx-auto">
+
+                <!-- Mayoristas -->
+                <div
+                    class="bg-brand-light p-8 md:p-12 rounded-xl flex flex-col md:flex-row gap-10 items-center justify-between gs-card group border border-gray-200 hover:border-brand-gold transition-colors">
+                    <div class="w-full md:w-3/5">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="material-symbols-outlined text-4xl text-brand-gold">business_center</span>
+                            <h3 class="text-2xl md:text-3xl font-black text-brand-navy">Para Revendedores y Mayoristas
+                            </h3>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Impulsá tu negocio con una solución de impermeabilización confiable, de alta demanda y
+                            excelente margen de ganancia. Ideal para pinturerías, corralones y distribuidores que buscan
+                            productos de calidad y buena rotación.
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-brand-gold text-xl">check_circle</span>
+                                <span class="text-sm font-semibold text-gray-700">Precios mayoristas directos de fábrica
+                                    para maximizar tu rentabilidad.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-brand-gold text-xl">check_circle</span>
+                                <span class="text-sm font-semibold text-gray-700">Soporte comercial y técnico</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-brand-gold text-xl">check_circle</span>
+                                <span class="text-sm font-semibold text-gray-700">Entregas rápidas y atención
+                                    personalizada para distribuidores.</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/5491123753788?text=Hola,%20tengo%20un%20comercio/empresa%20y%20quiero%20conocer%20la%20lista%20de%20precios%20mayoristas."
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-block btn-outline-gold px-8 py-4 uppercase tracking-widest font-bold text-sm">
+                            Preguntar por venta mayorista
+                        </a>
+                    </div>
+                    <!-- Imagen Referencial -->
+                    <div class="w-full md:w-2/5">
+                        <img src="images/baldemembrana.png" alt="Pallets de Membrana Mayorista"
+                            class="w-[80%] md:w-full max-w-[400px] h-auto mx-auto drop-shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Footer Corporativo -->
     <footer id="contacto" class="bg-[#08121f] text-gray-400 py-20 border-t border-gray-800">
         <div class="container mx-auto px-6 lg:px-12">
@@ -435,19 +583,20 @@
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Navegación</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="#inicio" class="hover:text-brand-gold transition-colors block py-1">Inicio</a></li>
-                        <li><a href="#beneficios" class="hover:text-brand-gold transition-colors block py-1">Por qué
-                                elegir LA ROCA</a></li>
                         <li><a href="#tecnico" class="hover:text-brand-gold transition-colors block py-1">Ficha
                                 Técnica</a></li>
-                        <li><a href="#aplicacion" class="hover:text-brand-gold transition-colors block py-1">Uso
-                                Profesional</a></li>
+                        <li><a href="#cotizador" class="hover:text-brand-gold transition-colors block py-1">Cotizar
+                                Colocación</a></li>
+                        <li><a href="#oportunidades"
+                                class="hover:text-brand-gold transition-colors block py-1">Revendedores Mayoristas</a>
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Columna 3: Contacto -->
                 <div class="col-span-1">
                     <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-6">Contacto Comercial</h4>
-                    <ul class="space-y-4 text-sm">
+                    <ul class="space-y-4 text-sm mb-6">
                         <li class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-brand-gold text-lg">location_on</span>
                             <span>Buenos Aires, Argentina</span>
@@ -461,6 +610,23 @@
                             <span>ventas@laroca-membranas.com.ar</span>
                         </li>
                     </ul>
+                    <!-- Redes Sociales y Email Directo -->
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://www.tiktok.com/@larocamembranas" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-gold transition-colors"
+                            aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:ventas@laroca-membranas.com.ar"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-brand-gold transition-colors"
+                            aria-label="Mail">
+                            <span class="material-symbols-outlined text-xl">mail</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -618,6 +784,52 @@
             duration: 0.8,
             ease: "power2.out"
         });
+
+        // ─── CALCULADORA DE COLOCACIÓN ──────────────────────────────────────
+        const m2Input = document.getElementById('m2-input');
+        const precioMaterialUI = document.getElementById('precio-material');
+        const precioTotalUI = document.getElementById('precio-total');
+
+        const btnComprarMaterial = document.getElementById('btn-comprar-material');
+        const btnCotizarMano = document.getElementById('btn-cotizar-mano');
+
+        // Valores estimados por m2 (Se pueden modificar)
+        const C_MATERIAL_POR_M2 = 3500; // Solo producto
+        const C_TOTAL_POR_M2 = 12500;   // Producto + Mano de Obra
+
+        const formatter = new Intl.NumberFormat('es-AR', {
+            style: 'currency',
+            currency: 'ARS',
+            maximumFractionDigits: 0
+        });
+
+        function calcularPrecio() {
+            let m2 = parseInt(m2Input.value) || 0;
+            if (m2 < 1) m2 = 1;
+
+            const totalMaterial = m2 * C_MATERIAL_POR_M2;
+            const totalCompleto = m2 * C_TOTAL_POR_M2;
+
+            precioMaterialUI.textContent = formatter.format(totalMaterial);
+            precioTotalUI.textContent = formatter.format(totalCompleto);
+
+            // Mensajes para WP
+            const msgMaterial = `Hola, quiero comprar la membrana para cubrir ${m2} m². Vi que el costo estimado del material es de ${precioMaterialUI.textContent}. ¿Cómo hago para pedirlo?`;
+            const msgCompleto = `Hola, quiero solicitar la impermeabilización completa (Material + Colocación) para ${m2} m². Vi que el costo es de ${precioTotalUI.textContent}. ¿Podemos agendar una inspección?`;
+
+            btnComprarMaterial.onclick = () => {
+                window.open(`https://wa.me/5491123753788?text=${encodeURIComponent(msgMaterial)}`, '_blank');
+            };
+            btnCotizarMano.onclick = () => {
+                window.open(`https://wa.me/5491123753788?text=${encodeURIComponent(msgCompleto)}`, '_blank');
+            };
+        }
+
+        if (m2Input) {
+            calcularPrecio();
+            m2Input.addEventListener('input', calcularPrecio);
+        }
+
     </script>
 </body>
 
