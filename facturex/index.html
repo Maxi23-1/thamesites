@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Facturex - Automatizá tus facturas</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!-- Tailwind & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- GSAP & Lenis for Animations and Smooth Scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "media", // default to media or you can toggle
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#3B82F6',
+                            hover: '#2563EB',
+                            light: '#DBEAFE',
+                            dark: '#1E3A8A'
+                        },
+                        background: {
+                            light: '#F8FAFC',
+                            dark: '#0F172A' // Premium dark blue-gray
+                        },
+                        surface: {
+                            light: '#FFFFFF',
+                            dark: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(59, 130, 246, 0.4)',
+                        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.6)'
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .fill-1 {
+            font-variation-settings: 'FILL' 1;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Premium Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Initial Hide for GSAP */
+        .gsap-fade-up,
+        .gsap-fade-in,
+        .gsap-scale-up,
+        .gsap-stagger-item {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+    <div class="relative flex min-h-screen w-full flex-col">
+        <!-- Floating shapes for background depth -->
+        <div class="absolute top-0 left-0 w-full h-screen overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px]"></div>
+            <div class="absolute top-[20%] -right-[10%] w-[40%] h-[40%] rounded-full bg-purple-500/15 blur-[120px]">
+            </div>
+        </div>
+
+        <!-- NAVBAR (Modern Capsule) -->
+        <div id="navbar-container"
+            class="fixed top-6 left-0 right-0 z-50 flex justify-center w-full px-4 md:px-6 pointer-events-none transition-transform duration-300">
+            <header
+                class="w-full max-w-6xl bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] rounded-[2rem] px-6 py-3 md:py-4 flex items-center justify-between transition-all pointer-events-auto">
+                <div class="flex items-center gap-2 group cursor-pointer pl-2">
+                    <img alt="Facturex Logo"
+                        class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                        src="images/logo.png" />
+                </div>
+                <nav class="hidden md:flex items-center gap-8 text-slate-700 dark:text-slate-300">
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary active:scale-95 transition-all duration-300 py-1"
+                        href="#inicio">Inicio
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary active:scale-95 transition-all duration-300 py-1"
+                        href="#como-funciona">Cómo funciona
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary active:scale-95 transition-all duration-300 py-1"
+                        href="#funcionalidades">Funciones
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary active:scale-95 transition-all duration-300 py-1"
+                        href="#opiniones">Opiniones
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary active:scale-95 transition-all duration-300 py-1"
+                        href="#precios">Precios
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 opacity-0 group-hover:opacity-100"></span>
+                    </a>
+                </nav>
+                <div class="flex items-center">
+                    <a href="https://wa.me/5491112345678" target="_blank"
+                        class="inline-flex w-12 h-12 md:w-auto md:h-auto bg-[#25D366] hover:bg-[#20ba5a] text-white md:px-6 md:py-3 rounded-full text-[15px] font-bold transition-all shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 items-center justify-center gap-0 md:gap-2">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> <span class="hidden md:inline">Empezar hoy</span>
+                    </a>
+                </div>
+            </header>
+        </div>
+
+
+
+        <!-- HERO SECTION -->
+        <section class="pt-36 pb-32 px-6 relative" id="inicio">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                <div class="flex flex-col gap-8 z-10 w-full">
+                    <div
+                        class="gsap-fade-up inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-light px-4 py-2 rounded-full w-fit border border-primary/20 backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                        <span class="text-xs font-bold uppercase tracking-wider">La revolución contable</span>
+                    </div>
+
+                    <h1
+                        class="gsap-fade-up text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+                        Automatizá tus<br />
+                        <span class="text-gradient drop-shadow-sm">facturas</span> al instante
+                    </h1>
+
+                    <p class="gsap-fade-up text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
+                        Olvidate de la carga manual. Mandá una foto por WhatsApp y nuestra IA extrae los datos
+                        directamente a tu Google Sheets.
+                    </p>
+
+                    <div class="gsap-fade-up flex flex-col sm:flex-row w-full gap-4 pt-4">
+                        <a href="https://wa.me/5491112345678" target="_blank"
+                            class="bg-[#25D366] hover:bg-[#20ba5a] text-white w-full sm:w-auto justify-center px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 flex items-center gap-3 shadow-green-500/30">
+                            Empezar ahora <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="#como-funciona"
+                            class="nav-link bg-white/50 dark:bg-surface-dark/50 backdrop-blur-md border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-white dark:hover:bg-surface-dark w-full sm:w-auto justify-center px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_circle</span>
+                            Ver Demo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic (Interactive mockup) -->
+                <div class="gsap-scale-up relative w-full flex justify-center lg:justify-end z-10 perspective-1000">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 rounded-[3rem] blur-3xl transform rotate-3 scale-105">
+                    </div>
+
+                    <div
+                        class="relative flex flex-col items-center gap-6 p-8 bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-white/20 dark:border-white/10 w-full max-w-md transform transition-transform duration-700 hover:rotate-0 hover:scale-[1.02] rotate-[-2deg]">
+
+                        <!-- Header Mockup -->
+                        <div class="w-full flex justify-between items-center mb-4">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div
+                                class="text-xs font-semibold text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">
+                                Sincronización Google Sheets</div>
+                        </div>
+
+                        <!-- Chat & Sync Visual -->
+                        <div class="w-full space-y-4">
+                            <!-- Message 1 -->
+                            <div class="flex items-end gap-2 self-start w-[85%]">
+                                <div
+                                    class="bg-slate-100 dark:bg-slate-800 p-3 rounded-2xl rounded-bl-sm text-sm border border-slate-200 dark:border-slate-700 shadow-sm relative overflow-hidden">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="material-symbols-outlined text-green-500 text-lg">image</span>
+                                        <span class="font-medium">factura_luz.jpg</span>
+                                    </div>
+                                    <div class="w-full h-1 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="h-full bg-primary w-full animate-[pulse_2s_ease-in-out_infinite]">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bot Response -->
+                            <div class="flex items-end gap-2 self-end w-[85%] ml-auto justify-end">
+                                <div
+                                    class="bg-primary/10 text-primary-dark dark:text-primary-light p-3 rounded-2xl rounded-br-sm text-sm border border-primary/20 shadow-sm flex items-start gap-2">
+                                    <span class="material-symbols-outlined text-primary">check_circle</span>
+                                    <div>
+                                        <p class="font-bold text-xs mb-1">¡Procesado con éxito!</p>
+                                        <p class="text-[10px] opacity-80">Datos enviados a tu planilla.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sheet preview -->
+                            <div
+                                class="mt-6 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-inner hidden md:block">
+                                <div
+                                    class="bg-green-600/10 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-bold px-3 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm">grid_on</span>
+                                    Facturación 2024
+                                </div>
+                                <div class="p-2">
+                                    <div
+                                        class="grid grid-cols-3 gap-2 text-[10px] text-slate-500 mb-2 px-1 font-semibold">
+                                        <div>Fecha</div>
+                                        <div>CUIT</div>
+                                        <div>Total</div>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div
+                                            class="grid grid-cols-3 gap-2 text-[10px] bg-slate-50 dark:bg-slate-800 p-1.5 rounded">
+                                            <div>12/05</div>
+                                            <div>30-714...</div>
+                                            <div class="font-bold">$12.500</div>
+                                        </div>
+                                        <div
+                                            class="grid grid-cols-3 gap-2 text-[10px] bg-green-50 dark:bg-green-900/30 p-1.5 rounded border border-green-200 dark:border-green-800 relative overflow-hidden">
+                                            <div class="absolute inset-0 bg-green-400/10 animate-pulse"></div>
+                                            <div class="relative z-10 text-green-700 dark:text-green-400 font-medium">
+                                                Hoy</div>
+                                            <div class="relative z-10 text-green-700 dark:text-green-400 font-medium">
+                                                20-123...</div>
+                                            <div class="relative z-10 font-bold text-green-700 dark:text-green-400">
+                                                $8.400</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section
+            class="py-32 relative bg-surface-light dark:bg-surface-dark border-y border-slate-200 dark:border-slate-800"
+            id="como-funciona">
+            <!-- decorative background -->
+            <div class="absolute top-1/2 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-primary/5 -z-10">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20 gsap-fade-up">
+                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">COMO FUNCIONA</h2>
+                    <h3 id="magia-title"
+                        class="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white transition-transform origin-center">
+                        Magia en 3 pasos
+                    </h3>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">No necesitas instalar nada.
+                        Todo ocurre en las apps que ya sabes usar.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12 relative">
+                    <!-- Path line connecting steps on desktop -->
+                    <div
+                        class="hidden md:block absolute top-[40px] left-[15%] w-[70%] h-0.5 bg-gradient-to-r from-primary/10 via-primary/50 to-primary/10 z-0">
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div
+                        class="gsap-stagger-item mobile-hover-target flex flex-col items-center text-center group relative z-10 transition-transform duration-500">
+                        <div
+                            class="icon-box w-20 h-20 bg-white dark:bg-slate-800 border-2 border-primary/20 rounded-2xl flex items-center justify-center mb-8 shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-glow">
+                            <span
+                                class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">photo_camera</span>
+                        </div>
+                        <h4
+                            class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
+                            1. Sacás la foto</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Capturá tu ticket, factura A/B/C o
+                            comprobante digital con la cámara de tu celu.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div
+                        class="gsap-stagger-item mobile-hover-target flex flex-col items-center text-center group relative z-10 mt-8 md:mt-0 transition-transform duration-500">
+                        <div
+                            class="icon-box w-20 h-20 bg-white dark:bg-slate-800 border-2 border-primary/20 rounded-2xl flex items-center justify-center mb-8 shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-glow">
+                            <span
+                                class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">quickreply</span>
+                        </div>
+                        <h4
+                            class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
+                            2. Lo envias</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Compartila por WhatsApp a nuestro
+                            número o a nuestro mail, como un mensaje más.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div
+                        class="gsap-stagger-item mobile-hover-target flex flex-col items-center text-center group relative z-10 mt-8 md:mt-0 transition-transform duration-500">
+                        <div
+                            class="icon-box w-20 h-20 bg-white dark:bg-slate-800 border-2 border-primary/20 rounded-2xl flex items-center justify-center mb-8 shadow-xl transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:border-primary group-hover:shadow-glow">
+                            <span
+                                class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">database</span>
+                        </div>
+                        <h4
+                            class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
+                            3. Listo</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">En segundos extraemos CUIT,
+                            montos, fecha e IVA hacia tu Excel o Sheet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="py-32 px-6 relative overflow-hidden" id="funcionalidades">
+            <!-- BG glow -->
+            <div
+                class="absolute right-0 bottom-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                    <div class="max-w-2xl gsap-fade-up">
+                        <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
+                            Potencia real para tu negocio</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-xl">Delega el papeleo iterativo en nuestra IA
+                            y enfócate en lo importante.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Cards -->
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">document_scanner</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">IA de Extracción Alta</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Reconoce facturas arrugadas, con
+                            poca luz o manuscritas parciales con +98% de precisión.</p>
+                    </div>
+
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Validación AFIP en tiempo real
+                        </h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Conexión directa vía web services.
+                            Detecta facturas apócrifas o CAEs vencidos al instante.</p>
+                    </div>
+
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-500 mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">table_chart_view</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Google Sheets Nativo</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ni Excels sueltos ni CSVs. Todo va
+                            directo a tu planilla en la nube de forma estructurada.</p>
+                    </div>
+
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">group_add</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Multi-usuario</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Permite que tus empleados o socios
+                            manden tickets y todo se centralice en tu misma cuenta.</p>
+                    </div>
+
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                        <div
+                            class="w-14 h-14 rounded-xl bg-rose-50 dark:bg-rose-900/30 flex items-center justify-center text-rose-500 mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">receipt_long</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Tipos C, B, A, y Tickets</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Lee IVA discriminado,
+                            percepciones, ingresos brutos y separa los impuestos automáticamente.</p>
+                    </div>
+
+                    <div
+                        class="gsap-feature-card group p-8 rounded-[2rem] bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white border border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/30 hover:-translate-y-2 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div
+                            class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-3xl">chat</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">100% WhatsApp</h4>
+                        <p class="text-white/90 leading-relaxed">Sin descargar aplicaciones raras ni usar portales web.
+                            Mandás un mensaje a nuestro bot y listo.</p>
+
+                        <a href="https://wa.me/5491112345678" target="_blank"
+                            class="relative z-10 mt-6 flex items-center text-sm font-bold gap-2 cursor-pointer hover:gap-3 transition-all text-white w-max">
+                            Probalo ahora <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPINIONES / TESTIMONIALS -->
+        <section
+            class="py-32 px-6 bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-slate-800 relative"
+            id="opiniones">
+            <div
+                class="absolute -left-40 top-20 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 gsap-fade-up">
+                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3 text-primary">Testimonios
+                    </h2>
+                    <h3 id="testimonios-title"
+                        class="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white transition-transform origin-center">
+                        Lo que dicen
+                        nuestros clientes</h3>
+                    <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Estudios y empresas reales
+                        que optimizaron su tiempo con Facturex.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Reseña 1 -->
+                    <div
+                        class="mobile-hover-target-review gsap-fade-up flex flex-col h-full p-6 md:p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm relative overflow-hidden group hover:-translate-y-2 transition-all duration-500">
+                        <span
+                            class="quote-icon material-symbols-outlined absolute -top-4 -right-2 text-[120px] text-slate-200 dark:text-slate-700/30 opacity-40 rotate-12 pointer-events-none group-hover:scale-110 transition-transform duration-500">format_quote</span>
+                        <div class="text-yellow-400 flex gap-1 mb-6 relative z-10">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p
+                            class="text-slate-700 dark:text-slate-300 font-medium mb-8 relative z-10 leading-relaxed text-lg">
+                            "Ahorro como 10 horas por
+                            semana en data entry. Los clientes me mandan directamente la foto desde la app y al final
+                            del día tengo el excel armadito solo."</p>
+                        <div
+                            class="flex items-center gap-4 relative z-10 mt-auto pt-6 border-t border-slate-200 dark:border-slate-700/50">
+                            <div
+                                class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-primary font-bold text-xl uppercase">
+                                MR</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Martín R.</h4>
+                                <p class="text-xs text-slate-500 font-medium tracking-wide">Contador Público
+                                    Independiente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reseña 2 -->
+                    <div
+                        class="mobile-hover-target-review gsap-fade-up flex flex-col h-full p-6 md:p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm relative overflow-hidden group hover:-translate-y-2 transition-all duration-500">
+                        <span
+                            class="quote-icon material-symbols-outlined absolute -top-4 -right-2 text-[120px] text-slate-200 dark:text-slate-700/30 opacity-40 rotate-12 pointer-events-none group-hover:scale-110 transition-transform duration-500">format_quote</span>
+                        <div class="text-yellow-400 flex gap-1 mb-6 relative z-10">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p
+                            class="text-slate-700 dark:text-slate-300 font-medium mb-8 relative z-10 leading-relaxed text-lg">
+                            "Lo de que se valide
+                            contra AFIP al instante es la gloria. Nos saltaron 3 comprobantes apócrifos el primer mes de
+                            uso. Se paga solo el sistema."</p>
+                        <div
+                            class="flex items-center gap-4 relative z-10 mt-auto pt-6 border-t border-slate-200 dark:border-slate-700/50">
+                            <div
+                                class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center text-green-600 font-bold text-xl uppercase hover:-translate-y-1 transition-transform">
+                                LE</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Lucía E.</h4>
+                                <p class="text-xs text-slate-500 font-medium tracking-wide">Admin. Constructora</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reseña 3 -->
+                    <div
+                        class="mobile-hover-target-review gsap-fade-up flex flex-col h-full p-6 md:p-8 rounded-[2rem] bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-700/50 shadow-sm relative overflow-hidden group hover:-translate-y-2 transition-all duration-500">
+                        <span
+                            class="quote-icon material-symbols-outlined absolute -top-4 -right-2 text-[120px] text-slate-200 dark:text-slate-700/30 opacity-40 rotate-12 pointer-events-none group-hover:scale-110 transition-transform duration-500">format_quote</span>
+                        <div class="text-yellow-400 flex gap-1 mb-6 relative z-10">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <p
+                            class="text-slate-700 dark:text-slate-300 font-medium mb-8 relative z-10 leading-relaxed text-lg">
+                            "Que sea 100% por WhatsApp
+                            hizo que nuestros empleados de logística por fin suban los tickets de viáticos. Cero
+                            barreras."</p>
+                        <div
+                            class="flex items-center gap-4 relative z-10 mt-auto pt-6 border-t border-slate-200 dark:border-slate-700/50">
+                            <div
+                                class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center text-purple-600 font-bold text-xl uppercase">
+                                JP</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white">Juan P.</h4>
+                                <p class="text-xs text-slate-500 font-medium tracking-wide">Gerente de Logística</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="py-32 px-6 bg-slate-50 dark:bg-[#0B1121] border-y border-slate-200 dark:border-slate-800"
+            id="precios">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 gsap-fade-up">
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Inversión que rinde
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-xl">Ahorra hasta 15 horas mensuales de tipeo
+                        manual.</p>
+
+                    <div
+                        class="inline-flex items-center p-1 mt-10 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 dark:border-slate-700 shadow-inner relative z-10">
+                        <div id="pricing-bg-toggle"
+                            class="absolute w-[calc(50%-4px)] h-[calc(100%-8px)] bg-white dark:bg-slate-700 rounded-full shadow-md transition-transform duration-300 left-1 top-1 -z-10">
+                        </div>
+                        <button id="btn-mensual"
+                            class="relative px-8 py-3 rounded-full text-slate-900 dark:text-white font-bold text-sm transition-colors duration-300 w-36 active-tab">Mensual</button>
+                        <button id="btn-anual"
+                            class="relative px-8 py-3 rounded-full text-slate-500 dark:text-slate-400 font-bold text-sm transition-colors duration-300 w-36">Anual<span
+                                class="absolute -top-3 -right-2 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded-full shadow-lg">-20%</span></button>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+
+                    <!-- Starter -->
+                    <div
+                        class="gsap-price-card p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:-translate-y-2 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 group">
+                        <h4 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Emprendedor</h4>
+                        <p class="text-slate-500 mb-6 text-sm">Para freelancers y monotributistas.</p>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-5xl font-black text-slate-900 dark:text-white pricing-price"
+                                data-mensual="$4.500" data-anual="$3.600">$4.500</span>
+                            <span class="text-slate-500 font-medium pricing-period">/mes</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-1">
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span> 50
+                                Comprobantes/mes</li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span> 1 Destino
+                                (Sheet)</li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Extracción de AI</li>
+                        </ul>
+                        <a href="https://wa.me/5491112345678" target="_blank"
+                            class="w-full py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold hover:border-primary hover:bg-primary hover:text-white transition-all text-center block">Contactar
+                            por WhatsApp</a>
+                    </div>
+
+                    <!-- Pro -->
+                    <div
+                        class="gsap-price-card relative p-10 rounded-[2.5rem] bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700 shadow-2xl scale-100 lg:scale-105 z-10 flex flex-col hover:scale-105 lg:hover:scale-[1.10] hover:shadow-[0_20px_40px_-5px_rgba(59,130,246,0.3)] transition-all duration-500">
+                        <div
+                            class="absolute -top-4 inset-x-0 mx-auto w-max bg-gradient-to-r from-primary to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+                            El más elegido</div>
+
+                        <h4 class="text-2xl font-bold mb-2 text-white">Negocio</h4>
+                        <p class="text-slate-400 mb-6 text-sm">Para PyMEs y locales comerciales.</p>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-5xl font-black text-white pricing-price" data-mensual="$12.000"
+                                data-anual="$9.600">$12.000</span>
+                            <span class="text-slate-400 font-medium pricing-period">/mes</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-1">
+                            <li class="flex items-center gap-3 text-white/90 font-medium"><span
+                                    class="material-symbols-outlined text-primary-light text-xl">check_circle</span> 500
+                                Comprobantes/mes</li>
+                            <li class="flex items-center gap-3 text-white/90 font-medium"><span
+                                    class="material-symbols-outlined text-primary-light text-xl">check_circle</span>
+                                Destinos ILIMITADOS</li>
+                            <li class="flex items-center gap-3 text-white/90 font-medium"><span
+                                    class="material-symbols-outlined text-primary-light text-xl">check_circle</span>
+                                Múltiples usuarios WhatsApp</li>
+                            <li class="flex items-center gap-3 text-white/90 font-medium"><span
+                                    class="material-symbols-outlined text-primary-light text-xl">check_circle</span>
+                                Validación AFIP Automática</li>
+                        </ul>
+                        <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20el%20plan%20Negocio"
+                            target="_blank"
+                            class="w-full py-4 rounded-full bg-primary hover:bg-primary-hover text-white font-bold shadow-glow transition-all hover:-translate-y-1 text-center block">Empezar
+                            con Pro</a>
+                    </div>
+
+                    <!-- Estudio -->
+                    <div
+                        class="gsap-price-card p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:-translate-y-2 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 group">
+                        <h4 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Estudios Contables</h4>
+                        <p class="text-slate-500 mb-6 text-sm">Administrá a todos tus clientes.</p>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-5xl font-black text-slate-900 dark:text-white pricing-price"
+                                data-mensual="$35.000" data-anual="$28.000">$35.000</span>
+                            <span class="text-slate-500 font-medium pricing-period">/mes</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 flex-1">
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Comprobantes Ilimitados</li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span> Panel
+                                Multi-empresa</li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span> API
+                                Access y Webhooks</li>
+                            <li class="flex items-center gap-3 text-slate-700 dark:text-slate-300 font-medium"><span
+                                    class="material-symbols-outlined text-primary text-xl">check_circle</span> Soporte
+                                Prioritario 24/7</li>
+                        </ul>
+                        <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20el%20plan%20Estudios"
+                            target="_blank"
+                            class="w-full py-4 rounded-full border-2 border-[#25D366] text-[#25D366] font-bold hover:bg-[#25D366] hover:text-white transition-all text-center block">Contactar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL & FOOTER CTA -->
+        <section class="py-12 px-4 md:px-6">
+            <div id="cta-container"
+                class="max-w-6xl mx-auto rounded-[2.5rem] md:rounded-[3rem] relative overflow-hidden bg-background-dark py-16 md:py-24 px-6 md:px-8 border border-white/10 shadow-2xl scale-[0.95] opacity-0 transition-opacity">
+                <!-- Decorative Glow -->
+                <div
+                    class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none translate-y-1/3 -translate-x-1/3">
+                </div>
+
+                <div class="max-w-4xl mx-auto text-center relative z-10">
+                    <h2 class="gsap-cta-text text-4xl md:text-6xl font-black mb-6 drop-shadow-lg text-white">
+                        Automatizá tu trabajo ahora mismo.
+                    </h2>
+                    <p class="gsap-cta-text text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto font-medium">
+                        Agenda una llamada con nosotros y te mostramos como funciona. Facíl y rápida instalación.
+                    </p>
+
+                    <div class="gsap-cta-text flex flex-col sm:flex-row justify-center w-full gap-4">
+                        <a href="mailto:hola@facturex.com.ar"
+                            class="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 w-full sm:w-auto px-8 py-4 rounded-full font-bold text-lg transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-xl">mail</span> Enviar Email
+                        </a>
+                        <a href="https://wa.me/5491112345678" target="_blank"
+                            class="bg-[#25D366] hover:bg-[#20ba5a] text-white w-full sm:w-auto px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-green-500/20 hover:shadow-2xl hover:shadow-green-500/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Escribinos a WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/5491112345678" target="_blank"
+            class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] w-14 h-14 md:w-20 md:h-20 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] md:shadow-[0_0_40px_rgba(37,211,102,0.7)] hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] md:hover:shadow-[0_0_60px_rgba(37,211,102,0.9)] hover:-translate-y-2 transition-all duration-300 group">
+            <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
+            <span
+                class="absolute inset-0 rounded-full bg-[#25D366] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20 delay-1000"></span>
+            <i
+                class="fa-brands fa-whatsapp text-3xl md:text-[2.5rem] relative z-10 group-hover:scale-110 transition-transform"></i>
+        </a>
+    </div>
+
+    <!-- GSAP Initializations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Select all elements to animate
+            const fadeUps = document.querySelectorAll('.gsap-fade-up');
+            const scaleUps = document.querySelectorAll('.gsap-scale-up');
+            const staggerItems = document.querySelectorAll('.gsap-stagger-item');
+            const featureCards = document.querySelectorAll('.gsap-feature-card');
+            const priceCards = document.querySelectorAll('.gsap-price-card');
+
+            // Setup initial states
+            gsap.set(fadeUps, { autoAlpha: 0, y: 40 });
+            gsap.set(scaleUps, { autoAlpha: 0, scale: 0.9, rotation: -5 });
+            gsap.set(staggerItems, { autoAlpha: 0, y: 30 });
+            gsap.set(featureCards, { autoAlpha: 0, y: 20, scale: 0.8 });
+            gsap.set(priceCards, { autoAlpha: 0, y: 40 });
+
+            // Animate hero items immediately
+            gsap.to(fadeUps[0], { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.1 });
+            gsap.to(fadeUps[1], { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.2 });
+            gsap.to(fadeUps[2], { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.3 });
+            gsap.to(fadeUps[3], { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.4 });
+
+            gsap.to(scaleUps, {
+                autoAlpha: 1,
+                scale: 1,
+                rotation: 0,
+                duration: 1.2,
+                ease: "elastic.out(1, 0.7)",
+                delay: 0.5
+            });
+
+            // Title Parallax/Expansion out of nothing
+            const magiaTitle = document.getElementById('magia-title');
+            if (magiaTitle) {
+                gsap.to(magiaTitle, {
+                    scale: 1.15,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: '#como-funciona',
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true
+                    }
+                });
+            }
+
+            // ScrollTrigger for "How it works" - Mobile focus interactive states
+            ScrollTrigger.batch(staggerItems, {
+                onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.15, duration: 0.8, ease: "power3.out" }),
+                start: "top 85%"
+            });
+
+            // Simulate Hover effect natively as scrolling on mobile for steps
+            document.querySelectorAll('.mobile-hover-target').forEach((item) => {
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%", // When the item reaches the focus area of the screen
+                    end: "top 30%",   // Stop effect when it moves above
+                    toggleClass: {
+                        targets: item.querySelector('.icon-box'),
+                        className: 'scale-110'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item.querySelector('.icon-box'),
+                        className: '!bg-primary'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item.querySelector('.icon-symbol'),
+                        className: '!text-white'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item,
+                        className: '-translate-y-2'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item.querySelector('.step-title'),
+                        className: 'scale-110'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item.querySelector('.step-title'),
+                        className: '!text-primary'
+                    }
+                });
+            });
+
+            // Simulate Hover effect natively as scrolling on mobile for Reviews
+            document.querySelectorAll('.mobile-hover-target-review').forEach((item) => {
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item,
+                        className: '-translate-y-2'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item,
+                        className: 'shadow-lg'
+                    }
+                });
+
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item.querySelector('.quote-icon'),
+                        className: 'scale-110'
+                    }
+                });
+            });
+
+            // Title Parallax/Expansion for Testimonios
+            const testimoniosTitle = document.getElementById('testimonios-title');
+            if (testimoniosTitle) {
+                gsap.to(testimoniosTitle, {
+                    scale: 1.15,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: '#opiniones',
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true
+                    }
+                });
+            }
+
+            // ScrollTrigger for general fade-ups lower in the page
+            fadeUps.forEach(element => {
+                // Skip the first 4 since they are hero elements
+                if (element === fadeUps[0] || element === fadeUps[1] || element === fadeUps[2] || element === fadeUps[3]) return;
+
+                ScrollTrigger.create({
+                    trigger: element,
+                    start: "top 85%",
+                    onEnter: () => gsap.to(element, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out" })
+                });
+            });
+
+            // ScrollTrigger for features (Snappy Pop-up)
+            ScrollTrigger.batch(featureCards, {
+                onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, scale: 1, stagger: 0.08, duration: 0.5, ease: "back.out(1.7)" }),
+                start: "top 98%" // Triggers immediately as it enters viewport
+            });
+
+            // ScrollTrigger for pricing
+            ScrollTrigger.batch(priceCards, {
+                onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.5)" }),
+                start: "top 95%"
+            });
+            // Setup Lenis Smooth Scrolling
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard ease-out curve
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            // Connect Lenis to GSAP ScrollTrigger
+            lenis.on('scroll', ScrollTrigger.update);
+
+            // RAF loop for Lenis
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Smooth scrolling for internal anchor links using Lenis instead of native behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            lenis.scrollTo(targetElement, {
+                                offset: -100, // Offset for the navbar height + padding
+                                duration: 1.2
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Pricing Toggle functionality
+            const btnMensual = document.getElementById('btn-mensual');
+            const btnAnual = document.getElementById('btn-anual');
+            const bgToggle = document.getElementById('pricing-bg-toggle');
+            const prices = document.querySelectorAll('.pricing-price');
+
+            // Set initial state
+            btnMensual.classList.add('text-slate-900', 'dark:text-white');
+            btnAnual.classList.add('text-slate-500', 'dark:text-slate-400');
+
+            btnMensual.addEventListener('click', () => {
+                // Return slider to left
+                bgToggle.style.transform = 'translateX(0)';
+
+                // Update Mensual button colors
+                btnMensual.classList.add('text-slate-900', 'dark:text-white');
+                btnMensual.classList.remove('text-slate-500', 'dark:text-slate-400');
+
+                // Revert Anual button colors
+                btnAnual.classList.remove('text-slate-900', 'dark:text-white');
+                btnAnual.classList.add('text-slate-500', 'dark:text-slate-400');
+
+                // Update text
+                prices.forEach(price => {
+                    price.innerHTML = price.getAttribute('data-mensual');
+                });
+            });
+
+            btnAnual.addEventListener('click', () => {
+                // Move slider to right block
+                bgToggle.style.transform = 'translateX(100%)';
+
+                // Update Anual button colors
+                btnAnual.classList.add('text-slate-900', 'dark:text-white');
+                btnAnual.classList.remove('text-slate-500', 'dark:text-slate-400');
+
+                // Revert Mensual button colors
+                btnMensual.classList.remove('text-slate-900', 'dark:text-white');
+                btnMensual.classList.add('text-slate-500', 'dark:text-slate-400');
+
+                // Update text
+                prices.forEach(price => {
+                    price.innerHTML = price.getAttribute('data-anual');
+                });
+            });
+
+            // CTA Section Wrapper Animation
+            ScrollTrigger.create({
+                trigger: "#cta-container",
+                start: "top 85%",
+                onEnter: () => {
+                    gsap.to("#cta-container", {
+                        autoAlpha: 1,
+                        scale: 1,
+                        duration: 1.2,
+                        ease: "elastic.out(1, 0.75)"
+                    });
+                }
+            });
+
+            const ctaTexts = document.querySelectorAll('.gsap-cta-text');
+            gsap.set(ctaTexts, { autoAlpha: 0, y: 30 });
+
+            ScrollTrigger.create({
+                trigger: "#cta-container",
+                start: "top 70%",
+                onEnter: () => {
+                    // Fade up texts shortly after the container pops in
+                    gsap.to(ctaTexts, {
+                        autoAlpha: 1,
+                        y: 0,
+                        stagger: 0.15,
+                        duration: 1,
+                        ease: "back.out(1.2)",
+                        delay: 0.2
+                    });
+                }
+            });
+
+            // Smart Mobile Navbar (Hide on scroll down, show on scroll up)
+            let lastScrollY = window.scrollY;
+            const navbar = document.getElementById('navbar-container');
+
+            window.addEventListener('scroll', () => {
+                // Only apply on mobile devices (width < 768px for md breakpoint)
+                if (window.innerWidth < 768) {
+                    if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                        // Scrolling down & past top -> hide navbar (push it up out of frame)
+                        navbar.classList.add('-translate-y-[150%]');
+                    } else {
+                        // Scrolling up or at the very top -> show navbar
+                        navbar.classList.remove('-translate-y-[150%]');
+                    }
+                } else {
+                    // Ensure it's always visible on desktop just in case window was resized
+                    navbar.classList.remove('-translate-y-[150%]');
+                }
+                lastScrollY = window.scrollY;
+            }, { passive: true });
+        });
+    </script>
+</body>
+
+</html>
