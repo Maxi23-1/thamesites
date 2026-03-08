@@ -209,10 +209,33 @@
             </a>
 
             <!-- Mobile Toggle -->
-            <button class="lg:hidden text-brand-gold"><span
-                    class="material-symbols-outlined text-3xl">menu</span></button>
+            <button id="mobile-menu-btn"
+                class="lg:hidden text-brand-gold relative z-50 p-2 cursor-pointer focus:outline-none">
+                <span id="mobile-menu-icon"
+                    class="material-symbols-outlined text-3xl transition-transform duration-300">menu</span>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#0d1d30]/95 backdrop-blur-md z-40 flex flex-col items-center justify-center transition-all duration-500 ease-in-out opacity-0 pointer-events-none translate-y-[-20px] lg:hidden">
+        <nav
+            class="flex flex-col items-center gap-8 font-medium text-lg text-white uppercase tracking-wider w-full px-6">
+            <a href="#inicio" class="mobile-link hover:text-brand-gold transition-colors block">Inicio</a>
+            <a href="#beneficios" class="mobile-link hover:text-brand-gold transition-colors block">Nosotros</a>
+            <a href="#tecnico" class="mobile-link hover:text-brand-gold transition-colors block">Técnica</a>
+            <a href="#aplicacion" class="mobile-link hover:text-brand-gold transition-colors block">Aplicación</a>
+            <a href="#cotizador" class="mobile-link hover:text-brand-gold transition-colors block">Cotizar</a>
+            <a href="#oportunidades" class="mobile-link hover:text-brand-gold transition-colors block">Revendedores</a>
+
+            <a href="https://wa.me/5491123753788?text=Hola,%20quisiera%20solicitar%20un%20presupuesto." target="_blank"
+                rel="noopener noreferrer"
+                class="mobile-link btn-gold px-12 py-4 text-sm font-bold uppercase tracking-widest shadow-xl mt-4 rounded">
+                Contactar
+            </a>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
     <section id="inicio" class="relative pt-40 pb-32 hero-bg section-navy overflow-hidden">
@@ -914,6 +937,44 @@
         if (m2Input) {
             calcularPrecio();
             m2Input.addEventListener('input', calcularPrecio);
+        }
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileIcon = document.getElementById('mobile-menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                // Abrir menú
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                mobileIcon.textContent = 'close';
+                mobileIcon.classList.add('rotate-90'); // Pequeña animación del icono
+                // Bloquear scroll de fondo
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Cerrar menú
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                mobileIcon.textContent = 'menu';
+                mobileIcon.classList.remove('rotate-90');
+                // Restaurar scroll
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', toggleMenu);
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
         }
 
     </script>
