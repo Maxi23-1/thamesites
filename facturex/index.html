@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Facturex - Automatizá tus facturas</title>
+    <title>Facturex - Procesa tus facturas</title>
+
+    <!-- SEO & Metadata -->
+    <meta name="description"
+        content="Automatiza la carga de facturas para PyMEs y estudios contables en Argentina. Envía una foto por WhatsApp y nuestra IA extrae los datos a Excel o Google Sheets al instante.">
+    <meta name="keywords"
+        content="facturas, automatización, IA, contabilidad, estudios contables, OCR facturas, AFIP, WhatsApp facturación, Argentina, digitalización">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://facturex.com.ar/">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Facturex - La revolución contable automatizada">
+    <meta property="og:description"
+        content="Delega la carga manual de la facturación. Facturex extrae todos los datos leyendo fotos con IA enviándolos a tus planillas en segundos.">
+    <meta property="og:url" content="https://facturex.com.ar/">
+    <meta property="og:image" content="https://facturex.com.ar/images/og-image.webp">
+
+    <!-- Performance Prefetching & Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Favicon -->
-    <link rel="icon" href="/facturex/images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
     <!-- Tailwind & Fonts -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preload" href="output.css" as="style" />
+    <link rel="stylesheet" href="output.css" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link
@@ -20,89 +42,13 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- GSAP & Lenis for Animations and Smooth Scrolling -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+    <!-- Smooth Scrolling (Lenis) JS -->
+    <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "media", // default to media or you can toggle
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            DEFAULT: '#3B82F6',
-                            hover: '#2563EB',
-                            light: '#DBEAFE',
-                            dark: '#1E3A8A'
-                        },
-                        background: {
-                            light: '#F8FAFC',
-                            dark: '#0F172A' // Premium dark blue-gray
-                        },
-                        surface: {
-                            light: '#FFFFFF',
-                            dark: '#1E293B'
-                        }
-                    },
-                    fontFamily: {
-                        display: ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    boxShadow: {
-                        'glow': '0 0 20px rgba(59, 130, 246, 0.4)',
-                        'glow-lg': '0 0 40px rgba(59, 130, 246, 0.6)'
-                    }
-                },
-            },
-        }
-    </script>
-
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-
-        .fill-1 {
-            font-variation-settings: 'FILL' 1;
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism utilities */
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* Premium Gradient Text */
-        .text-gradient {
-            background: linear-gradient(135deg, #3B82F6, #8B5CF6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Initial Hide for GSAP */
-        .gsap-fade-up,
-        .gsap-fade-in,
-        .gsap-scale-up,
-        .gsap-stagger-item {
-            visibility: hidden;
-        }
-    </style>
+    <!-- GSAP for Animations and Setup -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 </head>
 
 <body
@@ -122,7 +68,7 @@
             <header
                 class="w-full max-w-6xl bg-white/80 dark:bg-surface-dark/80 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] rounded-[2rem] px-6 py-3 md:py-4 flex items-center justify-between transition-all pointer-events-auto">
                 <div class="flex items-center gap-2 group cursor-pointer pl-2">
-                    <img alt="Facturex Logo"
+                    <img alt="Logotipo Facturex Argentina" fetchpriority="high" decoding="async" width="160" height="48"
                         class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
                         src="images/logo.png" />
                 </div>
@@ -152,22 +98,60 @@
                         <span
                             class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                     </a>
+                    <a class="nav-link relative text-[15px] font-bold group hover:text-primary transition-colors py-1"
+                        href="#preguntas-frecuentes">FAQ
+                        <span
+                            class="absolute left-1/2 -bottom-1 w-0 h-[3px] bg-primary rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                    </a>
                 </nav>
-                <div class="flex items-center">
+                <div class="flex items-center gap-2">
+                    <!-- WhatsApp Mobile Button -->
                     <a href="https://wa.me/5491112345678" target="_blank"
-                        class="inline-flex w-12 h-12 md:w-auto md:h-auto bg-[#25D366] hover:bg-[#20ba5a] text-white md:px-6 md:py-3 rounded-full text-[15px] font-bold transition-all shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 items-center justify-center gap-0 md:gap-2">
+                        class="md:hidden flex w-10 h-10 items-center justify-center bg-[#25D366] text-white rounded-full shadow-glow active:scale-95 transition-all">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </a>
+                    <!-- Hamburger Menu Button (Mobile Only) -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden flex w-10 h-10 items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full focus:outline-none active:scale-95 transition-all">
+                        <span class="material-symbols-outlined text-[24px] transition-transform duration-300 transform"
+                            id="menu-icon">menu</span>
+                    </button>
+                    <!-- CTA Button (Desktop Only) -->
+                    <a href="https://wa.me/5491112345678" target="_blank"
+                        class="hidden md:inline-flex w-12 h-12 md:w-auto md:h-auto bg-[#25D366] hover:bg-[#20ba5a] text-white md:px-6 md:py-3 rounded-full text-[15px] font-bold transition-all shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 items-center justify-center gap-0 md:gap-2">
                         <i class="fa-brands fa-whatsapp text-xl"></i> <span class="hidden md:inline">Empezar hoy</span>
                     </a>
                 </div>
             </header>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu"
+                class="absolute top-[88px] left-4 right-4 bg-white/95 dark:bg-surface-dark/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700 shadow-2xl rounded-2xl flex flex-col p-4 opacity-0 pointer-events-none transform -translate-y-6 scale-95 transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] md:hidden pb-6 origin-top">
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 border-b border-slate-100 dark:border-slate-800"
+                    href="#inicio">Inicio</a>
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 border-b border-slate-100 dark:border-slate-800"
+                    href="#como-funciona">Cómo funciona</a>
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 border-b border-slate-100 dark:border-slate-800"
+                    href="#funcionalidades">Funciones</a>
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 border-b border-slate-100 dark:border-slate-800"
+                    href="#opiniones">Opiniones</a>
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 border-b border-slate-100 dark:border-slate-800"
+                    href="#precios">Precios</a>
+                <a class="mobile-nav-link text-slate-800 dark:text-slate-200 font-bold text-lg py-3 mb-4"
+                    href="#preguntas-frecuentes">FAQ</a>
+                <a href="https://wa.me/5491112345678" target="_blank"
+                    class="w-full bg-[#25D366] active:bg-[#20ba5a] text-white py-4 rounded-full font-bold text-center flex items-center justify-center gap-2 shadow-lg active:scale-95 transition-transform">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> Hablar con un asesor
+                </a>
+            </div>
         </div>
 
 
 
         <!-- HERO SECTION -->
-        <section class="pt-36 pb-32 px-6 relative" id="inicio">
-            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-                <div class="flex flex-col gap-8 z-10 w-full">
+        <section class="pt-28 pb-16 md:pt-36 md:pb-32 px-6 relative" id="inicio">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="flex flex-col gap-4 md:gap-8 z-10 w-full">
                     <div
                         class="gsap-fade-up inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 text-primary-dark dark:text-primary-light px-4 py-2 rounded-full w-fit border border-primary/20 backdrop-blur-sm">
                         <span class="material-symbols-outlined text-sm">auto_awesome</span>
@@ -176,13 +160,13 @@
 
                     <h1
                         class="gsap-fade-up text-5xl md:text-7xl font-extrabold text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-                        Automatizá tus<br />
+                        Procesa tus<br />
                         <span class="text-gradient drop-shadow-sm">facturas</span> al instante
                     </h1>
 
                     <p class="gsap-fade-up text-lg text-slate-600 dark:text-slate-300 max-w-lg leading-relaxed">
-                        Olvidate de la carga manual. Mandá una foto por WhatsApp y nuestra IA extrae los datos
-                        directamente a tu Google Sheets.
+                        Olvidate de la carga manual. Mandá una foto por WhatsApp o Mail y nuestra IA extrae los datos
+                        directamente a tu Google Sheets o Excel.
                     </p>
 
                     <div class="gsap-fade-up flex flex-col sm:flex-row w-full gap-4 pt-4">
@@ -190,12 +174,12 @@
                             class="bg-[#25D366] hover:bg-[#20ba5a] text-white w-full sm:w-auto justify-center px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 flex items-center gap-3 shadow-green-500/30">
                             Empezar ahora <i class="fa-brands fa-whatsapp text-xl"></i>
                         </a>
-                        <a href="#como-funciona"
-                            class="nav-link bg-white/50 dark:bg-surface-dark/50 backdrop-blur-md border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-white dark:hover:bg-surface-dark w-full sm:w-auto justify-center px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 group">
+                        <button id="open-demo-btn"
+                            class="bg-white/50 dark:bg-surface-dark/50 backdrop-blur-md border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-white dark:hover:bg-surface-dark w-full sm:w-auto justify-center px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 group">
                             <span
                                 class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">play_circle</span>
                             Ver Demo
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -251,7 +235,7 @@
 
                             <!-- Sheet preview -->
                             <div
-                                class="mt-6 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-inner hidden md:block">
+                                class="mt-6 w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden shadow-inner">
                                 <div
                                     class="bg-green-600/10 dark:bg-green-500/20 text-green-700 dark:text-green-400 text-xs font-bold px-3 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center gap-2">
                                     <span class="material-symbols-outlined text-sm">grid_on</span>
@@ -301,11 +285,11 @@
 
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-20 gsap-fade-up">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3">COMO FUNCIONA</h2>
-                    <h3 id="magia-title"
+                    <p class="text-sm font-bold tracking-widest text-primary uppercase mb-3">COMO FUNCIONA</p>
+                    <h2 id="magia-title"
                         class="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white transition-transform origin-center">
                         Magia en 3 pasos
-                    </h3>
+                    </h2>
                     <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">No necesitas instalar nada.
                         Todo ocurre en las apps que ya sabes usar.</p>
                 </div>
@@ -324,9 +308,9 @@
                             <span
                                 class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">photo_camera</span>
                         </div>
-                        <h4
+                        <h3
                             class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
-                            1. Sacás la foto</h4>
+                            1. Sacás la foto</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Capturá tu ticket, factura A/B/C o
                             comprobante digital con la cámara de tu celu.</p>
                     </div>
@@ -339,9 +323,9 @@
                             <span
                                 class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">quickreply</span>
                         </div>
-                        <h4
+                        <h3
                             class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
-                            2. Lo envias</h4>
+                            2. Lo envias</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Compartila por WhatsApp a nuestro
                             número o a nuestro mail, como un mensaje más.</p>
                     </div>
@@ -354,11 +338,11 @@
                             <span
                                 class="material-symbols-outlined text-4xl text-primary icon-symbol group-hover:text-white transition-colors">database</span>
                         </div>
-                        <h4
+                        <h3
                             class="step-title text-2xl font-bold mb-4 text-slate-900 dark:text-white transition-all duration-500 group-hover:scale-110 group-hover:text-primary dark:group-hover:text-primary-light">
-                            3. Listo</h4>
+                            3. Listo</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">En segundos extraemos CUIT,
-                            montos, fecha e IVA hacia tu Excel o Sheet.</p>
+                            montos, fecha e IVA hacia tu Excel o Spreadsheet.</p>
                     </div>
                 </div>
             </div>
@@ -376,8 +360,8 @@
                     <div class="max-w-2xl gsap-fade-up">
                         <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
                             Potencia real para tu negocio</h2>
-                        <p class="text-slate-600 dark:text-slate-400 text-xl">Delega el papeleo iterativo en nuestra IA
-                            y enfócate en lo importante.</p>
+                        <p class="text-slate-600 dark:text-slate-400 text-xl">Delega el papeleo en nuestra IA y enfócate
+                            en lo importante.</p>
                     </div>
                 </div>
 
@@ -389,7 +373,7 @@
                             class="w-14 h-14 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">document_scanner</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">IA de Extracción Alta</h4>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">IA de Extracción Alta</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Reconoce facturas arrugadas, con
                             poca luz o manuscritas parciales con +98% de precisión.</p>
                     </div>
@@ -400,8 +384,8 @@
                             class="w-14 h-14 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">verified_user</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Validación AFIP en tiempo real
-                        </h4>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Validación AFIP en tiempo real
+                        </h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Conexión directa vía web services.
                             Detecta facturas apócrifas o CAEs vencidos al instante.</p>
                     </div>
@@ -412,7 +396,7 @@
                             class="w-14 h-14 rounded-xl bg-green-50 dark:bg-green-900/30 flex items-center justify-center text-green-500 mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">table_chart_view</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Google Sheets Nativo</h4>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Google Sheets Nativo</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Ni Excels sueltos ni CSVs. Todo va
                             directo a tu planilla en la nube de forma estructurada.</p>
                     </div>
@@ -423,9 +407,9 @@
                             class="w-14 h-14 rounded-xl bg-orange-50 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">group_add</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Multi-usuario</h4>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Multi-usuario</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Permite que tus empleados o socios
-                            manden tickets y todo se centralice en tu misma cuenta.</p>
+                            manden tickets y todo se centralice en tu misma planilla.</p>
                     </div>
 
                     <div
@@ -434,28 +418,28 @@
                             class="w-14 h-14 rounded-xl bg-rose-50 dark:bg-rose-900/30 flex items-center justify-center text-rose-500 mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">receipt_long</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Tipos C, B, A, y Tickets</h4>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Tipos C, B, A, y Tickets</h3>
                         <p class="text-slate-600 dark:text-slate-400 leading-relaxed">Lee IVA discriminado,
                             percepciones, ingresos brutos y separa los impuestos automáticamente.</p>
                     </div>
 
-                    <div
-                        class="gsap-feature-card group p-8 rounded-[2rem] bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white border border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/30 hover:-translate-y-2 relative overflow-hidden">
+                    <a href="https://wa.me/5491112345678" target="_blank"
+                        class="block cursor-pointer gsap-feature-card group p-8 rounded-[2rem] bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white border border-transparent transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/30 hover:-translate-y-2 relative overflow-hidden">
                         <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
                         </div>
                         <div
                             class="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
                             <span class="material-symbols-outlined text-3xl">chat</span>
                         </div>
-                        <h4 class="text-xl font-bold mb-3">100% WhatsApp</h4>
+                        <h3 class="text-xl font-bold mb-3">100% WhatsApp</h3>
                         <p class="text-white/90 leading-relaxed">Sin descargar aplicaciones raras ni usar portales web.
-                            Mandás un mensaje a nuestro bot y listo.</p>
+                            Nos envías un mensaje y listo.</p>
 
-                        <a href="https://wa.me/5491112345678" target="_blank"
-                            class="relative z-10 mt-6 flex items-center text-sm font-bold gap-2 cursor-pointer hover:gap-3 transition-all text-white w-max">
+                        <div
+                            class="relative z-10 mt-6 flex items-center text-sm font-bold gap-2 cursor-pointer group-hover:gap-3 transition-all text-white w-max">
                             Probalo ahora <i class="fa-brands fa-whatsapp text-lg"></i>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -470,12 +454,12 @@
 
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20 gsap-fade-up">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-3 text-primary">Testimonios
-                    </h2>
-                    <h3 id="testimonios-title"
+                    <p class="text-sm font-bold tracking-widest text-primary uppercase mb-3 text-primary">Testimonios
+                    </p>
+                    <h2 id="testimonios-title"
                         class="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white transition-transform origin-center">
                         Lo que dicen
-                        nuestros clientes</h3>
+                        nuestros clientes</h2>
                     <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Estudios y empresas reales
                         que optimizaron su tiempo con Facturex.</p>
                 </div>
@@ -571,21 +555,23 @@
             id="precios">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20 gsap-fade-up">
-                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Inversión que rinde
+                    <h2 id="precios-title"
+                        class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 transition-transform origin-center">
+                        Inversión que rinde
                     </h2>
                     <p class="text-slate-600 dark:text-slate-400 text-xl">Ahorra hasta 15 horas mensuales de tipeo
                         manual.</p>
 
                     <div
-                        class="inline-flex items-center p-1 mt-10 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 dark:border-slate-700 shadow-inner relative z-10">
+                        class="inline-flex items-center p-1 mt-10 bg-slate-200/50 dark:bg-slate-800 rounded-full border border-slate-300 dark:border-slate-700 shadow-inner relative z-50">
                         <div id="pricing-bg-toggle"
                             class="absolute w-[calc(50%-4px)] h-[calc(100%-8px)] bg-white dark:bg-slate-700 rounded-full shadow-md transition-transform duration-300 left-1 top-1 -z-10">
                         </div>
                         <button id="btn-mensual"
-                            class="relative px-8 py-3 rounded-full text-slate-900 dark:text-white font-bold text-sm transition-colors duration-300 w-36 active-tab">Mensual</button>
+                            class="relative px-8 py-3 rounded-full text-slate-900 dark:text-white font-bold text-sm transition-colors duration-300 w-36 active-tab cursor-pointer">Mensual</button>
                         <button id="btn-anual"
-                            class="relative px-8 py-3 rounded-full text-slate-500 dark:text-slate-400 font-bold text-sm transition-colors duration-300 w-36">Anual<span
-                                class="absolute -top-3 -right-2 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded-full shadow-lg">-20%</span></button>
+                            class="relative px-8 py-3 rounded-full text-slate-500 dark:text-slate-400 font-bold text-sm transition-colors duration-300 w-36 cursor-pointer">Anual<span
+                                class="absolute -top-3 -right-2 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded-full shadow-lg pointer-events-none">-20%</span></button>
                     </div>
                 </div>
 
@@ -593,8 +579,10 @@
 
                     <!-- Starter -->
                     <div
-                        class="gsap-price-card p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:border-primary/30 transition-colors">
-                        <h4 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Emprendedor</h4>
+                        class="gsap-price-card mobile-hover-target-outer-price p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:-translate-y-4 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 group">
+                        <h3
+                            class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                            Emprendedor</h3>
                         <p class="text-slate-500 mb-6 text-sm">Para freelancers y monotributistas.</p>
                         <div class="flex items-baseline gap-1 mb-8">
                             <span class="text-5xl font-black text-slate-900 dark:text-white pricing-price"
@@ -613,18 +601,17 @@
                                 Extracción de AI</li>
                         </ul>
                         <a href="https://wa.me/5491112345678" target="_blank"
-                            class="w-full py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold hover:border-primary hover:bg-primary hover:text-white transition-all text-center block">Contactar
-                            por WhatsApp</a>
+                            class="w-full py-4 rounded-full border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold hover:border-primary hover:bg-primary hover:text-white transition-all text-center block">Contactar</a>
                     </div>
 
                     <!-- Pro -->
                     <div
-                        class="gsap-price-card relative p-10 rounded-[2.5rem] bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700 shadow-2xl scale-100 lg:scale-105 z-10 flex flex-col">
+                        class="gsap-price-card mobile-hover-target-center-price relative p-10 rounded-[2.5rem] bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-slate-700 shadow-2xl scale-100 lg:scale-105 z-10 flex flex-col hover:scale-105 lg:hover:scale-[1.10] hover:shadow-[0_20px_40px_-5px_rgba(59,130,246,0.5)] transition-all duration-500 group">
                         <div
                             class="absolute -top-4 inset-x-0 mx-auto w-max bg-gradient-to-r from-primary to-purple-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
                             El más elegido</div>
 
-                        <h4 class="text-2xl font-bold mb-2 text-white">Negocio</h4>
+                        <h3 class="text-2xl font-bold mb-2 text-white">Negocio</h3>
                         <p class="text-slate-400 mb-6 text-sm">Para PyMEs y locales comerciales.</p>
                         <div class="flex items-baseline gap-1 mb-8">
                             <span class="text-5xl font-black text-white pricing-price" data-mensual="$12.000"
@@ -647,14 +634,15 @@
                         </ul>
                         <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20el%20plan%20Negocio"
                             target="_blank"
-                            class="w-full py-4 rounded-full bg-primary hover:bg-primary-hover text-white font-bold shadow-glow transition-all hover:-translate-y-1 text-center block">Empezar
-                            con Pro</a>
+                            class="w-full py-4 rounded-full bg-primary hover:bg-primary-hover text-white font-bold shadow-glow transition-all hover:-translate-y-1 text-center block">Contactar</a>
                     </div>
 
                     <!-- Estudio -->
                     <div
-                        class="gsap-price-card p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:border-primary/30 transition-colors">
-                        <h4 class="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Estudios Contables</h4>
+                        class="gsap-price-card mobile-hover-target-outer-price p-10 rounded-[2.5rem] bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 flex flex-col hover:-translate-y-4 hover:shadow-2xl hover:border-primary/50 transition-all duration-300 group">
+                        <h3
+                            class="text-2xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                            Estudios Contables</h3>
                         <p class="text-slate-500 mb-6 text-sm">Administrá a todos tus clientes.</p>
                         <div class="flex items-baseline gap-1 mb-8">
                             <span class="text-5xl font-black text-slate-900 dark:text-white pricing-price"
@@ -684,6 +672,194 @@
             </div>
         </section>
 
+        <!-- FAQ SECTION -->
+        <section
+            class="py-32 px-6 bg-slate-50 dark:bg-[#0B1121] border-b border-slate-200 dark:border-slate-800 relative"
+            id="preguntas-frecuentes">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-16 gsap-fade-up">
+                    <h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6">Preguntas
+                        Frecuentes</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-xl">Resolvemos todas tus dudas antes de empezar.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Qué es Facturex?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Facturex es una herramienta que automatiza la carga de facturas para PyMEs y estudios
+                                contables en Argentina. Tu cliente te manda la foto de la factura por WhatsApp, y el
+                                sistema la lee, valida el CUIT contra AFIP y carga los datos directo en tu Google Sheet
+                                — en menos de 30 segundos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Cómo funciona?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Simple: sacás foto a la factura con el celular, la mandás al WhatsApp de Facturex igual
+                                que cualquier mensaje, y el sistema hace el resto. Te confirma la carga por WhatsApp o
+                                te avisa si hubo algún error.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Necesito instalar algo?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                No. Funciona desde WhatsApp y Google Sheets, que ya tenés en el celular. Sin apps, sin
+                                instalaciones, sin área de sistemas.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Cuánto tarda el onboarding?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                15 minutos por videollamada. El primer día configuramos tu número, armamos la planilla y
+                                mandás tu primera factura de prueba. Si en menos de 60 segundos no ves el resultado,
+                                algo raro pasó.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Con qué tipo de facturas funciona?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Facturas A, B, C y M. Detecta el CUIT del proveedor o cliente, lo valida contra el
+                                padrón AFIP en tiempo real y alerta si la factura es apócrifa o inválida.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Avisa si un proveedor cambió el precio?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Sí. Si el importe de un proveedor es diferente a la última factura registrada, Facturex
+                                te manda una alerta automática.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿Para quién es Facturex?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Para estudios contables y PyMEs que manejan entre 20 y 200 facturas por mes, usan
+                                WhatsApp como canal de trabajo y no quieren pagar un software contable complejo. Si hoy
+                                cargás facturas a mano, Facturex es para vos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div
+                        class="gsap-faq-item bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-primary/30 group">
+                        <button
+                            class="faq-button w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors pr-8">
+                                ¿En qué se diferencia de Tango o Bejerman?</h3>
+                            <span
+                                class="faq-icon material-symbols-outlined text-slate-400 transform transition-transform duration-300">expand_more</span>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                            <div
+                                class="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800 mt-2 pt-4">
+                                Facturex no reemplaza tu software contable, lo complementa. Resuelve el problema
+                                específico de la carga manual de comprobantes, sin la complejidad ni el costo de un
+                                sistema integral.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Decorative dots -->
+            <div
+                class="absolute w-[300px] h-[300px] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:20px_20px] top-10 left-10 opacity-30 pointer-events-none">
+            </div>
+        </section>
+
         <!-- CTA FINAL & FOOTER CTA -->
         <section class="py-12 px-4 md:px-6">
             <div id="cta-container"
@@ -698,7 +874,7 @@
 
                 <div class="max-w-4xl mx-auto text-center relative z-10">
                     <h2 class="gsap-cta-text text-4xl md:text-6xl font-black mb-6 drop-shadow-lg text-white">
-                        Automatizá tu trabajo ahora mismo.
+                        Procesa tu trabajo ahora mismo.
                     </h2>
                     <p class="gsap-cta-text text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto font-medium">
                         Agenda una llamada con nosotros y te mostramos como funciona. Facíl y rápida instalación.
@@ -720,8 +896,8 @@
 
 
         <!-- Floating WhatsApp Button -->
-        <a href="https://wa.me/5491112345678" target="_blank"
-            class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] w-14 h-14 md:w-20 md:h-20 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] md:shadow-[0_0_40px_rgba(37,211,102,0.7)] hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] md:hover:shadow-[0_0_60px_rgba(37,211,102,0.9)] hover:-translate-y-2 transition-all duration-300 group">
+        <a id="whatsapp-float" href="https://wa.me/5491112345678" target="_blank"
+            class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] w-14 h-14 md:w-20 md:h-20 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,211,102,0.5)] md:shadow-[0_0_40px_rgba(37,211,102,0.7)] hover:shadow-[0_0_30px_rgba(37,211,102,0.8)] md:hover:shadow-[0_0_60px_rgba(37,211,102,0.9)] hover:-translate-y-2 transition-all duration-300 group opacity-0 pointer-events-none translate-y-8">
             <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></span>
             <span
                 class="absolute inset-0 rounded-full bg-[#25D366] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] opacity-20 delay-1000"></span>
@@ -733,7 +909,28 @@
     <!-- GSAP Initializations -->
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
-            gsap.registerPlugin(ScrollTrigger);
+            // INITIALIZE LENIS SMOOTH SCROLLING (Momentum scroll)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+            });
+
+            // Sync GSAP ScrollTrigger with Lenis
+            lenis.on('scroll', ScrollTrigger.update);
+
+            // Add Lenis to GSAP's ticker
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
             // Select all elements to animate
             const fadeUps = document.querySelectorAll('.gsap-fade-up');
@@ -896,6 +1093,46 @@
                 });
             }
 
+            // Title Parallax/Expansion for Precios
+            const preciosTitle = document.getElementById('precios-title');
+            if (preciosTitle) {
+                gsap.to(preciosTitle, {
+                    scale: 1.15,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: '#precios',
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: true
+                    }
+                });
+            }
+
+            // Simulate Hover effect natively as scrolling on mobile for Pricing
+            document.querySelectorAll('.mobile-hover-target-outer-price').forEach((item) => {
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item,
+                        className: '-translate-y-4 shadow-2xl border-primary/50'
+                    }
+                });
+            });
+
+            document.querySelectorAll('.mobile-hover-target-center-price').forEach((item) => {
+                ScrollTrigger.create({
+                    trigger: item,
+                    start: "top 60%",
+                    end: "top 30%",
+                    toggleClass: {
+                        targets: item,
+                        className: 'scale-105 shadow-[0_20px_40px_-5px_rgba(59,130,246,0.3)]'
+                    }
+                });
+            });
+
             // ScrollTrigger for general fade-ups lower in the page
             fadeUps.forEach(element => {
                 // Skip the first 4 since they are hero elements
@@ -919,28 +1156,7 @@
                 onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.2, duration: 0.8, ease: "back.out(1.5)" }),
                 start: "top 95%"
             });
-            // Setup Lenis Smooth Scrolling
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard ease-out curve
-                direction: 'vertical',
-                gestureDirection: 'vertical',
-                smooth: true,
-                smoothTouch: false,
-                touchMultiplier: 2,
-            });
-
-            // Connect Lenis to GSAP ScrollTrigger
-            lenis.on('scroll', ScrollTrigger.update);
-
-            // RAF loop for Lenis
-            function raf(time) {
-                lenis.raf(time);
-                requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-
-            // Smooth scrolling for internal anchor links using Lenis instead of GSAP scrollTo
+            // Smooth scrolling for internal anchor links using native GSAP ScrollToPlugin
             document.querySelectorAll('.nav-link').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     const targetId = this.getAttribute('href');
@@ -948,9 +1164,13 @@
                         e.preventDefault();
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
-                            lenis.scrollTo(targetElement, {
-                                offset: -100, // Offset for the navbar height + padding
-                                duration: 1.2
+                            gsap.to(window, {
+                                duration: 1.2,
+                                scrollTo: {
+                                    y: targetElement,
+                                    offsetY: 100 // Height of the floating navbar capsule
+                                },
+                                ease: "power3.inOut"
                             });
                         }
                     }
@@ -1018,6 +1238,43 @@
                 }
             });
 
+            // FAQ GSAP Animation
+            const faqItems = document.querySelectorAll('.gsap-faq-item');
+            gsap.set(faqItems, { autoAlpha: 0, y: 30 });
+            ScrollTrigger.batch(faqItems, {
+                onEnter: batch => gsap.to(batch, { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.6, ease: "power2.out" }),
+                start: "top 90%"
+            });
+
+            // FAQ Accordion Logic
+            const faqButtons = document.querySelectorAll('.faq-button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('.faq-icon');
+
+                    // Close others
+                    faqButtons.forEach(otherBtn => {
+                        if (otherBtn !== button) {
+                            otherBtn.nextElementSibling.style.height = '0px';
+                            otherBtn.querySelector('.faq-icon').classList.remove('rotate-180');
+                            otherBtn.parentElement.classList.remove('border-primary/50');
+                        }
+                    });
+
+                    // Toggle current
+                    if (content.style.height === '0px' || !content.style.height) {
+                        content.style.height = content.scrollHeight + 'px';
+                        icon.classList.add('rotate-180');
+                        button.parentElement.classList.add('border-primary/50');
+                    } else {
+                        content.style.height = '0px';
+                        icon.classList.remove('rotate-180');
+                        button.parentElement.classList.remove('border-primary/50');
+                    }
+                });
+            });
+
             const ctaTexts = document.querySelectorAll('.gsap-cta-text');
             gsap.set(ctaTexts, { autoAlpha: 0, y: 30 });
 
@@ -1057,8 +1314,215 @@
                 }
                 lastScrollY = window.scrollY;
             }, { passive: true });
+
+            // Mobile Menu Toggle Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            const menuIcon = mobileMenuBtn.querySelector('.material-symbols-outlined');
+
+            function toggleMobileMenu() {
+                const isOpen = !mobileMenu.classList.contains('opacity-0');
+                if (isOpen) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none', '-translate-y-6', 'scale-95');
+                    mobileMenu.classList.remove('pointer-events-auto');
+                    menuIcon.textContent = 'menu';
+                    menuIcon.classList.remove('rotate-90', 'scale-110');
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-6', 'scale-95');
+                    mobileMenu.classList.add('pointer-events-auto');
+                    menuIcon.textContent = 'close';
+                    menuIcon.classList.add('rotate-90', 'scale-110');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+            // Close mobile menu when clicking a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    if (targetId && targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            gsap.to(window, {
+                                duration: 1,
+                                scrollTo: { y: targetElement, offsetY: 80 },
+                                ease: "power3.inOut"
+                            });
+                        }
+                    }
+                    toggleMobileMenu();
+                });
+            });
+
+            // Floating WhatsApp Button Visibility Logic (Hide on Hero)
+            const heroSection = document.getElementById('inicio');
+            const whatsappFloat = document.getElementById('whatsapp-float');
+
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && window.innerWidth < 768) {
+                        // User is viewing the Hero section on mobile -> hide button
+                        whatsappFloat.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+                        whatsappFloat.classList.remove('opacity-100');
+                    } else {
+                        // User scrolled past Hero or is on Desktop -> show button
+                        whatsappFloat.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+                        whatsappFloat.classList.add('opacity-100');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Triggers when at least 10% of the hero is visible/invisible
+            });
+
+            if (heroSection) {
+                heroObserver.observe(heroSection);
+            }
+            // Video Modal Logic with GSAP Dynamics
+            const openDemoBtn = document.getElementById('open-demo-btn');
+            const videoModal = document.getElementById('video-modal');
+            const closeVideoBtn = document.getElementById('close-video-btn');
+            const demoVideoContent = document.getElementById('demo-video-content');
+            const modalContent = videoModal ? videoModal.querySelector('.modal-content') : null;
+            const rotateHint = document.getElementById('mobile-rotate-hint');
+
+            function openVideoModal() {
+                videoModal.classList.remove('opacity-0', 'pointer-events-none');
+
+                // Animate background overlay
+                gsap.to(videoModal, { autoAlpha: 1, duration: 0.4, ease: "power2.out" });
+
+                // Set initial states for pop-in elements
+                gsap.set(modalContent, { scale: 0.85, opacity: 0, y: 50 });
+                gsap.set(closeVideoBtn, { scale: 0.5, opacity: 0, rotation: -90 });
+                if (rotateHint) gsap.set(rotateHint, { y: -20, opacity: 0 });
+
+                // Spring animation for the video container
+                gsap.to(modalContent, {
+                    scale: 1,
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "back.out(1.4)",
+                    delay: 0.1
+                });
+
+                // Spin-in close button
+                gsap.to(closeVideoBtn, {
+                    scale: 1,
+                    opacity: 1,
+                    rotation: 0,
+                    duration: 0.7,
+                    ease: "back.out(2)",
+                    delay: 0.3
+                });
+
+                // Slide down hint on mobile
+                if (rotateHint) {
+                    gsap.to(rotateHint, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: "power3.out",
+                        delay: 0.4
+                    });
+                }
+
+                demoVideoContent.play();
+            }
+
+            function closeVideoModal() {
+                // Instantly pause video so sound doesn't bleed during closing animation
+                demoVideoContent.pause();
+
+                // Shrink out and fade away elements
+                gsap.to([modalContent, closeVideoBtn], {
+                    scale: 0.95,
+                    opacity: 0,
+                    y: -20,
+                    duration: 0.3,
+                    ease: "power2.in"
+                });
+
+                if (rotateHint) {
+                    gsap.to(rotateHint, { y: -20, opacity: 0, duration: 0.3, ease: "power2.in" });
+                }
+
+                // Fade out background overlay and reset
+                gsap.to(videoModal, {
+                    autoAlpha: 0,
+                    duration: 0.4,
+                    ease: "power2.inOut",
+                    delay: 0.15,
+                    onComplete: () => {
+                        videoModal.classList.add('opacity-0', 'pointer-events-none');
+                        demoVideoContent.currentTime = 0;
+
+                        // We restore the initial hidden coordinates for the next time it opens.
+                        // CRUCIAL: We do NOT use clearProps:"all" because it would delete our inline fixed position styles!
+                        gsap.set(modalContent, { y: 50, scale: 0.85, opacity: 0 });
+                        gsap.set(closeVideoBtn, { rotation: -90, scale: 0.5, opacity: 0 });
+                        if (rotateHint) gsap.set(rotateHint, { y: -20, opacity: 0 });
+                    }
+                });
+            }
+
+            if (openDemoBtn) {
+                openDemoBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openVideoModal();
+                });
+            }
+
+            if (closeVideoBtn) {
+                closeVideoBtn.addEventListener('click', closeVideoModal);
+            }
+
+            // Close when clicking outside
+            if (videoModal) {
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) {
+                        closeVideoModal();
+                    }
+                });
+            }
         });
     </script>
+
+    <!-- Video Modal -->
+    <!-- Using inline CSS overrides to bypass Tailwind compiler limitations on arbitrary classes -->
+    <div id="video-modal" class="bg-slate-900/95 backdrop-blur-md opacity-0 pointer-events-none"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px;">
+
+        <!-- Bulletproof Solid Close Button -->
+        <button id="close-video-btn"
+            class="text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-full flex items-center justify-center shadow-lg hover:bg-slate-700 cursor-pointer"
+            style="position: fixed; top: 24px; right: 24px; z-index: 10050; padding: 12px; width: 50px; height: 50px; opacity: 0;">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+
+        <!-- Bulletproof Hint for mobile users -->
+        <div id="mobile-rotate-hint"
+            class="md:hidden flex items-center justify-center gap-2 text-white font-bold leading-none bg-primary border-b-2 border-primary-dark/50 rounded-full shadow-xl"
+            style="position: fixed; top: 24px; left: 50%; transform: translateX(-50%); z-index: 10050; padding: 10px 16px; white-space: nowrap; font-size: 13px; opacity: 0;">
+            <span class="material-symbols-outlined text-sm">screen_rotation</span>
+            <span class="animate-[pulse_2s_ease-in-out_infinite]">Girá el celu para verlo mejor</span>
+        </div>
+
+        <!-- Video Container -->
+        <div class="modal-content bg-black overflow-hidden shadow-[0_0_50px_rgba(59,130,246,0.15)] ring-1 ring-white/10"
+            style="position: relative; width: 100%; max-width: 1200px; display: flex; justify-content: center; align-items: center; border-radius: 1.5rem; opacity: 0;">
+
+            <!-- Video Player -->
+            <video id="demo-video-content" class="bg-black block" controls playsinline
+                style="width: 100%; height: auto; max-height: 85vh; object-fit: contain; border-radius: 1.5rem;">
+                <source src="demo.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+    </div>
 </body>
 
 </html>
