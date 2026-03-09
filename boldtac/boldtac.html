@@ -1,1 +1,505 @@
+<!DOCTYPE html>
 
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BoldTactics - AI Catalog Strategy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#EB0088", "bt-yellow": "#FFE140", "bt-cyan": "#00FFFF", "bt-magenta": "#EB0088", "bt-black": "#231F20", "background-light": "#FFE140", "background-dark": "#231F20", }, fontFamily: { "display": ["Archivo Black", "sans-serif"], "body": ["Inter", "sans-serif"] }, borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" }, keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } } }, animation: { marquee: 'marquee 15s linear infinite' }, }, }, }</script>
+    <style>
+        .marquee-bar {
+            border-top: 4px solid #231F20;
+            border-bottom: 4px solid #231F20;
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hover lift for process cards */
+        .process-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .process-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0px rgba(35, 31, 32, 0.3);
+        }
+
+        /* Pulse animation for CTA */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(235, 0, 136, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 10px rgba(235, 0, 136, 0.15);
+            }
+        }
+
+        .cta-pulse {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        /* Animated Dots */
+        .animated-dot {
+            animation: wave-dot 2.5s ease-in-out infinite;
+            will-change: transform, opacity, filter;
+        }
+
+        @keyframes wave-dot {
+
+            0%,
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.4;
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: translate3d(0, -25px, 0) scale(1.8);
+                opacity: 1;
+                filter: brightness(1.2) drop-shadow(0px 15px 10px rgba(0, 0, 0, 0.2));
+            }
+        }
+
+        /* Counter animation */
+        .stat-number {
+            font-size: clamp(3rem, 8vw, 5rem);
+            line-height: 1;
+        }
+
+        .text-huge {
+            font-size: clamp(2.5rem, 8vw, 6.5rem);
+            line-height: 0.85;
+        }
+
+        .font-body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="font-body bg-bt-black text-bt-black antialiased overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="min-h-[85vh] flex flex-col p-6 md:p-12 pb-24 md:pb-32 relative overflow-hidden"
+        style="background-color: #f8e34d;">
+        <nav class="flex justify-end items-center mb-12 relative z-20">
+            <div class="hidden md:flex gap-8 font-black uppercase tracking-tighter items-center"><a
+                    class="hover:text-bt-magenta font-body" href="#problem">Problema</a><a
+                    class="hover:text-bt-magenta font-body" href="#solution">Solución</a><a
+                    class="hover:text-bt-magenta font-body" href="#how">Proceso</a><a
+                    class="hover:text-bt-magenta font-body" href="#contact">Contacto</a><a href="#contact"
+                    class="bg-bt-black text-bt-yellow px-6 py-3 font-black uppercase text-sm hover:invert transition-all ml-4">Solicitar
+                    Demo</a></div>
+            <a href="#contact"
+                class="md:hidden bg-bt-black text-bt-yellow px-6 py-3 font-black uppercase text-sm hover:invert transition-all ml-auto">Request
+                Demo</a>
+        </nav>
+        <div class="flex-grow flex flex-col max-w-7xl mx-auto w-full relative z-10 pt-4 md:pt-12">
+            <div class="flex flex-col md:flex-row items-start w-full gap-8">
+                <!-- Left side logo -->
+                <div class="w-full md:w-1/2 flex justify-center md:justify-start mt-2 md:mt-4"><img alt="BOLD Logo"
+                        class="w-[250%] md:w-[330%] max-w-none object-contain md:-ml-24 lg:-ml-48"
+                        src="data:image/png;base64,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" />
+                </div>
+                <!-- Right side heading -->
+                <div class="w-full md:w-1/2 flex flex-col items-start mt-8 md:mt-0">
+                    <h1 class="text-huge font-display uppercase tracking-tighter mb-8 max-w-2xl">Prepará
+                        tu<br />catálogo
+                        para<br /><span class="text-bt-magenta font-body">la era de la IA.</span></h1>
+                </div>
+            </div>
+
+            <!-- Full width description & buttons -->
+            <div
+                class="w-full flex flex-col md:flex-row gap-8 items-start md:items-center justify-between mt-auto pb-12">
+                <p class="text-xl md:text-2xl font-bold w-full md:w-3/5 leading-tight font-body">Bold Tactics crea una
+                    nueva capa estratégica para el e-commerce: preparamos catálogos para que los LLMs y agentes de IA
+                    puedan entender, valorar y recomendar productos.</p>
+                <div class="flex flex-wrap gap-4 md:justify-end"><a href="#how"
+                        class="inline-block bg-bt-black text-bt-yellow px-8 py-4 text-xl font-black uppercase hover:bg-bt-magenta hover:text-bt-black transition-all">Ver
+                        cómo funciona</a><a href="#contact"
+                        class="inline-block border-4 border-bt-black px-8 py-4 text-xl font-black uppercase hover:bg-bt-black hover:text-bt-yellow transition-all bg-transparent">Solicitar
+                        una demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Marquee Bar 1 -->
+    <div class="marquee-bar bg-bt-magenta">
+        <div
+            class="flex gap-12 text-bt-black font-black uppercase text-2xl md:text-3xl animate-marquee shrink-0 min-w-[200%]">
+            <span class="font-display">#brandtactics</span> <span class="font-display">#ecommerce</span> <span
+                class="font-display">#estrategiaIA</span> <span class="font-display">#websemántica</span> <span
+                class="font-display">#brandtactics</span> <span class="font-display">#ecommerce</span> <span
+                class="font-display">#estrategiaIA</span> <span class="font-display">#websemántica</span> <span
+                class="font-display">#brandtactics</span> <span class="font-display">#ecommerce</span> <span
+                class="font-display">#estrategiaIA</span> <span class="font-display">#websemántica</span> <span
+                class="font-display">#brandtactics</span> <span class="font-display">#ecommerce</span> <span
+                class="font-display">#estrategiaIA</span> <span class="font-display">#websemántica</span> <span
+                class="font-display">#brandtactics</span> <span class="font-display">#ecommerce</span> <span
+                class="font-display">#estrategiaIA</span> <span class="font-display">#websemántica</span>
+        </div>
+    </div>
+    <!-- The Problem Section -->
+    <section class="bg-bt-cyan p-6 pt-16 md:px-24 md:pb-24 md:pt-24 relative z-0 overflow-hidden" id="problem">
+        <!-- Decoración Grilla de Puntos Interactiva -->
+        <div id="interactive-dots" class="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-80">
+            <!-- Circulitos generados dinámicamente -->
+        </div>
+
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center pb-12 relative z-10">
+            <div>
+                <h2 class="text-6xl font-display uppercase leading-none mb-8">Tus productos son invisibles a la IA.</h2>
+                <div class="space-y-6 text-xl font-bold leading-snug">
+                    <p class="font-body">Los catálogos están optimizados para humanos y SEO, no para LLMs.</p>
+                    <p class="font-body">La decisión de compra está comenzando en interfaces conversacionales donde los
+                        datos tradicionales fallan.</p>
+                </div>
+            </div>
+            <div class="bg-bt-black p-8 text-bt-cyan">
+                <div class="flex items-start gap-4 mb-6">
+                    <span class="material-symbols-outlined text-5xl">visibility_off</span>
+                    <p class="text-2xl font-black uppercase italic font-body">Ceguera de IA</p>
+                </div>
+                <p class="text-lg font-body">Los LLMs no pueden interpretar SKUs técnicos sin una capa estratégica
+                    semántica. Si no lo entienden, no lo recomiendan.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Marquee Bar 2 -->
+    <div class="marquee-bar bg-bt-yellow">
+        <div
+            class="flex gap-12 text-bt-black font-black uppercase text-2xl md:text-3xl animate-marquee shrink-0 min-w-[200%]">
+            <span class="font-display">#LISTO-PARA-LLM</span> <span class="font-display">#BÚSQUEDA-SEMÁNTICA</span>
+            <span class="font-display">#OPTIMIZACIÓN-GEO</span> <span class="font-display">#LISTO-PARA-LLM</span> <span
+                class="font-display">#BÚSQUEDA-SEMÁNTICA</span> <span class="font-display">#OPTIMIZACIÓN-GEO</span>
+            <span class="font-display">#LISTO-PARA-LLM</span> <span class="font-display">#BÚSQUEDA-SEMÁNTICA</span>
+            <span class="font-display">#OPTIMIZACIÓN-GEO</span> <span class="font-display">#LISTO-PARA-LLM</span> <span
+                class="font-display">#BÚSQUEDA-SEMÁNTICA</span> <span class="font-display">#OPTIMIZACIÓN-GEO</span>
+        </div>
+    </div>
+    <!-- The Solution Section -->
+    <section class="bg-bt-black text-bt-magenta p-6 pt-16 md:px-24 md:pb-24 md:pt-24 relative z-0 overflow-hidden"
+        id="solution">
+        <!-- Flechas envolventes dibujadas inspiradas en boceto (Ocultas en móviles) -->
+        <div
+            class="absolute top-1/2 left-0 -translate-y-1/2 z-0 opacity-50 hidden lg:block pointer-events-none scale-150 origin-left">
+            <svg width="300" height="500" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Flecha izquierda (Círculo abajo, curva hacia afuera, flecha arriba a la derecha) -->
+                <path d="M 150 450 Q -10 250 180 120" fill="none" stroke="#FFE140" stroke-width="3"
+                    stroke-linecap="round" />
+                <circle cx="150" cy="450" r="12" fill="none" stroke="#FFE140" stroke-width="3" />
+                <polyline points="150 110 180 120 160 145" fill="none" stroke="#FFE140" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div
+            class="absolute top-1/2 right-0 -translate-y-1/2 z-0 opacity-50 hidden lg:block pointer-events-none scale-150 origin-right">
+            <svg width="300" height="500" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- Flecha derecha (Círculo arriba, curva hacia afuera, flecha abajo a la izquierda) -->
+                <path d="M 150 50 Q 310 250 120 380" fill="none" stroke="#FFE140" stroke-width="3"
+                    stroke-linecap="round" />
+                <circle cx="150" cy="50" r="12" fill="none" stroke="#FFE140" stroke-width="3" />
+                <polyline points="140 350 120 380 150 395" fill="none" stroke="#FFE140" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto text-center pb-12 relative z-10">
+            <h2 class="text-7xl font-display uppercase mb-8">Aumento de Catálogo con IA</h2>
+            <p class="text-2xl md:text-3xl font-bold text-bt-cyan mb-16 max-w-3xl mx-auto font-body">
+                Transformando SKUs técnicos en activos semánticos que los agentes de IA pueden entender, valorar y
+                citar.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div
+                    class="border-4 border-bt-magenta p-8 hover:bg-bt-magenta hover:text-bt-black transition-colors group">
+                    <span class="material-symbols-outlined text-6xl mb-4">schema</span>
+                    <h3 class="text-2xl font-black uppercase mb-2 font-display">Transformación Semántica</h3>
+                    <p class="font-bold font-body">Convirtiendo entradas de bases de datos frías en contextos
+                        significativos para redes neuronales.</p>
+                </div>
+                <div
+                    class="border-4 border-bt-magenta p-8 hover:bg-bt-magenta hover:text-bt-black transition-colors group">
+                    <span class="material-symbols-outlined text-6xl mb-4">psychology</span>
+                    <h3 class="text-2xl font-black uppercase mb-2 font-display">Lógica Contextual</h3>
+                    <p class="font-bold font-body">Añadiendo el 'por qué' detrás del producto. ¿Por qué este SKU? ¿Por
+                        qué para este cliente ideal específico?</p>
+                </div>
+                <div
+                    class="border-4 border-bt-magenta p-8 hover:bg-bt-magenta hover:text-bt-black transition-colors group">
+                    <span class="material-symbols-outlined text-6xl mb-4">smart_toy</span>
+                    <h3 class="text-2xl font-black uppercase mb-2 font-display">Listo para Agentes</h3>
+                    <p class="font-bold font-body">Optimización para arquitecturas nativas de ChatGPT, Claude y Gemini.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Marquee Bar 3 -->
+    <div class="marquee-bar bg-bt-cyan">
+        <div
+            class="flex gap-12 text-bt-black font-black uppercase text-2xl md:text-3xl animate-marquee shrink-0 min-w-[200%]">
+            <span class="font-display">#PASO-A-PASO</span> <span class="font-display">#IA-ESCALABLE</span> <span
+                class="font-display">#ENRIQUECIMIENTO-DE-DATOS</span> <span class="font-display">#PASO-A-PASO</span>
+            <span class="font-display">#IA-ESCALABLE</span> <span class="font-display">#ENRIQUECIMIENTO-DE-DATOS</span>
+            <span class="font-display">#PASO-A-PASO</span> <span class="font-display">#IA-ESCALABLE</span> <span
+                class="font-display">#ENRIQUECIMIENTO-DE-DATOS</span> <span class="font-display">#PASO-A-PASO</span>
+            <span class="font-display">#IA-ESCALABLE</span> <span class="font-display">#ENRIQUECIMIENTO-DE-DATOS</span>
+        </div>
+    </div>
+    <!-- How it Works Section -->
+    <section
+        class="bg-bt-yellow p-6 pt-16 md:px-24 md:pb-24 md:pt-24 border-b-4 border-bt-black relative z-0 overflow-hidden"
+        id="how">
+        <!-- Textos gigantes de fondo (Marquee vertical/horizontal) para hacerlo súper visible pero sin estorbar -->
+        <div
+            class="absolute top-0 left-0 w-full h-full z-0 opacity-10 pointer-events-none select-none overflow-hidden flex flex-col justify-center mix-blend-multiply">
+            <div class="flex whitespace-nowrap animate-marquee">
+                <h2 class="text-[8rem] lg:text-[14rem] font-display uppercase leading-none text-transparent px-8"
+                    style="-webkit-text-stroke: 3px #231F20;">
+                    EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO •
+                </h2>
+            </div>
+            <div class="flex whitespace-nowrap animate-marquee" style="animation-direction: reverse;">
+                <h2 class="text-[8rem] lg:text-[14rem] font-display uppercase leading-none text-bt-black px-8">
+                    EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO •
+                </h2>
+            </div>
+            <div class="flex whitespace-nowrap animate-marquee">
+                <h2 class="text-[8rem] lg:text-[14rem] font-display uppercase leading-none text-transparent px-8"
+                    style="-webkit-text-stroke: 3px #231F20;">
+                    EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO • EL PROCESO •
+                </h2>
+            </div>
+        </div>
+
+        <!-- Cruces decorativas -->
+        <div
+            class="absolute top-10 left-10 z-0 text-bt-black opacity-30 hidden md:block select-none pointer-events-none">
+            <span class="material-symbols-outlined text-4xl">add</span>
+        </div>
+        <div
+            class="absolute bottom-10 right-10 z-0 text-bt-black opacity-20 hidden md:block select-none pointer-events-none">
+            <span class="material-symbols-outlined text-4xl">add</span>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h2 class="text-6xl font-display uppercase mb-16">El Proceso</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-bt-black text-bt-yellow p-8 flex flex-col justify-between aspect-square process-card">
+                    <span class="text-5xl font-black font-display font-body">01</span>
+                    <div>
+                        <h4 class="text-xl font-black uppercase mb-2 text-bt-cyan font-display">Deconstrucción Semántica
+                        </h4>
+                        <p class="text-sm font-bold opacity-80 font-body">Desglosamos tu catálogo en conceptos
+                            semánticos centrales.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-bt-cyan text-bt-black p-8 flex flex-col justify-between aspect-square border-4 border-bt-black process-card">
+                    <span class="text-5xl font-black font-display font-body">02</span>
+                    <div>
+                        <h4 class="text-xl font-black uppercase mb-2 font-display">Capa de Buyer Persona</h4>
+                        <p class="text-sm font-bold opacity-80 font-body">Mapeando productos con las intenciones, puntos
+                            de dolor y soluciones humanas.</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-bt-magenta text-bt-black p-8 flex flex-col justify-between aspect-square border-4 border-bt-black process-card">
+                    <span class="text-5xl font-black font-display font-body">03</span>
+                    <div>
+                        <h4 class="text-xl font-black uppercase mb-2 font-display">Contenido Estructurado para IA</h4>
+                        <p class="text-sm font-bold opacity-80 font-body">Generando los formatos de datos precisos que
+                            los LLMs necesitan para citar con alta confianza.</p>
+                    </div>
+                </div>
+                <div class="bg-bt-black text-bt-magenta p-8 flex flex-col justify-between aspect-square process-card">
+                    <span class="text-5xl font-black text-bt-yellow font-display font-body">04</span>
+                    <div>
+                        <h4 class="text-xl font-black uppercase mb-2 font-display">Control de Marca</h4>
+                        <p class="text-sm font-bold opacity-80 font-body">Garantizando que la IA represente la voz y
+                            valores de tu marca con precisión.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Results / Industries / Audience Grid -->
+    <section class="grid md:grid-cols-3 border-b-4 border-bt-black">
+        <div
+            class="p-12 border-b-4 md:border-b-0 md:border-r-4 border-bt-black bg-bt-cyan text-bt-black transition-all duration-500 hover:bg-bt-black hover:text-bt-cyan hover:shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] cursor-default">
+            <h3 class="text-4xl font-black uppercase mb-8 font-display">Resultados</h3>
+            <ul class="space-y-4 text-xl font-bold">
+                <li class="flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined">check_circle</span> Visibilidad</li>
+                <li class="flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined">check_circle</span> Citas Correctas</li>
+                <li class="flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined">check_circle</span> Entendimiento Profundo</li>
+                <li class="flex items-center gap-2 font-body"><span
+                        class="material-symbols-outlined">check_circle</span> Control de Marca</li>
+            </ul>
+        </div>
+        <div
+            class="p-12 border-b-4 md:border-b-0 md:border-r-4 border-bt-black bg-bt-yellow text-bt-black transition-all duration-500 hover:bg-bt-black hover:text-bt-yellow hover:shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] cursor-default">
+            <h3 class="text-4xl font-black uppercase mb-8 font-display">Audiencia</h3>
+            <div class="flex flex-wrap gap-3">
+                <span
+                    class="bg-bt-black text-bt-yellow px-4 py-2 font-black uppercase font-body transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[4px_4px_0_0_#EB0088] cursor-pointer select-none">CMO</span>
+                <span
+                    class="bg-bt-black text-bt-yellow px-4 py-2 font-black uppercase font-body transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[4px_4px_0_0_#EB0088] cursor-pointer select-none">Líder
+                    de Ecom</span>
+                <span
+                    class="bg-bt-black text-bt-yellow px-4 py-2 font-black uppercase font-body transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[4px_4px_0_0_#EB0088] cursor-pointer select-none">Growth</span>
+                <span
+                    class="bg-bt-black text-bt-yellow px-4 py-2 font-black uppercase font-body transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[4px_4px_0_0_#EB0088] cursor-pointer select-none">Producto</span>
+                <span
+                    class="bg-bt-black text-bt-yellow px-4 py-2 font-black uppercase font-body transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:shadow-[4px_4px_0_0_#EB0088] cursor-pointer select-none">SEO/GEO</span>
+            </div>
+        </div>
+        <div
+            class="p-12 bg-bt-black text-bt-cyan transition-all duration-500 hover:bg-bt-cyan hover:text-bt-black hover:shadow-[inset_0_0_50px_rgba(0,0,0,0.3)] cursor-default">
+            <h3 class="text-4xl font-black uppercase mb-8 font-display">Industrias</h3>
+            <ul class="space-y-2 text-xl font-bold">
+                <li class="font-body">Retail y Ecommerce</li>
+                <li class="font-body">Fabricación</li>
+                <li class="font-body">Sistemas PIM</li>
+                <li class="font-body">Marketplaces</li>
+                <li class="font-body">Agencias SEO</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Final CTA & Manifesto -->
+    <section
+        class="bg-bt-magenta text-bt-black p-6 md:p-12 lg:p-24 relative overflow-hidden transition-all duration-700 hover:bg-[#ff0095] group"
+        id="contact">
+        <div class="max-w-[100rem] mx-auto relative z-10 transition-transform duration-700 group-hover:scale-[1.01]">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start justify-between">
+                <div class="w-full lg:w-1/2 flex flex-col items-start pr-4">
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-[4.5rem] font-black uppercase leading-[0.9] mb-12 font-display tracking-tight break-words transition-colors duration-700 group-hover:text-white group-hover:drop-shadow-lg">
+                        ¿Están tus<br />
+                        productos<br />
+                        listos para<br />
+                        la economía<br />
+                        conversacional?
+                    </h2>
+                    <a href="mailto:hello@boldtactics.com"
+                        class="inline-block bg-bt-black text-bt-magenta text-xl font-black uppercase px-10 py-5 transition-all duration-300 hover:bg-bt-cyan hover:text-bt-black hover:-translate-y-2 hover:scale-[1.05] hover:shadow-[8px_8px_0_0_#f8e34d] w-full md:w-auto text-center cursor-pointer relative z-20">
+                        Solicitar Acceso Ahora
+                    </a>
+                </div>
+                <div
+                    class="w-full lg:w-5/12 lg:ml-auto xl:mr-12 bg-bt-yellow p-8 md:p-12 border-4 border-bt-black transition-all duration-500 ease-out hover:scale-[1.03] hover:-rotate-1 hover:shadow-[16px_16px_0_0_#000000] group-hover:border-white relative z-20">
+                    <p class="text-3xl lg:text-4xl font-black uppercase mb-8 underline decoration-4 font-body">
+                        Manifiesto de Marca
+                    </p>
+                    <p class="text-2xl lg:text-[1.8rem] font-bold italic leading-tight font-body">
+                        "La forma en que se descubren los productos está cambiando... No se trata solo de palabras
+                        clave, se trata de significado. <br /><br />El éxito en la era de la IA no depende del volumen
+                        de datos,
+                        sino del profundo entendimiento semántico que permitimos a las máquinas tener sobre nuestra
+                        marca."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract background pattern -->
+        <div
+            class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none flex flex-wrap gap-4 p-8 transition-transform duration-1000 group-hover:scale-150 group-hover:-rotate-12 group-hover:opacity-30">
+            <span class="material-symbols-outlined text-[300px] text-white">bolt</span>
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-1/3 h-full opacity-0 pointer-events-none flex items-end p-8 transition-all duration-1000 group-hover:opacity-20 group-hover:translate-x-12">
+            <span class="material-symbols-outlined text-[400px] text-bt-yellow">chat_bubble</span>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-bt-black text-bt-yellow p-12 text-center pt-24">
+        <p class="font-bold uppercase tracking-widest text-sm font-body">© 2024 Bold Tactics. Todos los Derechos
+            Reservados.
+            Estrategia AI-First.</p>
+        <div class="mt-8 flex justify-center gap-8">
+            <a class="hover:text-bt-cyan font-body" href="#">Twitter/X</a>
+            <a class="hover:text-bt-cyan font-body" href="#">LinkedIn</a>
+            <a class="hover:text-bt-cyan font-body" href="#">Política de Privacidad</a>
+        </div>
+    </footer>
+
+    <!-- Script para efecto dinámico de la grilla de circulitos -->
+    <script>
+            (function () {
+                function initDots() {
+                    const container = document.getElementById('interactive-dots');
+                    if (!container) return;
+
+                    container.innerHTML = ''; // Limpiar grilla anterior
+
+                    const spacingX = 70;
+                    const spacingY = 60;
+                    const dotSize = 12;
+
+                    // Calcular columnas basado en el ancho de la pantalla
+                    const w = window.innerWidth || document.documentElement.clientWidth || 1920;
+                    const cols = Math.floor(w / spacingX) + 2;
+                    const rows = 12; // Altura aproximada
+
+                    for (let r = 0; r < rows; r++) {
+                        for (let c = 0; c < cols; c++) {
+                            const dot = document.createElement('div');
+
+                            // Intercalar colores
+                            const colorClass = (c + r) % 3 === 0 ? 'bg-[#8A8A00]' : 'bg-bt-magenta';
+
+                            dot.className = `absolute rounded-full animated-dot ${colorClass}`;
+                            dot.style.width = `${dotSize}px`;
+                            dot.style.height = `${dotSize}px`;
+
+                            // Diseño tipo panal (honeycomb) desplazando filas impares
+                            const offsetX = r % 2 === 0 ? 0 : spacingX / 2;
+                            dot.style.top = `${r * spacingY + 20}px`;
+                            dot.style.left = `${c * spacingX + offsetX - 30}px`;
+
+                            // Crear patrón de onda originado en el medio a la derecha
+                            const dist = Math.sqrt(Math.pow(r - rows / 2, 2) + Math.pow(c - (cols * 0.75), 2));
+                            dot.style.animationDelay = `${dist * 0.12}s`;
+
+                            container.appendChild(dot);
+                        }
+                    }
+                }
+
+                // Iniciar inmediatamente o al cargar
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initDots);
+                } else {
+                    initDots();
+                }
+
+                // Regenerar en caso de cambio de tamaño de pantalla
+                window.addEventListener('resize', () => {
+                    clearTimeout(window.dotsResizeTimer);
+                    window.dotsResizeTimer = setTimeout(initDots, 300);
+                });
+            })();
+    </script>
+</body>
+
+</html>
