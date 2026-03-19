@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noctawebs · Agencia Digital Buenos Aires | Páginas Web, IA y Marketing</title>
+    <meta name="description"
+        content="Agencia digital en Buenos Aires. Páginas web ultrarrápidas, automatizaciones con IA, WhatsApp automático, Google Ads y Meta Ads para pymes argentinas.">
+
+    <!-- Fuentes arregladas y optimizadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 900: '#1e3a8a' },
+                        dark: '#050505',
+                        wapp: '#3be373',
+                        wapphover: '#29c95d'
+                    },
+                    boxShadow: {
+                        'neon-lime': '0 0 20px rgba(37, 211, 102, 0.4)',
+                        'neon-lime-hover': '0 0 30px rgba(37, 211, 102, 0.6)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Texturas y fondos únicos */
+        body {
+            background-color: #fafafa;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Orbes desenfocados de fondo (Glassmorphism) */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+            animation: floatOrb 10s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            background: #3b82f6;
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            background: #00E676;
+            width: 300px;
+            height: 300px;
+            top: 20%;
+            right: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            background: #8b5cf6;
+            width: 350px;
+            height: 350px;
+            bottom: -100px;
+            left: 30%;
+            animation-delay: -2s;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+        }
+
+        /* Animaciones de aparición profesionales */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px) scale(0.96);
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+            filter: blur(8px);
+        }
+
+        .fade-up.vis {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        /* Micro interacciones */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .hover-tilt {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hover-tilt:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        /* Loop Favicons - Triple para loop infinito real */
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-20%);
+            }
+        }
+
+        .animate-scroll-right {
+            animation: scroll-right 40s linear infinite;
+            width: max-content;
+        }
+
+        .animate-scroll-right:hover {
+            animation-play-state: paused;
+        }
+
+        /* Animaciones Épicas */
+        @keyframes reveal-up {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes float-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .reveal {
+            animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Nueva animación Blur In */
+        @keyframes blur-in {
+            from {
+                opacity: 0;
+                filter: blur(20px);
+                transform: translateY(20px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transition: none;
+        }
+
+        .reveal-on-scroll.vis {
+            animation: blur-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .orb-1 {
+            background: #3B82F6;
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            background: #A855F7;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .orb-3 {
+            background: #25D366;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.08;
+        }
+
+        @media (max-width: 768px) {
+            .orb {
+                width: 250px;
+                height: 250px;
+                filter: blur(50px);
+            }
+        }
+
+        /* Navbar hovers epicos */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--brand-6) !important;
+            transform: translateY(-1px) scale(1.05);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #3B82F6;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            opacity: 0;
+        }
+
+        .nav-link:hover::after {
+            width: 12px;
+            opacity: 1;
+        }
+
+        .bg-wapp-bright {
+            background-color: #25D366;
+            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.3);
+        }
+
+        .bg-wapp-bright:hover {
+            background-color: #22c35e;
+            box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.5);
+        }
+
+        .float-ia {
+            animation: float-slow 4s ease-in-out infinite;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Animación IA Loader */
+        .ia-loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 230, 118, 0.3);
+            border-radius: 50%;
+            border-top-color: #00E676;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Ocultar scrollbar para el carrusel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .cursor-grabbing {
+            cursor: grabbing !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 font-sans antialiased overflow-x-hidden relative min-h-screen">
+
+    <!-- Botón Flotante WhatsApp Gigante (Lima oficial) -->
+    <a href="https://wa.me/5491165870093" target="_blank"
+        class="fixed bottom-6 right-6 z-50 w-16 h-16 md:w-20 md:h-20 bg-wapp text-white rounded-full flex items-center justify-center shadow-neon-lime hover:scale-110 hover:shadow-neon-lime-hover hover:bg-wapphover transition-all duration-300"
+        aria-label="WhatsApp">
+        <svg class="w-10 h-10 md:w-12 md:h-12 fill-current" viewBox="0 0 24 24">
+            <path
+                d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+            <path
+                d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        </svg>
+    </a>
+
+    <!-- NAVBAR FULL WIDTH PREMIUM -->
+    <nav id="nav"
+        class="fixed top-0 inset-x-0 z-40 h-[72px] flex items-center justify-between px-6 lg:px-12 bg-white/80 backdrop-blur-xl border-b border-slate-100 transition-all duration-500">
+
+        <a href="#" class="h-9 md:h-11 transition-transform hover:scale-105 active:scale-95">
+            <img src="images/logo.png" alt="Noctawebs" class="h-full w-auto object-contain">
+        </a>
+
+        <div class="hidden md:flex items-center gap-1">
+            <a href="#servicios" class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Servicios</a>
+            <a href="#trabajo" class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Proyectos</a>
+            <a href="#planes" class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Planes</a>
+            <a href="#ia"
+                class="nav-link text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600 px-4 py-2 rounded-full">Consultor
+                IA</a>
+            <a href="#contacto" class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Contacto</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/5491165870093" target="_blank"
+                class="hidden sm:flex text-xs font-black text-white bg-[#25D366] px-7 py-3 rounded-full transition-all duration-300 items-center gap-2 active:scale-95 group hover:shadow-xl hover:shadow-[#25D366]/20">
+                <svg class="w-4 h-4 fill-current group-hover:rotate-12 transition-transform" viewBox="0 0 24 24">
+                    <path
+                        d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                    <path
+                        d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                </svg>
+                Contactar
+            </a>
+
+            <!-- Hamburguesa Mobile -->
+            <button id="btn-mobile"
+                class="md:hidden flex flex-col gap-1.5 p-2 hover:bg-slate-100 rounded-lg transition-colors">
+                <span class="w-6 h-[2px] bg-dark rounded transition-transform"></span>
+                <span class="w-6 h-[2px] bg-dark rounded transition-opacity"></span>
+                <span class="w-6 h-[2px] bg-dark rounded transition-transform"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MENÚ MOBILE -->
+    <div id="menu-mobile"
+        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-30 flex-col items-center justify-center gap-8 hidden opacity-0 transition-opacity duration-300 pt-16">
+        <a href="#servicios"
+            class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Servicios</a>
+        <a href="#planes"
+            class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Planes</a>
+        <a href="#proceso"
+            class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Proceso</a>
+        <a href="#ia"
+            class="font-display text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-500">IA</a>
+        <a href="https://wa.me/5491165870093" target="_blank"
+            class="mt-4 text-lg font-bold text-white bg-wapp hover:bg-wapphover px-8 py-4 rounded-full flex items-center gap-2 shadow-lg">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                    d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                <path
+                    d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            </svg>
+            Contactar
+        </a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section
+        class="relative min-h-[95vh] flex flex-col justify-center pt-32 pb-20 px-6 lg:px-12 overflow-hidden border-b border-slate-200 reveal">
+        <!-- Orbes de fondo -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+            <!-- Izquierda -->
+            <div class="relative z-20">
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="inline-flex items-center gap-2.5 bg-white border border-slate-200 rounded-full p-1 pr-5 mb-8 text-xs font-bold text-slate-600 hover:border-slate-300 transition-colors shadow-sm">
+                    <span
+                        class="bg-brand-600 text-white px-2 py-1 rounded-full text-[10px] uppercase tracking-wide font-bold">Nuevo</span>
+                    <svg class="w-4 h-4 text-wapp" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                        <path
+                            d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    </svg>
+                    WhatsApp con IA — Contactanos para saber más
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
+
+                <h1
+                    class="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-dark leading-[1.05] tracking-tight mb-6">
+                    Tu negocio online,<br>
+                    pero bien <span
+                        class="text-brand-600 underline decoration-brand-200 underline-offset-4">hecho.</span>
+                </h1>
+
+                <p class="text-lg text-slate-600 mb-2 max-w-lg leading-relaxed font-medium">
+                    Armamos tu página, tu tienda y automatizamos tu WhatsApp. Sin chamuyo técnico, directo al grano para
+                    que consigas más clientes.
+                </p>
+                <p class="text-sm font-black text-blue-600 uppercase tracking-widest mb-10 flex items-center gap-2">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3.5"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    Diseño propio, no WordPress
+                </p>
+
+                <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 mb-16">
+                    <a href="#planes"
+                        class="bg-dark text-white px-7 py-4 rounded-full font-bold hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-2 group">
+                        Ver planes <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/5491165870093" target="_blank"
+                        class="bg-[#25D366] text-white px-4 sm:px-7 py-4 rounded-full font-bold hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 text-sm sm:text-base border border-transparent">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                            <path
+                                d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                        </svg>
+                        Contactar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Derecha (Mockups Modernizados) -->
+            <div class="hidden lg:block relative z-20">
+                <div class="relative pl-8 py-8">
+
+                    <!-- Main Browser Mockup -->
+                    <div
+                        class="bg-white/80 backdrop-blur-xl border border-white/50 rounded-3xl overflow-hidden shadow-2xl shadow-brand-900/10 hover-tilt">
+                        <div class="bg-white/50 border-b border-white/40 px-5 py-4 flex items-center gap-3">
+                            <div class="flex gap-2">
+                                <div class="w-3.5 h-3.5 rounded-full bg-[#FF5F56] shadow-sm"></div>
+                                <div class="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] shadow-sm"></div>
+                                <div class="w-3.5 h-3.5 rounded-full bg-[#27C93F] shadow-sm"></div>
+                            </div>
+                            <div
+                                class="flex-1 bg-white/60 border border-white rounded-lg h-8 ml-4 px-4 flex items-center text-xs text-slate-500 font-semibold shadow-inner">
+                                tunegocio.com.ar</div>
+                        </div>
+                        <div class="p-8 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-50 to-white -z-10"></div>
+                            <div class="bg-dark rounded-2xl px-6 py-4 flex justify-between items-center shadow-xl">
+                                <div class="text-white text-sm font-extrabold tracking-tight">Tu<span
+                                        class="text-brand-500">Negocio</span></div>
+                                <div class="flex gap-4 text-xs font-semibold text-white/50"><span
+                                        class="hover:text-white transition-colors cursor-pointer">Inicio</span><span
+                                        class="hover:text-white transition-colors cursor-pointer">Servicios</span></div>
+                            </div>
+                            <div class="bg-white border border-slate-100 rounded-2xl p-8 mt-4 shadow-xl relative z-10">
+                                <span
+                                    class="inline-block bg-brand-100 text-brand-700 text-[10px] font-extrabold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest">Buenos
+                                    Aires</span>
+                                <div class="text-2xl font-extrabold text-dark leading-tight mb-3">La mejor opción
+                                    para<br>tu rubro en la zona</div>
+                                <div class="text-xs text-slate-500 mb-6 max-w-[220px] leading-relaxed font-medium">
+                                    Sitios web que no solo se ven lindos, sino que se convierten en tu mejor vendedor
+                                    24/7.</div>
+                                <div class="flex gap-3">
+                                    <div
+                                        class="bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-500/30">
+                                        Contactar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔄 LOGOS SOCIAL PROOF -->
+    <div class="border-b border-slate-100 bg-white py-12 relative overflow-hidden flex flex-col items-center">
+        <p class="text-xs text-slate-400 text-center uppercase tracking-[0.2em] font-bold mb-10 relative z-20">Empresas
+            que ya aceleran con nosotros</p>
+
+        <div
+            class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+        </div>
+
+        <div class="animate-scroll-right flex items-center gap-16 md:gap-24 cursor-pointer">
+            <!-- Bloque 1 -->
+            <a href="https://onestorage.com.ar" target="_blank" title="One Storage"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
+                    src="https://www.google.com/s2/favicons?domain=onestorage.com.ar&sz=128" alt="One Storage"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://larocamembranas.com.ar" target="_blank" title="La Roca Membranas"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
+                    src="https://www.google.com/s2/favicons?domain=larocamembranas.com.ar&sz=128"
+                    alt="La Roca Membranas" class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://thamesites.store/facturex" target="_blank" title="Facturex"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
+                    src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
+                    src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128" alt="Suministros Roca"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://koenzen.es" target="_blank" title="Koenzen"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
+                    src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
+                    class="w-full h-full object-contain rounded-xl"></a>
+
+            <!-- Copia 1 -->
+            <a href="https://onestorage.com.ar" target="_blank" title="One Storage"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=onestorage.com.ar&sz=128" alt="One Storage"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://larocamembranas.com.ar" target="_blank" title="La Roca Membranas"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=larocamembranas.com.ar&sz=128"
+                    alt="La Roca Membranas" class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://thamesites.store/facturex" target="_blank" title="Facturex"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128" alt="Suministros Roca"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://koenzen.es" target="_blank" title="Koenzen"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
+                    class="w-full h-full object-contain rounded-xl"></a>
+
+            <!-- Copia 2 -->
+            <a href="https://onestorage.com.ar" target="_blank" title="One Storage"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=onestorage.com.ar&sz=128" alt="One Storage"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://larocamembranas.com.ar" target="_blank" title="La Roca Membranas"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=larocamembranas.com.ar&sz=128"
+                    alt="La Roca Membranas" class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://thamesites.store/facturex" target="_blank" title="Facturex"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128" alt="Suministros Roca"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://koenzen.es" target="_blank" title="Koenzen"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
+                    class="w-full h-full object-contain rounded-xl"></a>
+
+            <!-- Copia 3 -->
+            <a href="https://onestorage.com.ar" target="_blank" title="One Storage"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=onestorage.com.ar&sz=128" alt="One Storage"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://larocamembranas.com.ar" target="_blank" title="La Roca Membranas"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=larocamembranas.com.ar&sz=128"
+                    alt="La Roca Membranas" class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://thamesites.store/facturex" target="_blank" title="Facturex"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128" alt="Suministros Roca"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://koenzen.es" target="_blank" title="Koenzen"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
+                    class="w-full h-full object-contain rounded-xl"></a>
+
+            <!-- Copia 4 -->
+            <a href="https://onestorage.com.ar" target="_blank" title="One Storage"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=onestorage.com.ar&sz=128" alt="One Storage"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://larocamembranas.com.ar" target="_blank" title="La Roca Membranas"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=larocamembranas.com.ar&sz=128"
+                    alt="La Roca Membranas" class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://thamesites.store/facturex" target="_blank" title="Facturex"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128" alt="Suministros Roca"
+                    class="w-full h-full object-contain rounded-xl"></a>
+            <a href="https://koenzen.es" target="_blank" title="Koenzen"
+                class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
+                    src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
+                    class="w-full h-full object-contain rounded-xl"></a>
+        </div>
+    </div>
+
+    <!-- 💼 SERVICIOS (Diseño Premium) -->
+    <section id="servicios" class="py-24 px-6 lg:px-12 bg-slate-50 border-b border-slate-100 reveal-on-scroll">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4">Lo que hacemos</div>
+            <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-dark mb-4 tracking-tight">Todo lo digital
+                que tu negocio necesita</h2>
+            <p class="text-lg text-slate-500 mb-14 max-w-3xl leading-relaxed">
+                Soluciones reales para PyMEs reales. Desarrollamos tecnología a medida pensada para tus problemas del
+                día a día, sin productos genéricos.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-slate-200 bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                            </svg>
+                        </div>
+                        <div class="text-xs font-bold text-slate-300 font-display text-2xl">01</div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Webs y landing pages</h3>
+                    <p class="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wider">Para cualquier negocio
+                    </p>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Hechas a mano con HTML, CSS y JS. Sin
+                        builders pesados. Ultrarrápidas y optimizadas para <span
+                            class="font-bold text-dark">Google</span>.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Desde USD 80 <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-brand-200 bg-brand-50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center text-wapp float-ia">
+                            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                                <path
+                                    d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col items-end gap-2">
+                            <span
+                                class="bg-brand-600 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter shadow-lg">Más
+                                pedido</span>
+                            <div class="text-xs font-bold text-slate-300 font-display text-2xl">02</div>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">WhatsApp con IA</h3>
+                    <p class="text-xs font-semibold text-brand-600/70 mb-4 uppercase tracking-wider">Atención automática
+                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">Un asistente inteligente que responde,
+                        califica y cierra ventas las 24hs. Mientras dormís, tu negocio factura.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">Consultar demo <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-slate-200 bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+                                <line x1="3" y1="6" x2="21" y2="6" />
+                                <path d="M16 10a4 4 0 01-8 0" />
+                            </svg>
+                        </div>
+                        <div class="text-xs font-bold text-slate-300 font-display text-2xl">03</div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Tienda online</h3>
+                    <p class="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wider">Venta de productos</p>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Vendé las 24hs con tu propia tienda.
+                        Sin comisiones por venta (ideal para ganarle a Tiendanube). Gestión total de stock y
+                        MercadoPago.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Desde USD 180 <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-slate-200 bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            </svg>
+                        </div>
+                        <div class="text-xs font-bold text-slate-300 font-display text-2xl">04</div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Google y Meta Ads</h3>
+                    <p class="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wider">Para clientes
+                        inmediatos</p>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Campañas que traen clientes reales.
+                        Resultados medibles desde la primera semana, sin gastar de más.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Consultar <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-slate-200 bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 flex items-center justify-center text-brand-600">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M2 7h20" />
+                            </svg>
+                        </div>
+                        <div class="text-xs font-bold text-slate-300 font-display text-2xl">05</div>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Sistemas y SaaS</h3>
+                    <p class="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wider">Procesos complejos</p>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">CRMs, paneles de gestión, plataformas.
+                        Automatizamos cualquier proceso interno con tecnología a medida.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Cotización <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+                <a href="https://wa.me/5491165870093" target="_blank"
+                    class="block p-8 rounded-[2rem] border border-slate-200 bg-white hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center group">
+                    <div
+                        class="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14" />
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">¿Tenés otra idea?</h3>
+                    <p class="text-sm text-slate-500 mb-6">Si lo podés imaginar, lo construimos. Contanos y en 24hs te
+                        decimos cómo hacerlo realidad.</p>
+                    <div class="inline-flex items-center gap-1 text-sm font-bold text-brand-600">Hablemos <svg
+                            class="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
+                        </svg></div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 💳 PLANES (Diseño elegante y sobrio) -->
+    <section id="planes" class="py-24 px-6 lg:px-12 bg-white reveal-on-scroll border-b border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4 text-center">Planes mensuales
+            </div>
+            <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-dark mb-4 tracking-tight text-center">
+                Precios claros, sin letra chica</h2>
+            <p class="text-lg text-slate-500 mb-16 max-w-2xl mx-auto text-center leading-relaxed">Suscripción mensual:
+                incluye web, hosting, soporte y actualizaciones. Cancelás cuando quieras. Tu web es tuya.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto items-center">
+
+                <!-- Plan 1 -->
+                <div
+                    class="bg-white rounded-3xl border border-slate-200 flex flex-col hover:-translate-y-1 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="p-8 pb-6 border-b border-slate-100 bg-slate-50/50 rounded-t-3xl">
+                        <h3 class="font-display text-2xl font-bold text-dark mb-2">Presencia</h3>
+                        <p class="text-sm text-slate-500 mb-6 min-h-[40px]">Para existir online y que Google te
+                            encuentre.</p>
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="text-lg text-slate-400 font-semibold">USD</span>
+                            <span class="text-5xl font-extrabold text-dark tracking-tight">25</span>
+                            <span class="text-slate-500 font-medium">/mes</span>
+                        </div>
+                        <p class="text-xs text-slate-400 font-medium mb-3">≈ $37.500 ARS/mes</p>
+                        <p class="text-xs font-bold text-slate-500">Entrega en 3 días hábiles</p>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <ul class="space-y-4 text-sm text-slate-600">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Web completa con secciones</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Código puro ultrarrápido</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Hosting y dominio .com.ar</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Botón de WhatsApp integrado</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> SEO básico + Google Maps</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-3xl border-t border-slate-100">
+                        <a href="https://wa.me/5491165870093" target="_blank"
+                            class="block w-full text-center border border-slate-300 text-slate-700 font-bold py-3.5 rounded-xl hover:bg-slate-50 transition-colors">Consultar</a>
+                    </div>
+                </div>
+
+                <!-- Plan 2 (Destacado Oscuro Premium) -->
+                <div
+                    class="bg-slate-900 rounded-3xl border border-slate-800 flex flex-col hover:-translate-y-1 shadow-2xl transition-all duration-300 relative z-10 md:scale-105">
+                    <div class="absolute -top-3 inset-x-0 flex justify-center"><span
+                            class="bg-brand-500 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-sm">Más
+                            elegido</span></div>
+                    <div class="p-8 pb-6 border-b border-slate-800 rounded-t-3xl mt-2">
+                        <h3 class="font-display text-2xl font-bold text-white mb-2">Crecimiento</h3>
+                        <p class="text-sm text-slate-400 mb-6 min-h-[40px]">Presencia completa que trae clientes
+                            constantes.</p>
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="text-lg text-slate-400 font-semibold">USD</span>
+                            <span class="text-5xl font-extrabold text-white tracking-tight">55</span>
+                            <span class="text-slate-400 font-medium">/mes</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium mb-3">≈ $82.500 ARS/mes</p>
+                        <p class="text-xs font-bold text-white">Entrega en 5 días hábiles</p>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <ul class="space-y-4 text-sm text-slate-300 font-medium">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-brand-500 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> <span class="text-white">Todo lo del plan Presencia</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-brand-500 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Chatbot WhatsApp (rtas. auto)</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-brand-500 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Formulario web con avisos</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-brand-500 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> SEO avanzado + Analytics</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-brand-500 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Reporte mensual de visitas</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 rounded-b-3xl border-t border-slate-800">
+                        <a href="https://wa.me/5491165870093" target="_blank"
+                            class="block w-full text-center bg-brand-600 text-white font-bold py-3.5 rounded-xl hover:bg-brand-500 transition-colors shadow-md hover:shadow-lg">Consultar
+                            ahora</a>
+                    </div>
+                </div>
+
+                <!-- Plan 3 -->
+                <div
+                    class="bg-white rounded-3xl border border-slate-200 flex flex-col hover:-translate-y-1 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="p-8 pb-6 border-b border-slate-100 bg-slate-50/50 rounded-t-3xl">
+                        <h3 class="font-display text-2xl font-bold text-dark mb-2">Dominancia</h3>
+                        <p class="text-sm text-slate-500 mb-6 min-h-[40px]">Para automatizar, vender online y escalar.
+                        </p>
+                        <div class="flex items-baseline gap-1 mb-1">
+                            <span class="text-lg text-slate-400 font-semibold">USD</span>
+                            <span class="text-5xl font-extrabold text-dark tracking-tight">120</span>
+                            <span class="text-slate-500 font-medium">/mes</span>
+                        </div>
+                        <p class="text-xs text-slate-400 font-medium mb-3">≈ $180.000 ARS/mes</p>
+                        <p class="text-xs font-bold text-slate-500">Entrega en 7–10 días hábiles</p>
+                    </div>
+                    <div class="p-8 flex-1">
+                        <ul class="space-y-4 text-sm text-slate-600">
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> <span class="font-semibold text-dark">Todo lo del plan Crecimiento</span></li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Tienda online MercadoPago</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Chatbot con IA que vende</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Integración Instagram Shopping</li>
+                            <li class="flex gap-3"><svg class="w-5 h-5 text-slate-300 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Reunión mensual de estrategia</li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-white rounded-b-3xl border-t border-slate-100">
+                        <a href="https://wa.me/5491165870093" target="_blank"
+                            class="block w-full text-center border border-slate-300 text-slate-700 font-bold py-3.5 rounded-xl hover:bg-slate-50 transition-colors">Consultar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extras (Restaurados con SVGs de Redes) -->
+            <div class="max-w-5xl mx-auto">
+                <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Servicios independientes
+                    (Sin suscripción)</h4>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+                    <a href="https://wa.me/5491165870093" target="_blank"
+                        class="block p-6 rounded-3xl border border-slate-200 bg-white hover:border-brand-300 hover:-translate-y-1 hover:shadow-lg transition-all group">
+                        <img src="images/gads.png" class="w-10 h-10 mb-4 object-contain" alt="Google Ads">
+                        <h5 class="font-bold text-dark mb-1">Google Ads</h5>
+                        <p class="text-xs text-slate-500 mb-4">Campañas de búsqueda listas para convertir.</p>
+                        <div class="text-brand-600 font-bold text-sm">USD 60/mes</div>
+                    </a>
+
+                    <a href="https://wa.me/5491165870093" target="_blank"
+                        class="block p-6 rounded-3xl border border-slate-200 bg-white hover:border-brand-300 hover:-translate-y-1 hover:shadow-lg transition-all group">
+                        <img src="images/meta.png" class="w-10 h-10 mb-4 object-contain" alt="Meta Ads">
+                        <h5 class="font-bold text-dark mb-1">Meta Ads</h5>
+                        <p class="text-xs text-slate-500 mb-4">Anuncios hiper segmentados en IG/FB.</p>
+                        <div class="text-brand-600 font-bold text-sm">USD 60/mes</div>
+                    </a>
+
+                    <a href="https://wa.me/5491165870093" target="_blank"
+                        class="block p-6 rounded-3xl border border-slate-200 bg-white hover:border-brand-300 hover:-translate-y-1 hover:shadow-lg transition-all group">
+                        <img src="images/instagram.png" class="w-9 h-9 mb-5 object-contain" alt="Instagram">
+                        <h5 class="font-bold text-dark mb-1">Gestión de IG</h5>
+                        <p class="text-xs text-slate-500 mb-4">8 posteos al mes con diseño y copywriting.</p>
+                        <div class="text-brand-600 font-bold text-sm">USD 45/mes</div>
+                    </a>
+
+                    <a href="https://wa.me/5491165870093" target="_blank"
+                        class="block p-6 rounded-3xl border border-slate-200 bg-white hover:border-brand-300 hover:-translate-y-1 hover:shadow-lg transition-all group">
+                        <svg class="w-9 h-9 mb-5 text-slate-700" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                            <rect x="9" y="9" width="6" height="6" />
+                            <line x1="9" y1="1" x2="9" y2="4" />
+                            <line x1="15" y1="1" x2="15" y2="4" />
+                            <line x1="9" y1="20" x2="9" y2="23" />
+                            <line x1="15" y1="20" x2="15" y2="23" />
+                            <line x1="20" y1="9" x2="23" y2="9" />
+                            <line x1="20" y1="14" x2="23" y2="14" />
+                            <line x1="1" y1="9" x2="4" y2="9" />
+                            <line x1="1" y1="14" x2="4" y2="14" />
+                        </svg>
+                        <h5 class="font-bold text-dark mb-1">Sistema o SaaS</h5>
+                        <p class="text-xs text-slate-500 mb-4">CRMs o paneles de gestión creados a tu medida.</p>
+                        <div class="text-brand-600 font-bold text-sm">Cotización</div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔄 PROCESO (Restaurado) -->
+    <section id="proceso" class="py-24 px-6 lg:px-12 bg-slate-50 reveal-on-scroll border-b border-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4">Cómo trabajamos</div>
+            <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-dark mb-4 tracking-tight">Simple, rápido y
+                sin vueltas</h2>
+            <p class="text-lg text-slate-500 mb-14 max-w-2xl leading-relaxed">De tu idea a tu web en 4 pasos. Sin
+                tecnicismos ni sorpresas.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="text-4xl font-extrabold text-slate-200 mb-6 font-display">01</div>
+                    <h3 class="font-bold text-dark text-xl mb-3">Hablamos gratis</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Nos contás tu idea por WhatsApp. Sin formularios
+                        aburridos ni reuniones largas.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="text-4xl font-extrabold text-slate-200 mb-6 font-display">02</div>
+                    <h3 class="font-bold text-dark text-xl mb-3">Propuesta 24hs</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Presupuesto claro: precio, tiempos y qué incluye
+                        exactamente. Cero letra chica.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-white border border-slate-200 hover:shadow-lg transition-shadow">
+                    <div class="text-4xl font-extrabold text-brand-200 mb-6 font-display">03</div>
+                    <h3 class="font-bold text-dark text-xl mb-3">Arrancamos</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Empezamos en 48hs. Te mostramos avances y
+                        ajustamos lo que necesités en el camino.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-brand-50 border border-brand-100 hover:shadow-lg transition-shadow">
+                    <div class="text-4xl font-extrabold text-brand-500 mb-6 font-display">04</div>
+                    <h3 class="font-bold text-brand-900 text-xl mb-3">Tu web, lista</h3>
+                    <p class="text-brand-700/80 text-sm leading-relaxed">Entrega en tiempo y forma. Con soporte incluido
+                        mes a mes para que no quedes tirado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔍 SEO (Mejorado Premium) -->
+    <section class="py-24 px-6 lg:px-12 bg-white reveal-on-scroll border-b border-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative z-10">
+                <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4">Posicionamiento</div>
+                <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-dark mb-6 tracking-tight">Aparecer
+                    primero en <span style="color: #4285F4">G</span><span style="color: #EA4335">o</span><span
+                        style="color: #FBBC05">o</span><span style="color: #4285F4">g</span><span
+                        style="color: #34A853">l</span><span style="color: #EA4335">e</span> no es suerte</h2>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed">Cada web que construimos está pensada desde el
+                    código base para que Google la entienda rápido y la muestre antes que tu competencia.</p>
+
+                <!-- Métricas de rendimiento y SEO -->
+                <div class="grid grid-cols-2 lg:flex lg:flex-wrap items-center gap-3 sm:gap-6 mb-10">
+                    <div
+                        class="flex items-center gap-2 sm:gap-4 bg-brand-50 border border-brand-100 p-3 sm:p-4 rounded-2xl w-full sm:w-fit shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] sm:border-4 border-green-500 flex items-center justify-center text-green-600 font-extrabold text-xs sm:text-sm bg-white shadow-sm shrink-0">
+                            100</div>
+                        <div>
+                            <div class="text-dark font-bold text-xs sm:text-base">Rendimiento</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 font-medium">Lighthouse</div>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center gap-2 sm:gap-4 bg-brand-50 border border-brand-100 p-3 sm:p-4 rounded-2xl w-full sm:w-fit shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-[3px] sm:border-4 border-green-500 flex items-center justify-center text-green-600 font-extrabold text-xs sm:text-sm bg-white shadow-sm shrink-0">
+                            100</div>
+                        <div>
+                            <div class="text-dark font-bold text-xs sm:text-base">SEO Perfecto</div>
+                            <div class="text-[10px] sm:text-xs text-slate-500 font-medium">Lighthouse</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div
+                        class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white">
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">Estructura impecable</h4>
+                            <p class="text-sm text-slate-500">HTML semántico y arquitectura que los buscadores premian
+                                desde el primer día que te indexan.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white">
+                        <div
+                            class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 border border-slate-200 shadow-sm">
+                            <svg class="w-6 h-6 text-brand-600" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark text-lg mb-1">Velocidad extrema</h4>
+                            <p class="text-sm text-slate-500">Sin builders pesados como Elementor. Código puro para
+                                cargar en milisegundos y retener clientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mockup SEO Más realista -->
+            <div class="relative w-full max-w-lg mx-auto lg:ml-auto">
+                <!-- Decos de fondo -->
+                <div
+                    class="absolute -inset-4 bg-gradient-to-tr from-brand-100 to-purple-50 rounded-[3rem] blur-2xl opacity-60 -z-10">
+                </div>
+
+                <div
+                    class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-2xl shadow-slate-200/80">
+                    <!-- Browser Header -->
+                    <div class="bg-slate-50 border-b border-slate-200 px-4 py-3 flex items-center gap-4">
+                        <div class="flex gap-1.5 shrink-0">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                        </div>
+                        <!-- Fake Search Bar -->
+                        <div
+                            class="flex-1 bg-white border border-slate-200 rounded-full h-8 px-4 flex items-center gap-2 shadow-inner">
+                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                            <span class="text-[12px] text-slate-600 font-medium truncate">peluquería en Palermo</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8">
+                        <!-- Result 1 (Destacado) -->
+                        <div class="mb-8 relative">
+                            <div class="absolute -left-3 top-0 bottom-0 w-1 bg-brand-500 rounded-r-md"></div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span
+                                    class="inline-block bg-brand-50 text-brand-600 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-brand-100">Puesto
+                                    #1</span>
+                                <span class="text-xs text-slate-400 font-medium">Patrocinado no, orgánico sí.</span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200">
+                                    <span class="w-3 h-3 bg-brand-500 rounded-full"></span>
+                                </div>
+                                <div class="text-xs text-dark font-medium">https://tunegocio.com.ar <span
+                                        class="text-slate-400 ml-1">› inicio</span></div>
+                            </div>
+                            <div
+                                class="text-xl text-[#1a0dab] font-bold mb-1.5 hover:underline cursor-pointer leading-tight">
+                                Peluquería en Palermo · Turnos Online y Cortes</div>
+                            <div class="text-sm text-[#4d5156] leading-relaxed">La mejor peluquería de Palermo. Cortes,
+                                coloraciones y tratamientos de primera línea. Reservá tu turno online en menos de 1
+                                minuto.</div>
+                        </div>
+
+                        <!-- Result 2 -->
+                        <div class="mb-6 opacity-50 grayscale pt-6 border-t border-slate-100">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-6 h-6 rounded-full bg-slate-100 border border-slate-200"></div>
+                                <div class="text-xs text-slate-500 font-medium">https://competencia.com</div>
+                            </div>
+                            <div class="text-lg text-[#1a0dab] font-bold mb-1">Peluquería Buenos Aires - Inicio</div>
+                            <div class="text-sm text-[#4d5156] leading-relaxed">Servicios de peluquería en la zona de
+                                capital federal. Consultar por precios y horarios de atención al público.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 PORTFOLIO / NUESTROS TRABAJOS (Carrusel Infinito Automático) -->
+    <section id="trabajo" class="py-24 bg-slate-50 reveal border-b border-slate-100 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 relative z-10">
+                <div>
+                    <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4">Nuestro Trabajo</div>
+                    <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-dark tracking-tight">No hablamos,
+                        demostramos</h2>
+                    <p class="text-lg text-slate-500 mt-4 max-w-xl leading-relaxed">Sitios web de alto rendimiento
+                        diseñados para facturar. Mirá algunos de nuestros últimos proyectos reales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor del Carrusel -->
+        <div class="relative w-full">
+            <!-- Gradient masks para los bordes -->
+            <div
+                class="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none">
+            </div>
+
+            <!-- Track del slider -->
+            <div id="portfolio-track"
+                class="flex gap-4 md:gap-6 overflow-x-hidden px-6 lg:px-12 pb-12 pt-4 cursor-grab w-full">
+
+                <!-- === SET 1 === -->
+                <!-- Proyecto 1: One Storage -->
+                <a href="https://onestorage.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800"
+                                    alt="One Storage Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&q=80&w=400"
+                                    alt="One Storage Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                One Storage</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Solución digital completa
+                                para almacenamiento y logística. Diseño moderno con panel de reservas.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar onestorage.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto 2: La Roca Membranas -->
+                <a href="https://larocamembranas.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&q=80&w=800"
+                                    alt="La Roca Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=400"
+                                    alt="La Roca Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                La Roca Membranas</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo industrial.
+                                Catálogo digital de productos y optimización SEO local para atraer constructoras.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar larocamembranas.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto 3: Facturex -->
+                <a href="https://thamesites.store/facturex" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+                                    alt="Facturex Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400"
+                                    alt="Facturex Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Facturex</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Plataforma SaaS de
+                                facturación. Interfaz de usuario intuitiva (UI/UX) y landing page orientada a
+                                conversión.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto 4: Suministros Roca -->
+                <a href="https://suministrosroca.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800"
+                                    alt="Suministros Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80&w=400"
+                                    alt="Suministros Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Suministros Roca</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Catálogo B2B para ferretería
+                                industrial. Velocidad de carga al extremo y conexión por WhatsApp por producto.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar suministrosroca.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Proyecto 5: Koenzen -->
+                <a href="https://koenzen.es" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                                    alt="Koenzen Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=400"
+                                    alt="Koenzen Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Koenzen</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo premium
+                                para el mercado europeo. Animaciones suaves, diseño minimalista y branding potente.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar koenzen.es <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- === SET 2 (Clones completos para el loop infinito) === -->
+                <a href="https://onestorage.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800"
+                                    alt="ONE Storage Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&q=80&w=400"
+                                    alt="ONE Storage Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                One Storage</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Solución digital completa
+                                para almacenamiento y logística. Diseño moderno con panel de reservas.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar onestorage.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://larocamembranas.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&q=80&w=800"
+                                    alt="La Roca Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
+                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=400"
+                                    alt="La Roca Mobile" class="w-full h-full object-cover object-top">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                La Roca Membranas</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo industrial.
+                                Catálogo digital de productos y optimización SEO local para atraer constructoras.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar larocamembranas.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Clones adicionales para asegurar el loop -->
+                <a href="https://thamesites.store/facturex" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+                                    alt="Facturex Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Facturex</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Plataforma SaaS de
+                                facturación. UI/UX moderna.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://suministrosroca.com.ar" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800"
+                                    alt="Suministros Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Suministros Roca</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Catálogo B2B industrial.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://koenzen.es" target="_blank"
+                    class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
+                    <div
+                        class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
+                        <div
+                            class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                            <div
+                                class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+                                <div
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                                    alt="Koenzen Desktop"
+                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3
+                                class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
+                                Koenzen</h3>
+                            <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Mercado europeo premium.</p>
+                            <div
+                                class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
+                                Visitar <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🤖 SECCIÓN IA GEMINI (Arriba del CTA final) -->
+    <section id="ia" class="relative py-24 px-6 lg:px-12 bg-dark overflow-hidden reveal-on-scroll">
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
+        </div>
+        <div class="orb orb-3"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12">
+
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
+                    ¿No sabés por dónde arrancar?</h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto font-medium">Contale a nuestra Inteligencia
+                    Artificial de qué trata tu negocio y te va a generar una estrategia digital gratuita en segundos.
+                </p>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 md:p-10 shadow-2xl">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input type="text" id="ai-input"
+                        class="flex-1 bg-dark/50 border border-white/20 text-white px-6 py-4 rounded-2xl focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/50 transition-all placeholder:text-slate-500 font-medium text-lg"
+                        placeholder="Ej: Tengo una ferretería en Caballito...">
+                    <button id="ai-btn" onclick="generateStrategy()"
+                        class="bg-gradient-to-r from-brand-600 to-purple-600 text-white font-bold px-8 py-4 rounded-2xl hover:scale-105 transition-transform flex items-center justify-center gap-2 shadow-lg shadow-brand-500/25 whitespace-nowrap">
+                        Generar Estrategia
+                    </button>
+                </div>
+
+                <!-- Resultado IA -->
+                <div id="ai-output"
+                    class="hidden mt-6 bg-dark/80 border border-white/10 rounded-2xl p-6 text-slate-300 text-sm leading-relaxed prose prose-invert max-w-none">
+                    <!-- El contenido se inyecta por JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📩 SECCIÓN DE CONTACTO OPTIMIZADA -->
+    <section id="contacto" class="relative py-32 px-6 lg:px-12 bg-slate-50 overflow-hidden reveal-on-scroll">
+        <!-- Fondo Decorativo Premium -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-100/50 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-100/40 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Info de Contacto -->
+                <div>
+                    <span
+                        class="inline-block bg-brand-100 text-brand-700 text-xs font-extrabold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">Contacto
+                        Directo</span>
+                    <h2
+                        class="font-display text-5xl md:text-7xl font-extrabold text-dark mb-8 tracking-tighter leading-none">
+                        Hagamos que tu negocio <span class="text-brand-600">despegue.</span></h2>
+                    <p class="text-xl text-slate-500 mb-10 max-w-lg font-medium leading-relaxed">Olvidate de las webs
+                        lentas que nadie visita. Contanos tu proyecto y te pasamos presupuesto hoy mismo.</p>
+
+                    <div class="space-y-6 mb-12">
+                        <a href="https://wa.me/5491165870093" target="_blank" class="flex items-center gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform border border-slate-100">
+                                <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.441 7.619c-1.802 0-3.565-.482-5.118-1.402l-.367-.218-3.801.998 1.015-3.704-.239-.381c-.919-1.466-1.403-3.16-1.403-4.92 0-5.531 4.5-10.031 10.03-10.031s10.031 4.5 10.031 10.031c0 5.531-4.499 10.031-10.03 10.031m0-22c-6.645 0-12.031 5.385-12.031 12.031 0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524c1.82.95 3.897 1.452 6.007 1.452 6.645 0 12.031-5.386 12.031-12.031s-5.385-12.031-12.031-12.031" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">WhatsApp
+                                </p>
+                                <span
+                                    class="text-xl font-bold text-dark group-hover:text-brand-600 transition-colors">+54
+                                    9 11 6587-0093</span>
+                            </div>
+                        </a>
+                        <a href="mailto:info@noctawebs.com" class="flex items-center gap-5 group">
+                            <div
+                                class="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-600 group-hover:scale-110 transition-transform border border-slate-100">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-0.5">Email</p>
+                                <span
+                                    class="text-xl font-bold text-dark group-hover:text-brand-600 transition-colors">info@noctawebs.com</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card de Acción / Form -->
+                <div class="relative">
+                    <div
+                        class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-full blur-3xl -z-10"></div>
+                        <h3 class="font-display text-3xl font-bold text-dark mb-4">¿Arrancamos hoy?</h3>
+                        <p class="text-slate-500 mb-8 font-medium">Contanos qué necesitás y te asesoramos al toque.
+                            Estamos online.</p>
+
+                        <a href="https://wa.me/5491165870093" target="_blank"
+                            class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl hover:bg-[#20bd5a] hover:shadow-xl hover:shadow-[#25D366]/30 transition-all flex items-center justify-center gap-2 text-base sm:text-lg group px-4">
+                            Hablar ahora por WhatsApp
+                            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none"
+                                stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                                <path d="M4 12h16m-7-7l7 7-7 7" />
+                            </svg>
+                        </a>
+
+                        <div class="mt-8 pt-8 border-t border-slate-50 flex items-center justify-between">
+                            <div class="flex -space-x-3">
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?u=1" alt="User">
+                                </div>
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?u=2" alt="User">
+                                </div>
+                                <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                                    <img src="https://i.pravatar.cc/100?u=3" alt="User">
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">+40 clientes activos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar behavior (Glass effect + Hide on scroll mobile)
+        const nav = document.getElementById('nav');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            // Full Width Navbar Scroll
+            if (window.scrollY > 30) {
+                nav.classList.add('bg-white/95', 'shadow-lg', 'py-1');
+                nav.classList.remove('bg-white/80', 'py-4');
+            } else {
+                nav.classList.remove('bg-white/95', 'shadow-lg', 'py-1');
+                nav.classList.add('bg-white/80', 'py-4');
+            }
+
+            // Hide on scroll (only mobile)
+            if (window.innerWidth < 768) {
+                if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                    nav.style.transform = 'translateY(-100%)';
+                } else {
+                    nav.style.transform = 'translateY(0)';
+                }
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        }, { passive: true });
+
+        // Menú Mobile
+        const btnMobile = document.getElementById('btn-mobile');
+        const menuMobile = document.getElementById('menu-mobile');
+        const spans = btnMobile.querySelectorAll('span');
+
+        btnMobile.addEventListener('click', () => {
+            const isOpen = menuMobile.classList.contains('flex');
+            if (isOpen) {
+                menuMobile.classList.remove('opacity-100');
+                menuMobile.classList.add('opacity-0');
+                setTimeout(() => { menuMobile.classList.add('hidden'); menuMobile.classList.remove('flex'); }, 300);
+                document.body.style.overflow = '';
+                spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+            } else {
+                menuMobile.classList.remove('hidden'); menuMobile.classList.add('flex');
+                menuMobile.offsetHeight;
+                menuMobile.classList.remove('opacity-0'); menuMobile.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden';
+                spans[0].style.transform = 'translateY(10px) rotate(45deg)'; spans[1].style.opacity = '0'; spans[2].style.transform = 'translateY(-10px) rotate(-45deg)';
+            }
+        });
+
+        menuMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => btnMobile.click()));
+
+        // Smooth Scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const navHeight = document.getElementById('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer (Para animaciones al scroll)
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('vis');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-on-scroll').forEach(s => obs.observe(s));
+
+        // 🖱️ Lógica del Carrusel de Portfolio (Scroll Infinito Filtrado para Bloqueos)
+        const track = document.getElementById('portfolio-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScroll = true;
+        let scrollSpeed = 0.5;
+
+        if (track) {
+            track.style.scrollBehavior = 'auto';
+
+            const startInteraction = (e) => {
+                isDown = true;
+                autoScroll = false;
+                track.classList.add('cursor-grabbing');
+                startX = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+            };
+
+            const endInteraction = () => {
+                isDown = false;
+                track.classList.remove('cursor-grabbing');
+                // Reiniciar autoScroll con un delay mayor para asegurar suavidad
+                setTimeout(() => { if (!isDown) autoScroll = true; }, 1500);
+            };
+
+            track.addEventListener('mousedown', startInteraction);
+            track.addEventListener('touchstart', startInteraction, { passive: true });
+
+            window.addEventListener('mouseup', endInteraction);
+            track.addEventListener('touchend', endInteraction);
+            track.addEventListener('mouseleave', endInteraction);
+
+            track.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                track.scrollLeft = scrollLeft - walk;
+            });
+
+            track.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                const x = e.touches[0].pageX - track.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                track.scrollLeft = scrollLeft - walk;
+            }, { passive: true });
+
+
+
+            function playCarousel() {
+                if (autoScroll && !isDown) {
+                    track.scrollLeft += scrollSpeed;
+
+                    // Loop infinito hacia adelante
+                    const half = track.scrollWidth / 2;
+                    if (track.scrollLeft >= half) {
+                        track.scrollLeft -= half;
+                    }
+
+                    // Loop infinito hacia atrás (por si el usuario arrastra)
+                    if (track.scrollLeft <= 0) {
+                        track.scrollLeft += half;
+                    }
+                }
+                requestAnimationFrame(playCarousel);
+            }
+            requestAnimationFrame(playCarousel);
+        }
+
+        // Gemini API Config (Ofuscada)
+        const _0x4a2b = ["QUl6YVN5Q1kzTWJWOGRkcXdITzBfTllnWVRlUVA4endKNzUydE5B"];
+        const apiKey = atob(_0x4a2b[0]);
+
+        async function generateStrategy() {
+            const inputField = document.getElementById('ai-input');
+            const btn = document.getElementById('ai-btn');
+            const outputDiv = document.getElementById('ai-output');
+
+            if (!inputField.value.trim()) {
+                inputField.focus();
+                return;
+            }
+
+            // Estado de carga
+            btn.innerHTML = 'Generando...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            btn.disabled = true;
+
+            outputDiv.innerHTML = '<div class="flex items-center gap-3 font-medium text-brand-300"><div class="ia-loader"></div> Analizando modelo de negocio...</div>';
+            outputDiv.classList.remove('hidden');
+
+            try {
+                const prompt = `Actuá como un experto amigo de Noctawebs (Buenos Aires). Tu misión es convencer al usuario de que una web rápida y el WhatsApp automático le van a cambiar el negocio.
+
+Contexto amigable:
+- No digas palabras técnicas raras. Nada de "algoritmos", "despliegues" o "scalability". 
+- Hablá de: "Vender más", "No perder clientes", "Web que vuela", "WhatsApp que responde solo".
+- No usamos WordPress (que es lento), hacemos todo a mano para que sea un avión.
+
+Basado en: "${inputField.value}":
+1. Tirale 3 consejos CORTITOS Y AL PIE (máximo 2 oraciones por punto). 
+2. Decile qué plan le conviene (Presencia $25, Crecimiento $55 o Dominancia $120).
+3. Tono: Muy argentino (che, laburo, posta, guita), de confianza, super amigable pero que se note que sabés.
+
+Formato: HTML simple. Usá <h3> para el título de cada consejo, <ul> y <li class="mb-4"> para el texto. Usá <strong> para resaltar lo clave. Sé muy breve, no des vueltas.`;
+
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+
+                const data = await res.json();
+
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    outputDiv.innerHTML = `<div class="mb-6 text-wapp font-bold text-xl uppercase tracking-wider">🎯 Tu plan de ataque Noctawebs:</div>` + data.candidates[0].content.parts[0].text + `<div class="mt-8 p-4 bg-white/5 border border-white/10 rounded-xl font-bold text-white text-center">¿Te sirve? <a href="https://wa.me/5491165870093" target="_blank" class="text-brand-400 hover:text-brand-300 underline underline-offset-4">Escribinos por WhatsApp y lo hacemos realidad</a>.</div>`;
+                } else {
+                    throw new Error("No response content");
+                }
+            } catch (err) {
+                outputDiv.innerHTML = '<span class="text-red-400">Hubo un error al conectar con la IA. Probá de nuevo o escribinos directo al WhatsApp.</span>';
+            }
+
+            // Restaurar botón
+            btn.innerHTML = 'Generar Estrategia';
+            btn.classList.remove('opacity-80', 'cursor-not-allowed');
+            btn.disabled = false;
+        }
+    </script>
+
+</body>
+
+</html>
