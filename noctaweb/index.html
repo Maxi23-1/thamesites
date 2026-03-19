@@ -446,7 +446,7 @@
                         </svg>
                     </a>
                     <a href="https://wa.me/5491150285618" target="_blank"
-                        class="bg-[#1eb854] text-white px-4 sm:px-7 py-4 rounded-full font-bold hover:bg-[#188c42] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 text-sm sm:text-base border border-transparent">
+                        class="bg-[#25D366] text-black px-4 sm:px-7 py-4 rounded-full font-bold hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 text-sm sm:text-base border border-transparent">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path
                                 d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
@@ -1801,9 +1801,14 @@
                 // Abrir
                 menuMobile.classList.remove('hidden');
                 menuMobile.classList.add('flex');
-                menuMobile.offsetHeight; // Force reflow
-                menuMobile.classList.remove('opacity-0');
-                menuMobile.classList.add('opacity-100');
+                
+                // Usamos requestAnimationFrame para esperar al siguiente frame antes de animar
+                // Esto es mucho más eficiente que forzar un offsetHeight
+                requestAnimationFrame(() => {
+                    menuMobile.classList.remove('opacity-0');
+                    menuMobile.classList.add('opacity-100');
+                });
+                
                 document.body.style.overflow = 'hidden';
                 
                 // Animación X Perfecta
