@@ -12,12 +12,21 @@
     <!-- Fuentes arregladas y optimizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
 
     <!-- Tailwind CSS Optimizado para Producción -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+    </noscript>
 
     <style>
         html {
@@ -1825,8 +1834,9 @@
             let lastScrollY = window.scrollY;
 
             window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
                 // Full Width Navbar Scroll
-                if (window.scrollY > 30) {
+                if (scrollY > 30) {
                     nav.classList.add('bg-white/95', 'shadow-lg', 'py-1');
                     nav.classList.remove('bg-white/80', 'py-4');
                 } else {
@@ -1836,7 +1846,7 @@
 
                 // Hide on scroll (only mobile)
                 if (window.innerWidth < 768) {
-                    if (window.scrollY > lastScrollY && window.scrollY > 150) {
+                    if (scrollY > lastScrollY && scrollY > 150) {
                         nav.style.transform = 'translateY(-100%)';
                     } else {
                         nav.style.transform = 'translateY(0)';
@@ -1844,7 +1854,7 @@
                 } else {
                     nav.style.transform = 'translateY(0)';
                 }
-                lastScrollY = window.scrollY;
+                lastScrollY = scrollY;
             }, { passive: true });
 
             // Cache persistent values to avoid forced reflow
