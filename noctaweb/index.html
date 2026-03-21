@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -7,7 +7,7 @@
     <title>Nocta Webs · Agencia Digital Buenos Aires | Páginas Web, IA y Marketing</title>
     <meta name="description"
         content="Agencia digital en Buenos Aires. Páginas web ultrarrápidas, automatizaciones con IA, WhatsApp automático, Google Ads y Meta Ads para pymes argentinas.">
-    <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
 
     <!-- Fuentes arregladas y optimizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,301 +16,16 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap"
-        media="print" onload="this.media='all'">
+        media="all">
     <noscript>
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700&display=swap">
     </noscript>
 
     <!-- Tailwind CSS Optimizado para Producción -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="style.css">
-    </noscript>
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Texturas y fondos únicos */
-        body {
-            background-color: #fafafa;
-            background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
-
-        /* Orbes desenfocados de fondo (Glassmorphism) */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: 0;
-            opacity: 0.4;
-            animation: floatOrb 10s infinite alternate ease-in-out;
-        }
-
-        .orb-1 {
-            background: #3b82f6;
-            width: 400px;
-            height: 400px;
-            top: -100px;
-            left: -100px;
-        }
-
-        .orb-2 {
-            background: #00E676;
-            width: 300px;
-            height: 300px;
-            top: 20%;
-            right: -50px;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            background: #8b5cf6;
-            width: 350px;
-            height: 350px;
-            bottom: -100px;
-            left: 30%;
-            animation-delay: -2s;
-        }
-
-        @keyframes floatOrb {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            100% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-        }
-
-        /* Animaciones de aparición profesionales */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px) scale(0.96);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
-            filter: blur(8px);
-        }
-
-        .fade-up.vis {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-        }
-
-        /* Micro interacciones */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .hover-tilt {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .hover-tilt:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        /* Loop Favicons - Triple para loop infinito real */
-        @keyframes scroll-right {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-20%);
-            }
-        }
-
-        .animate-scroll-right {
-            animation: scroll-right 40s linear infinite;
-            width: max-content;
-        }
-
-        .animate-scroll-right:hover {
-            animation-play-state: paused;
-        }
-
-        /* Animaciones Épicas */
-        @keyframes reveal-up {
-            from {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes float-slow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .reveal {
-            animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-        }
-
-        /* Nueva animación Blur In */
-        @keyframes blur-in {
-            from {
-                opacity: 0;
-                filter: blur(20px);
-                transform: translateY(20px) scale(0.98);
-            }
-
-            to {
-                opacity: 1;
-                filter: blur(0);
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .reveal-on-scroll {
-            opacity: 0;
-            transition: none;
-        }
-
-        .reveal-on-scroll.vis {
-            animation: blur-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        .orb {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            z-index: 0;
-            opacity: 0.12;
-            pointer-events: none;
-        }
-
-        .orb-1 {
-            background: #3B82F6;
-            top: -100px;
-            left: -100px;
-        }
-
-        .orb-2 {
-            background: #A855F7;
-            bottom: -100px;
-            right: -100px;
-        }
-
-        .orb-3 {
-            background: #25D366;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.08;
-        }
-
-        @media (max-width: 768px) {
-            .orb {
-                width: 250px;
-                height: 250px;
-                filter: blur(50px);
-            }
-        }
-
-        /* Navbar hovers epicos */
-        .nav-link {
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover {
-            color: var(--brand-6) !important;
-            transform: translateY(-1px) scale(1.05);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 6px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #3B82F6;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-            opacity: 0;
-        }
-
-        .nav-link:hover::after {
-            width: 12px;
-            opacity: 1;
-        }
-
-        .bg-wapp-bright {
-            background-color: #25D366;
-            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.3);
-        }
-
-        .bg-wapp-bright:hover {
-            background-color: #22c35e;
-            box-shadow: 0 15px 30px -5px rgba(37, 211, 102, 0.5);
-        }
-
-        .float-ia {
-            animation: float-slow 4s ease-in-out infinite;
-        }
-
-        .glow-hover:hover {
-            box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
-        }
-
-        /* Animación IA Loader */
-        .ia-loader {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0, 230, 118, 0.3);
-            border-radius: 50%;
-            border-top-color: #00E676;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Ocultar scrollbar para el carrusel */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .cursor-grabbing {
-            cursor: grabbing !important;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel='preload' href='script.js' as='script'>
 </head>
 
 <body class="text-slate-800 font-sans antialiased overflow-x-hidden relative min-h-screen">
@@ -319,7 +34,7 @@
     <a href="https://wa.me/5491150285618" target="_blank"
         class="fixed bottom-6 right-6 z-50 w-16 h-16 md:w-20 md:h-20 bg-wapp text-white rounded-full flex items-center justify-center shadow-neon-lime hover:scale-110 hover:shadow-neon-lime-hover hover:bg-wapphover transition-all duration-300"
         aria-label="WhatsApp">
-        <svg class="w-10 h-10 md:w-12 md:h-12 fill-current" viewBox="0 0 24 24">
+        <svg class="w-10 h-10 md:w-12 md:h-12 fill-current" viewBox="0 0 24 24" width="48" height="48">
             <path
                 d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
             <path
@@ -336,7 +51,7 @@
             <div class="max-w-7xl mx-auto h-full w-full flex items-center justify-between">
                 <a href="#" class="h-10 md:h-12 transition-transform hover:scale-105 active:scale-95"
                     aria-label="Inicio Nocta Webs">
-                    <img src="images/logo.png" alt="Nocta Webs" fetchpriority="high" loading="eager" decoding="sync"
+                    <img src="images/logo.webp" alt="Nocta Webs" fetchpriority="high" loading="eager" decoding="sync"
                         class="h-full w-auto object-contain" width="200" height="48">
                 </a>
 
@@ -348,7 +63,8 @@
                     <a href="#planes"
                         class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Planes</a>
                     <a href="#ia"
-                        class="nav-link text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600 px-4 py-2 rounded-full">Consultor
+                        class="nav-link text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600 px-4 py-2 rounded-full">Tu
+                        Estrategia
                         IA</a>
                     <a href="#contacto"
                         class="nav-link text-sm font-bold text-slate-600 px-4 py-2 rounded-full">Contacto</a>
@@ -387,14 +103,13 @@
             class="fixed inset-0 bg-white/95 backdrop-blur-xl z-30 flex-col items-center justify-center gap-8 hidden opacity-0 transition-opacity duration-300 pt-16">
             <a href="#servicios"
                 class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Servicios</a>
+            <a href="#trabajo"
+                class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Proyectos</a>
             <a href="#planes"
                 class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Planes</a>
-            <a href="#proceso"
-                class="font-display text-4xl font-bold text-dark hover:text-brand-600 transition-colors">Proceso</a>
             <a href="#ia"
                 class="font-display text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-500">IA</a>
-            <a href="https://instagram.com/noctawebs" target="_blank"
-                class="font-display text-4xl font-bold text-[#E4405F]">Instagram</a>
+
             <a href="https://wa.me/5491150285618" target="_blank"
                 class="mt-4 text-lg font-bold text-white bg-wapp hover:bg-wapphover px-8 py-4 rounded-full flex items-center gap-2 shadow-lg">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -421,13 +136,13 @@
                         class="inline-flex items-center gap-2.5 bg-white border border-slate-200 rounded-full p-1 pr-5 mb-8 text-xs font-bold text-slate-600 hover:border-slate-300 transition-colors shadow-sm">
                         <span
                             class="bg-brand-600 text-white px-2 py-1 rounded-full text-[10px] uppercase tracking-wide font-bold">Nuevo</span>
-                        <svg class="w-4 h-4 text-wapp" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-wapp" fill="currentColor" viewBox="0 0 24 24" width="16" height="16">
                             <path
-                                d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
+                                d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.030 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
                             <path
                                 d="M17.473 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                         </svg>
-                        WhatsApp con IA — Contactanos para saber más
+                        WhatsApp con IA <span class="mobile-hide md:inline">— Contactanos para saber más</span>
                         <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2.5"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -442,14 +157,15 @@
                             class="text-brand-600 underline decoration-brand-200 underline-offset-4">hecho.</span>
                     </h1>
 
-                    <p class="text-lg text-slate-600 mb-2 max-w-lg leading-relaxed font-medium">
+                    <p class="text-lg text-slate-600 mb-6 max-w-lg leading-relaxed font-medium">
                         Armamos tu página, tu tienda y automatizamos tu WhatsApp. Sin chamuyo técnico, directo al grano
                         para
                         que consigas más clientes.
                     </p>
-                    <p class="text-sm font-black text-blue-600 uppercase tracking-widest mb-10 flex items-center gap-2">
-                        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="3.5"
-                            viewBox="0 0 24 24">
+                    <p
+                        class="text-[8px] md:text-sm font-black text-blue-600 uppercase tracking-widest mt-2 mb-10 md:mt-0 md:mb-10 flex items-center gap-2">
+                        <svg class="w-3.5 h-3.5 md:w-5 md:h-5 flex-shrink-0" fill="none" stroke="currentColor"
+                            stroke-width="3.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                         Diseño propio, no WordPress
@@ -457,14 +173,15 @@
 
                     <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 mb-16">
                         <a href="#planes"
-                            class="bg-dark text-white px-7 py-4 rounded-full font-bold hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-2 group">
+                            class="bg-dark text-white px-7 py-3.5 sm:py-4 rounded-full font-bold hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all flex items-center gap-2 group">
                             Ver planes <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none"
                                 stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 12h16m-7-7l7 7-7 7" />
                             </svg>
                         </a>
-                        <a href="https://wa.me/5491150285618" target="_blank"
-                            class="bg-[#25D366] text-black px-4 sm:px-7 py-4 rounded-full font-bold hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 text-sm sm:text-base border border-transparent">
+                        <a href="https://wa.me/5491150285618?text=Hola%20Nocta%20Webs!%20Vengo%20de%20la%20p%C3%A1gina%20y%20quiero%20hacerles%20una%20consulta."
+                            target="_blank"
+                            class="bg-[#25D366] text-black px-4 sm:px-7 py-3.5 sm:py-4 rounded-full font-bold hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#25D366]/20 text-sm sm:text-base border border-transparent">
                             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                                 <path
                                     d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.112.551 4.188 1.597 6.008l-1.554 5.672 5.808-1.524A11.96 11.96 0 0012.031 24c6.645 0 12.03-5.385 12.03-12.031S18.675 0 12.031 0zm0 22c-1.801 0-3.565-.483-5.118-1.403l-.367-.218-3.801.997 1.015-3.704-.239-.38C2.493 15.485 2 13.791 2 12.031 2 6.5 6.5 2 12.031 2c5.531 0 10.03 4.5 10.03 10.031 0 5.531-4.499 10.03-10.03 10.031z" />
@@ -531,8 +248,7 @@
         <!-- 🔄 LOGOS SOCIAL PROOF -->
         <div class="border-b border-slate-100 bg-white py-12 relative overflow-hidden flex flex-col items-center">
             <p class="text-xs text-slate-500 text-center uppercase tracking-[0.2em] font-bold mb-10 relative z-20">
-                Empresas
-                que ya aceleran con nosotros</p>
+                Nuestros Clientes</p>
 
             <div
                 class="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
@@ -555,10 +271,10 @@
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
                         src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
                         class="w-full h-full object-contain rounded-xl"></a>
-                <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                <a href="https://suministrosroca.uy" target="_blank" title="Suministros Roca"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
-                        src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128"
-                        alt="Suministros Roca" class="w-full h-full object-contain rounded-xl"></a>
+                        src="https://www.google.com/s2/favicons?domain=suministrosroca.uy&sz=128" alt="Suministros Roca"
+                        class="w-full h-full object-contain rounded-xl"></a>
                 <a href="https://koenzen.es" target="_blank" title="Koenzen"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 transition-all duration-400 hover:scale-125 drop-shadow-sm hover:drop-shadow-2xl hover:z-20"><img
                         src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
@@ -577,10 +293,10 @@
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
                         class="w-full h-full object-contain rounded-xl"></a>
-                <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                <a href="https://suministrosroca.uy" target="_blank" title="Suministros Roca"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
-                        src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128"
-                        alt="Suministros Roca" class="w-full h-full object-contain rounded-xl"></a>
+                        src="https://www.google.com/s2/favicons?domain=suministrosroca.uy&sz=128" alt="Suministros Roca"
+                        class="w-full h-full object-contain rounded-xl"></a>
                 <a href="https://koenzen.es" target="_blank" title="Koenzen"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
@@ -599,10 +315,10 @@
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
                         class="w-full h-full object-contain rounded-xl"></a>
-                <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                <a href="https://suministrosroca.uy" target="_blank" title="Suministros Roca"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
-                        src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128"
-                        alt="Suministros Roca" class="w-full h-full object-contain rounded-xl"></a>
+                        src="https://www.google.com/s2/favicons?domain=suministrosroca.uy&sz=128" alt="Suministros Roca"
+                        class="w-full h-full object-contain rounded-xl"></a>
                 <a href="https://koenzen.es" target="_blank" title="Koenzen"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
@@ -621,10 +337,10 @@
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
                         class="w-full h-full object-contain rounded-xl"></a>
-                <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                <a href="https://suministrosroca.uy" target="_blank" title="Suministros Roca"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
-                        src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128"
-                        alt="Suministros Roca" class="w-full h-full object-contain rounded-xl"></a>
+                        src="https://www.google.com/s2/favicons?domain=suministrosroca.uy&sz=128" alt="Suministros Roca"
+                        class="w-full h-full object-contain rounded-xl"></a>
                 <a href="https://koenzen.es" target="_blank" title="Koenzen"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
@@ -643,10 +359,10 @@
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=thamesites.store&sz=128" alt="Facturex"
                         class="w-full h-full object-contain rounded-xl"></a>
-                <a href="https://suministrosroca.com.ar" target="_blank" title="Suministros Roca"
+                <a href="https://suministrosroca.uy" target="_blank" title="Suministros Roca"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
-                        src="https://www.google.com/s2/favicons?domain=suministrosroca.com.ar&sz=128"
-                        alt="Suministros Roca" class="w-full h-full object-contain rounded-xl"></a>
+                        src="https://www.google.com/s2/favicons?domain=suministrosroca.uy&sz=128" alt="Suministros Roca"
+                        class="w-full h-full object-contain rounded-xl"></a>
                 <a href="https://koenzen.es" target="_blank" title="Koenzen"
                     class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0"><img
                         src="https://www.google.com/s2/favicons?domain=koenzen.es&sz=128" alt="Koenzen"
@@ -879,8 +595,9 @@
                                     </svg> SEO básico + Google Maps</li>
                             </ul>
                         </div>
-                        <div class="p-6 bg-white rounded-b-3xl border-t border-slate-100">
-                            <a href="https://wa.me/5491150285618" target="_blank"
+                        <div class="p-6 rounded-b-3xl border-t border-slate-100">
+                            <a href="https://wa.me/5491150285618?text=Hola%20Nocta%20Webs!%20Me%20interesa%20el%20plan%20Presencia.%20%C2%BFC%C3%B3mo%20empezamos%3F"
+                                target="_blank"
                                 class="block w-full text-center border border-slate-300 text-slate-700 font-bold py-3.5 rounded-xl hover:bg-slate-50 transition-colors">Consultar</a>
                         </div>
                     </div>
@@ -928,7 +645,8 @@
                             </ul>
                         </div>
                         <div class="p-6 rounded-b-3xl border-t border-slate-800">
-                            <a href="https://wa.me/5491150285618" target="_blank"
+                            <a href="https://wa.me/5491150285618?text=Hola%20Nocta%20Webs!%20Me%20interesa%20el%20plan%20Impulso.%20%C2%BFC%C3%B3mo%20empezamos%3F"
+                                target="_blank"
                                 class="block w-full text-center bg-brand-600 text-white font-bold py-3.5 rounded-xl hover:bg-brand-500 transition-colors shadow-md hover:shadow-lg">Consultar
                                 ahora</a>
                         </div>
@@ -975,7 +693,8 @@
                             </ul>
                         </div>
                         <div class="p-6 bg-white rounded-b-3xl border-t border-slate-100">
-                            <a href="https://wa.me/5491150285618" target="_blank"
+                            <a href="https://wa.me/5491150285618?text=Hola%20Nocta%20Webs!%20Me%20interesa%20el%20plan%20Tienda%20Online.%20%C2%BFC%C3%B3mo%20empezamos%3F"
+                                target="_blank"
                                 class="block w-full text-center border border-slate-300 text-slate-700 font-bold py-3.5 rounded-xl hover:bg-slate-50 transition-colors">Consultar</a>
                         </div>
                     </div>
@@ -1223,7 +942,8 @@
         </section>
 
         <!-- 🚀 PORTFOLIO / NUESTROS TRABAJOS (Carrusel Infinito Automático) -->
-        <section id="trabajo" class="py-24 bg-slate-50 reveal border-b border-slate-100 overflow-hidden relative">
+        <section id="trabajo"
+            class="py-24 bg-slate-50 reveal-on-scroll border-b border-slate-100 overflow-hidden relative">
             <div class="max-w-7xl mx-auto px-6 lg:px-12">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 relative z-10">
                     <div>
@@ -1253,82 +973,31 @@
                     class="flex gap-4 md:gap-6 overflow-x-hidden px-6 lg:px-12 pb-12 pt-4 cursor-grab w-full">
 
                     <!-- === SET 1 === -->
-                    <!-- Proyecto 1: One Storage -->
-                    <a href="https://onestorage.com.ar" target="_blank"
-                        class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
-                        <div
-                            class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
-                            <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
-                                <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800"
-                                        alt="One Storage Desktop"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&q=80&w=400"
-                                        alt="One Storage Mobile" class="w-full h-full object-cover object-top">
-                                </div>
-                            </div>
-                            <div class="px-2 flex-1 flex flex-col">
-                                <h3
-                                    class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
-                                    One Storage</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Solución digital completa
-                                    para almacenamiento y logística. Diseño moderno con panel de reservas.</p>
-                                <div
-                                    class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar onestorage.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg></div>
-                            </div>
-                        </div>
-                    </a>
-
                     <!-- Proyecto 2: La Roca Membranas -->
                     <a href="https://larocamembranas.com.ar" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800"
-                                        alt="La Roca Desktop"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
                                 </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=400"
-                                        alt="La Roca Mobile" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top">
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/larocadesktop.webp" alt="La Roca Desktop"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     La Roca Membranas</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo
-                                    industrial.
-                                    Catálogo digital de productos y optimización SEO local para atraer constructoras.
-                                </p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Sitio para fabricante de
+                                    membranas impermeabilizantes. Incluye calculadora de presupuesto en tiempo real,
+                                    ficha técnica completa y canal de venta mayorista.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
                                     Visitar larocamembranas.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
@@ -1346,35 +1015,30 @@
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
-                                        alt="Facturex Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
                                 </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=400"
-                                        alt="Facturex Mobile" class="w-full h-full object-cover object-top">
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/facturexdesktop.webp" alt="Facturex Desktop"
+                                        loading="lazy" decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Facturex</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Plataforma SaaS de
-                                    facturación. Interfaz de usuario intuitiva (UI/UX) y landing page orientada a
-                                    conversión.</p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Sistema SaaS de
+                                    facturación con IA para pymes y estudios contables argentinos. Escanea fotos de
+                                    facturas por WhatsApp, valida contra AFIP en tiempo real y vuelca los datos directo
+                                    a Google Sheets.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    Visitar Facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
                                         stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -1384,41 +1048,35 @@
                     </a>
 
                     <!-- Proyecto 4: Suministros Roca -->
-                    <a href="https://suministrosroca.com.ar" target="_blank"
+                    <a href="https://suministrosroca.uy" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800"
-                                        alt="Suministros Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
                                 </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80&w=400"
-                                        alt="Suministros Mobile" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top">
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/suministrosrocadesktop.webp" alt="Suministros Desktop"
+                                        loading="lazy" decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Suministros Roca</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Catálogo B2B para
-                                    ferretería
-                                    industrial. Velocidad de carga al extremo y conexión por WhatsApp por producto.</p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Tienda online para
+                                    importador de revestimientos decorativos con presencia en Argentina, Uruguay y
+                                    Paraguay. Catálogo con más de 10 categorías de producto y venta directa al público.
+                                </p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar suministrosroca.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
+                                    Visitar suministrosroca.uy <svg class="w-4 h-4 shrink-0" fill="none"
                                         stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -1433,32 +1091,26 @@
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-                                        alt="Koenzen Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
                                 </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=400"
-                                        alt="Koenzen Mobile" class="w-full h-full object-cover object-top">
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/koenzendesktop.webp" alt="Koenzen Desktop" loading="lazy"
+                                        decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Koenzen</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo premium
-                                    para el mercado europeo. Animaciones suaves, diseño minimalista y branding potente.
-                                </p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Tienda online para marca
+                                    española de revestimientos decorativos premium. Catálogo completo con paneles PVC,
+                                    WPC, iluminación LED y accesorios.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
                                     Visitar koenzen.es <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
@@ -1470,80 +1122,32 @@
                         </div>
                     </a>
 
-                    <!-- === SET 2 (Clones completos para el loop infinito) === -->
-                    <a href="https://onestorage.com.ar" target="_blank"
-                        class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
-                        <div
-                            class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
-                            <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
-                                <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?auto=format&fit=crop&q=80&w=800"
-                                        alt="ONE Storage Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-                                </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?auto=format&fit=crop&q=80&w=400"
-                                        alt="ONE Storage Mobile" class="w-full h-full object-cover object-top">
-                                </div>
-                            </div>
-                            <div class="px-2 flex-1 flex flex-col">
-                                <h3
-                                    class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
-                                    One Storage</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Solución digital completa
-                                    para almacenamiento y logística. Diseño moderno con panel de reservas.</p>
-                                <div
-                                    class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar onestorage.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
-                                        stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                    </svg></div>
-                            </div>
-                        </div>
-                    </a>
-
+                    <!-- === SET 2 (Clones para loop infinito) === -->
+                    <!-- Proyecto 2: La Roca Membranas -->
                     <a href="https://larocamembranas.com.ar" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800"
-                                        alt="La Roca Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
                                 </div>
-                                <div
-                                    class="absolute -bottom-4 -right-2 md:-bottom-6 md:-right-4 w-[30%] md:w-[28%] aspect-[9/19] bg-slate-800 rounded-[1rem] md:rounded-[1.2rem] border-[3px] md:border-[4px] border-slate-800 overflow-hidden shadow-2xl group-hover:-translate-y-3 transition-transform duration-500 z-10">
-                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=400"
-                                        alt="La Roca Mobile" class="w-full h-full object-cover object-top">
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/larocadesktop.webp" alt="La Roca Desktop"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     La Roca Membranas</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Sitio corporativo
-                                    industrial.
-                                    Catálogo digital de productos y optimización SEO local para atraer constructoras.
-                                </p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Sitio para fabricante de
+                                    membranas impermeabilizantes. Incluye calculadora de presupuesto en tiempo real,
+                                    ficha técnica completa y canal de venta mayorista.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
                                     Visitar larocamembranas.com.ar <svg class="w-4 h-4 shrink-0" fill="none"
@@ -1555,35 +1159,36 @@
                         </div>
                     </a>
 
-                    <!-- Clones adicionales para asegurar el loop -->
+                    <!-- Proyecto 3: Facturex -->
                     <a href="https://thamesites.store/facturex" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
-                                        alt="Facturex Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/facturexdesktop.webp" alt="Facturex Desktop"
+                                        loading="lazy" decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Facturex</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Plataforma SaaS de
-                                    facturación. UI/UX moderna.</p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Sistema SaaS de
+                                    facturación con IA para pymes y estudios contables argentinos. Escanea fotos de
+                                    facturas por WhatsApp, valida contra AFIP en tiempo real y vuelca los datos directo
+                                    a Google Sheets.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    Visitar Facturex <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
                                         stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -1592,35 +1197,37 @@
                         </div>
                     </a>
 
-                    <a href="https://suministrosroca.com.ar" target="_blank"
+                    <!-- Proyecto 4: Suministros Roca -->
+                    <a href="https://suministrosroca.uy" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800"
-                                        alt="Suministros Desktop" loading="lazy" decoding="async"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/suministrosrocadesktop.webp" alt="Suministros Desktop"
+                                        loading="lazy" decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Suministros Roca</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Catálogo B2B industrial.
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Tienda online para
+                                    importador de revestimientos decorativos con presencia en Argentina, Uruguay y
+                                    Paraguay. Catálogo con más de 10 categorías de producto y venta directa al público.
                                 </p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
-                                        stroke-width="2.5" viewBox="0 0 24 24">
+                                    Visitar suministrosroca.uy <svg class="w-4 h-4 shrink-0" fill="none"
+                                        stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg></div>
@@ -1628,34 +1235,35 @@
                         </div>
                     </a>
 
+                    <!-- Proyecto 5: Koenzen -->
                     <a href="https://koenzen.es" target="_blank"
                         class="block w-[80vw] sm:w-[350px] md:w-[450px] shrink-0 group">
                         <div
                             class="bg-white rounded-3xl md:rounded-[2rem] border border-slate-200 p-4 md:p-5 pb-6 md:pb-8 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-200 transition-all duration-500 h-full flex flex-col">
                             <div
-                                class="relative w-full aspect-[4/3] bg-slate-100 rounded-2xl mb-6 md:mb-8 shrink-0 overflow-visible">
+                                class="relative w-full bg-white rounded-2xl mb-6 md:mb-8 shrink-0 overflow-hidden border border-slate-200 shadow-sm">
                                 <div
-                                    class="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                                    <div
-                                        class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                        <div class="w-2 h-2 rounded-full bg-slate-300"></div>
-                                    </div>
-                                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
-                                        alt="Koenzen Desktop"
-                                        class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+                                    class="h-5 md:h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5 shrink-0">
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                    <div class="w-2 h-2 rounded-full bg-slate-300"></div>
+                                </div>
+                                <div class="relative w-full overflow-hidden bg-slate-100">
+                                    <img src="images/portfolio/koenzendesktop.webp" alt="Koenzen Desktop" loading="lazy"
+                                        decoding="async"
+                                        class="w-full h-auto aspect-video object-cover object-top group-hover:scale-105 transition-transform duration-700">
                                 </div>
                             </div>
                             <div class="px-2 flex-1 flex flex-col">
                                 <h3
                                     class="font-display font-bold text-xl md:text-2xl text-dark mb-2 group-hover:text-brand-600 transition-colors">
                                     Koenzen</h3>
-                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-2">Mercado europeo premium.
-                                </p>
+                                <p class="text-slate-500 text-xs md:text-sm mb-4 line-clamp-3">Tienda online para marca
+                                    española de revestimientos decorativos premium. Catálogo completo con paneles PVC,
+                                    WPC, iluminación LED y accesorios.</p>
                                 <div
                                     class="text-brand-600 font-bold text-xs md:text-sm inline-flex items-center gap-1 mt-auto">
-                                    Visitar <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
+                                    Visitar koenzen.es <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor"
                                         stroke-width="2.5" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -1669,7 +1277,386 @@
             </div>
         </section>
 
+        <!-- 💬 TESTIMONIOS -->
+
+        <section id="testimonios" class="relative overflow-hidden reveal-on-scroll">
+            <!-- Decoración sutil de fondo -->
+            <div
+                class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+            </div>
+            <div
+                class="tmn-orb-1 absolute -top-40 -right-40 w-[30rem] h-[30rem] rounded-full blur-[80px] pointer-events-none">
+            </div>
+            <div
+                class="tmn-orb-2 absolute -bottom-40 -left-40 w-[30rem] h-[30rem] rounded-full blur-[80px] pointer-events-none">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+                <!-- Header -->
+                <div class="text-center mb-10">
+                    <div class="text-sm font-bold text-brand-600 uppercase tracking-widest mb-4">Testimonios</div>
+                    <h2 class="font-display text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                        Lo que dicen nuestros clientes
+                    </h2>
+                </div>
+
+                <!-- Carrusel: flechas + viewport en fila flex -->
+                <div class="flex items-center gap-2 md:gap-4 relative">
+                    <!-- Flecha izquierda -->
+                    <button id="tmn-prev" aria-label="Anterior"
+                        class="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white shadow-[0_4px_20px_rgb(0,0,0,0.08)] border border-slate-100 text-slate-500 hover:text-brand-600 hover:border-brand-200 hover:shadow-[0_4px_25px_rgb(99,102,241,0.2)] hover:-translate-x-1 transition-all duration-300 flex items-center justify-center z-20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Viewport -->
+                    <div id="tmn-viewport" class="flex-1 overflow-hidden py-12 -my-12 px-10 -mx-10">
+                        <div id="tmn-track" class="flex"
+                            style="gap:32px; will-change:transform; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);">
+
+                            <!-- Card 1 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "La verdad que el cambio fue total. Pasamos de tener una web que daba pena a una que
+                                    realmente vende. Lo mejor es que no tengo que preocuparme por nada, ellos se
+                                    encargan de todo."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-rm flex items-center justify-center font-bold text-indigo-600 text-sm flex-shrink-0 shadow-sm">
+                                        RM</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Ricardo M.
+                                        </p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                                            Gastronomía</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "Buscábamos algo profesional y rápido, y cumplieron de sobra. El diseño quedó
+                                    impecable y la velocidad de carga es otra cosa. El WhatsApp automático nos ahorra un
+                                    montón de tiempo."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-lg flex items-center justify-center font-bold text-purple-600 text-sm flex-shrink-0 shadow-sm">
+                                        LG</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Lucía G.
+                                        </p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Centro
+                                            de Estética</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "Desde que lanzamos la nueva página, los mensajes por WhatsApp no paran. Antes
+                                    teníamos que llamar nosotros, ahora los clientes nos contactan solos. Una diferencia
+                                    abismal."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-mp flex items-center justify-center font-bold text-blue-600 text-sm flex-shrink-0 shadow-sm">
+                                        MP</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Marcos P.
+                                        </p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                                            Construcciones</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "Pensé que iba a ser un proceso complicado, pero fue todo lo contrario. En menos de
+                                    dos semanas teníamos la tienda online funcionando, con diseño propio y sin depender
+                                    de WordPress."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-sr flex items-center justify-center font-bold text-pink-600 text-sm flex-shrink-0 shadow-sm">
+                                        SR</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Sofía R.
+                                        </p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                                            E-commerce</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "En pocos meses empezamos a aparecer en Google y eso se convirtió en ventas reales.
+                                    El SEO que nos armaron fue clave. Un servicio que vale cada peso que pagás."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-ds flex items-center justify-center font-bold text-green-600 text-sm flex-shrink-0 shadow-sm">
+                                        DS</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Diego S.
+                                        </p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                                            Distribuidora</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div
+                                class="tmn-card group relative flex-shrink-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] border border-slate-100/80 hover:border-slate-200 rounded-[28px] p-8 md:p-10 flex flex-col gap-5 hover:-translate-y-2 transition-all duration-500">
+                                <!-- Quote Mark -->
+                                <div
+                                    class="absolute top-6 right-8 text-slate-50 transform group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500 pointer-events-none">
+                                    <svg class="w-16 h-16 fill-current" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                                    </svg>
+                                </div>
+
+                                <div class="flex gap-1 text-amber-400 relative z-10">
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                </div>
+
+                                <p class="text-slate-600 text-base md:text-[17px] leading-relaxed flex-1 relative z-10">
+                                    "La atención fue de diez desde el día uno. Siempre disponibles, explican todo sin
+                                    chamuyo técnico y el resultado final superó lo que imaginábamos. Los recomendaría
+                                    sin dudarlo."</p>
+
+                                <div class="flex items-center gap-4 pt-5 mt-auto relative z-10">
+                                    <div
+                                        class="w-12 h-12 rounded-full tmn-avatar-vb flex items-center justify-center font-bold text-amber-600 text-sm flex-shrink-0 shadow-sm">
+                                        VB</div>
+                                    <div>
+                                        <p class="font-bold text-slate-900 text-[15px] leading-tight mb-0.5">Valentina
+                                            B.</p>
+                                        <p class="text-slate-400 text-xs font-semibold uppercase tracking-wider">
+                                            Servicios Profesionales</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Flecha derecha -->
+                    <button id="tmn-next" aria-label="Siguiente"
+                        class="flex-shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white shadow-[0_4px_20px_rgb(0,0,0,0.08)] border border-slate-100 text-slate-500 hover:text-brand-600 hover:border-brand-200 hover:shadow-[0_4px_25px_rgb(99,102,241,0.2)] hover:translate-x-1 transition-all duration-300 flex items-center justify-center z-20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Dots -->
+                <div id="tmn-dots" class="flex justify-center gap-2 mt-12"></div>
+            </div>
+        </section>
+
         <!-- 🤖 SECCIÓN IA GEMINI (Arriba del CTA final) -->
+
         <section id="ia" class="relative py-24 px-6 lg:px-12 bg-dark overflow-hidden reveal-on-scroll">
             <div
                 class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
@@ -1807,15 +1794,15 @@
                                 <div class="flex -space-x-3">
                                     <div
                                         class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                                        <img src="https://i.pravatar.cc/100?u=1" alt="User" width="40" height="40">
+                                        <img src="images/pfp1.webp" alt="Usuario" width="40" height="40">
                                     </div>
                                     <div
                                         class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                                        <img src="https://i.pravatar.cc/100?u=2" alt="User" width="40" height="40">
+                                        <img src="images/pfp2.webp" alt="Usuario" width="40" height="40">
                                     </div>
                                     <div
                                         class="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                                        <img src="https://i.pravatar.cc/100?u=3" alt="User" width="40" height="40">
+                                        <img src="images/pfp3.webp" alt="Usuario" width="40" height="40">
                                     </div>
                                 </div>
                                 <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">+40 clientes
@@ -1827,244 +1814,8 @@
                 </div>
             </div>
         </section>
-
-        <script>
-            // Navbar behavior (Glass effect + Hide on scroll mobile)
-            const nav = document.getElementById('nav');
-            let lastScrollY = window.scrollY;
-
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                // Full Width Navbar Scroll
-                if (scrollY > 30) {
-                    nav.classList.add('bg-white/95', 'shadow-lg', 'py-1');
-                    nav.classList.remove('bg-white/80', 'py-4');
-                } else {
-                    nav.classList.remove('bg-white/95', 'shadow-lg', 'py-1');
-                    nav.classList.add('bg-white/80', 'py-4');
-                }
-
-                // Hide on scroll (only mobile)
-                if (window.innerWidth < 768) {
-                    if (scrollY > lastScrollY && scrollY > 150) {
-                        nav.style.transform = 'translateY(-100%)';
-                    } else {
-                        nav.style.transform = 'translateY(0)';
-                    }
-                } else {
-                    nav.style.transform = 'translateY(0)';
-                }
-                lastScrollY = scrollY;
-            }, { passive: true });
-
-            // Cache persistent values to avoid forced reflow
-            const navHeight = 72; // Since h-[72px] is fixed 
-
-            // Menú Mobile
-            const btnMobile = document.getElementById('btn-mobile');
-            const menuMobile = document.getElementById('menu-mobile');
-            const spans = btnMobile.querySelectorAll('span');
-
-            btnMobile.addEventListener('click', () => {
-                const isOpen = menuMobile.classList.contains('flex');
-                if (isOpen) {
-                    // Cerrar
-                    menuMobile.classList.remove('opacity-100');
-                    menuMobile.classList.add('opacity-0');
-                    setTimeout(() => {
-                        menuMobile.classList.add('hidden');
-                        menuMobile.classList.remove('flex');
-                    }, 300);
-                    document.body.style.overflow = '';
-
-                    // Animación Hamburguesa
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                } else {
-                    // Abrir
-                    menuMobile.classList.remove('hidden');
-                    menuMobile.classList.add('flex');
-
-                    // Usamos requestAnimationFrame para esperar al siguiente frame antes de animar
-                    // Esto es mucho más eficiente que forzar un offsetHeight
-                    requestAnimationFrame(() => {
-                        menuMobile.classList.remove('opacity-0');
-                        menuMobile.classList.add('opacity-100');
-                    });
-
-                    document.body.style.overflow = 'hidden';
-
-                    // Animación X Perfecta
-                    spans[0].style.transform = 'translateY(7px) rotate(45deg)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-                }
-            });
-
-            menuMobile.querySelectorAll('a').forEach(link => link.addEventListener('click', () => btnMobile.click()));
-
-            // Smooth Scrolling for all anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        e.preventDefault();
-                        // Using cached navHeight instead of offsetHeight to avoid forced reflow
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Intersection Observer (Para animaciones al scroll)
-            const obs = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('vis');
-                        obs.unobserve(e.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal-on-scroll').forEach(s => obs.observe(s));
-
-            // 🖱️ Lógica del Carrusel de Portfolio (Scroll Infinito Filtrado para Bloqueos)
-            const track = document.getElementById('portfolio-track');
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-            let autoScroll = true;
-            let scrollSpeed = 0.5;
-
-            if (track) {
-                track.style.scrollBehavior = 'auto';
-
-                const startInteraction = (e) => {
-                    isDown = true;
-                    autoScroll = false;
-                    track.classList.add('cursor-grabbing');
-                    startX = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
-                    scrollLeft = track.scrollLeft;
-                };
-
-                const endInteraction = () => {
-                    isDown = false;
-                    track.classList.remove('cursor-grabbing');
-                    // Reiniciar autoScroll con un delay mayor para asegurar suavidad
-                    setTimeout(() => { if (!isDown) autoScroll = true; }, 1500);
-                };
-
-                track.addEventListener('mousedown', startInteraction);
-                track.addEventListener('touchstart', startInteraction, { passive: true });
-
-                window.addEventListener('mouseup', endInteraction);
-                track.addEventListener('touchend', endInteraction);
-                track.addEventListener('mouseleave', endInteraction);
-
-                track.addEventListener('mousemove', (e) => {
-                    if (!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - track.offsetLeft;
-                    const walk = (x - startX) * 1.5;
-                    track.scrollLeft = scrollLeft - walk;
-                });
-
-                track.addEventListener('touchmove', (e) => {
-                    if (!isDown) return;
-                    const x = e.touches[0].pageX - track.offsetLeft;
-                    const walk = (x - startX) * 1.5;
-                    track.scrollLeft = scrollLeft - walk;
-                }, { passive: true });
-
-
-
-                function playCarousel() {
-                    if (autoScroll && !isDown) {
-                        track.scrollLeft += scrollSpeed;
-
-                        // Loop infinito hacia adelante
-                        const half = track.scrollWidth / 2;
-                        if (track.scrollLeft >= half) {
-                            track.scrollLeft -= half;
-                        }
-
-                        // Loop infinito hacia atrás (por si el usuario arrastra)
-                        if (track.scrollLeft <= 0) {
-                            track.scrollLeft += half;
-                        }
-                    }
-                    requestAnimationFrame(playCarousel);
-                }
-                requestAnimationFrame(playCarousel);
-            }
-
-            // Gemini API Config (Ofuscada)
-            const _0x4a2b = ["QUl6YVN5Q1kzTWJWOGRkcXdITzBfTllnWVRlUVA4endKNzUydE5B"];
-            const apiKey = atob(_0x4a2b[0]);
-
-            async function generateStrategy() {
-                const inputField = document.getElementById('ai-input');
-                const btn = document.getElementById('ai-btn');
-                const outputDiv = document.getElementById('ai-output');
-
-                if (!inputField.value.trim()) {
-                    inputField.focus();
-                    return;
-                }
-
-                // Estado de carga
-                btn.innerHTML = 'Generando...';
-                btn.classList.add('opacity-80', 'cursor-not-allowed');
-                btn.disabled = true;
-
-                outputDiv.innerHTML = '<div class="flex items-center gap-3 font-medium text-brand-300"><div class="ia-loader"></div> Analizando modelo de negocio...</div>';
-                outputDiv.classList.remove('hidden');
-
-                try {
-                    const prompt = `Actuá como un experto amigo de Nocta Webs (Buenos Aires). Tu misión es convencer al usuario de que una web rápida y el WhatsApp automático le van a cambiar el negocio.
-
-Contexto amigable:
-- No digas palabras técnicas raras. Nada de "algoritmos", "despliegues" o "scalability". 
-- Hablá de: "Vender más", "No perder clientes", "Web que vuela", "WhatsApp que responde solo".
-- No usamos WordPress (que es lento), hacemos todo a mano para que sea un avión.
-
-Basado en: "${inputField.value}":
-1. Tirale 3 consejos CORTITOS Y AL PIE (máximo 2 oraciones por punto). 
-2. Decile qué plan le conviene (Presencia $2,5 Impulso $55 o Tienda Online $120).
-3. Tono: Muy argentino (che, laburo, posta, guita), de confianza, super amigable pero que se note que sabés.
-
-Formato: HTML simple. Usá <h3> para el título de cada consejo, <ul> y <li class="mb-4"> para el texto. Usá <strong> para resaltar lo clave. Sé muy breve, no des vueltas.`;
-
-                    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await res.json();
-
-                    if (data.candidates && data.candidates[0].content.parts[0].text) {
-                        outputDiv.innerHTML = `<div class="mb-6 text-wapp font-bold text-xl uppercase tracking-wider">🎯 Tu plan de ataque Nocta Webs:</div>` + data.candidates[0].content.parts[0].text + `<div class="mt-8 p-4 bg-white/5 border border-white/10 rounded-xl font-bold text-white text-center">¿Te sirve? <a href="https://wa.me/5491150285618" target="_blank" class="text-brand-400 hover:text-brand-300 underline underline-offset-4">Escribinos por WhatsApp y lo hacemos realidad</a>.</div>`;
-                    } else {
-                        throw new Error("No response content");
-                    }
-                } catch (err) {
-                    outputDiv.innerHTML = '<span class="text-red-400">Hubo un error al conectar con la IA. Probá de nuevo o escribinos directo al WhatsApp.</span>';
-                }
-
-                // Restaurar botón
-                btn.innerHTML = 'Generar Estrategia';
-                btn.classList.remove('opacity-80', 'cursor-not-allowed');
-                btn.disabled = false;
-            }
-        </script>
-
     </main>
+    <script src='script.js' defer></script>
 </body>
 
 </html>
